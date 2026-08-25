@@ -11,6 +11,17 @@
 
 @import url("tokens.css");
 
+/* ── Section alternation — visual rhythm without uniform white ───── */
+.band {
+  background: var(--color-paper);
+}
+.band--alt {
+  background: var(--color-paper-2);
+}
+.plate {
+  background: var(--color-graphite);
+}
+
 /* ── Reset + page edge ────────────────────────────────────────── */
 html, body { overflow-x: clip; }
 
@@ -499,22 +510,23 @@ img, svg { display: block; max-width: 100%; height: auto; }
 
 /* ── Ft2 · Inline single line ─────────────────────────────────── */
 .colophon {
-  border-top: var(--rule-hair) solid var(--color-rule);
+  border-top: var(--rule-solid) solid var(--color-ink);
   padding-block: var(--space-2xl) var(--space-xl);
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
+  background: var(--color-ink);
 }
 
 .colophon__text {
   font-family: var(--font-body);
   font-size: var(--text-sm);
   line-height: 1.6;
-  color: var(--color-muted);
+  color: var(--color-paper);
   max-width: 74ch;
   margin: 0;
 }
-.colophon__text a { color: var(--color-neutral); }
+.colophon__text a { color: var(--color-accent); }
 
 .colophon__meta {
   display: flex;
