@@ -74,7 +74,7 @@
         <!-- 1. Smart Parking -->
         <div class="row">
           <div class="row__thumb">
-            <img src="images/projects/sysinfo.png" alt="Smart Parking System Telemetry Dashboard showing live CPU and Memory utilization" loading="lazy" />
+            <img src="images/projects/dashboard-kpi-occupancy-telemetry.jpg" alt="Smart Parking System Telemetry Dashboard showing live floor-by-floor slot allocation and environmental data" loading="lazy" />
           </div>
           <div>
             <h3 class="row__title">Smart Parking DAQ System &amp; IoT Control</h3>
@@ -151,8 +151,10 @@
 
         <!-- 4. IEC 61850 -->
         <div class="row">
-          <div class="row__thumb">
-            <img src="images/projects/iec61850.png" alt="IEC 61850 Substation automation signal services flow-diagram" loading="lazy" />
+          <div class="row__thumb" style="display: flex; align-items: center; justify-content: center; background: var(--color-paper-3);">
+            <div style="font-family: var(--font-label); font-size: var(--text-xs); color: var(--color-muted); text-align: center; padding: var(--space-md); text-transform: uppercase; letter-spacing: 0.06em;">
+              [SCADA Reports]<br />[IEC 61850 / DNP3 / 104]<br />[TAVANIR Reference]
+            </div>
           </div>
           <div>
             <h3 class="row__title">SCADA Telemetry &amp; High-Voltage Protocols</h3>
@@ -160,14 +162,11 @@
               <li>IEC 61850</li><li>DNP3</li><li>IEC 104</li><li>Modbus</li>
             </ul>
             <p class="row__desc">
-              Systematic engineering reports and dual-layer architecture designs for
-              TAVANIR high-voltage substations. Covers GOOSE retransmission latency under
-              heavy traffic loads, RTU analog/digital marshalling, FEP gateway routing,
-              and cybersecurity threat modeling for SCADA control centers.
+              Currently studying, analyzing, and documenting high-voltage substation automation systems for TAVANIR. Active focus areas include analyzing GOOSE message retransmission latency under extreme network traffic, modeling RTU analog/digital marshalling, configuring FEP gateways, and compiling complete engineering reports on security threats in power system control centers.
             </p>
             <p class="row__side">
-              <span class="label">SCADA series · TAVANIR reference</span>
-              <a class="row__arrow mono" href="https://github.com/Mahbodbe/Learning-Qt" target="_blank" rel="noreferrer" aria-label="Open SCADA repositories">→</a>
+              <span class="label">Research &amp; report compilation · AUT</span>
+              <a class="row__arrow mono" href="https://github.com/Mahbodbe/Learning-Qt" target="_blank" rel="noreferrer" aria-label="Open SCADA telemetry references">→</a>
             </p>
           </div>
         </div>
@@ -276,6 +275,71 @@
             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ Web Designs — 2 placeholder links ═════════════════════ -->
+  <section class="band section" id="web-designs">
+    <div class="shell">
+      <header class="section__head">
+         <h2 class="section__title">web designs</h2>
+         <p class="section__note">
+           Selected web interfaces and storefront systems I have engineered. Links are
+           active templates; I will wire their full production destinations soon.
+         </p>
+      </header>
+
+      <div class="index" style="border-bottom: var(--rule-hair) solid var(--color-rule);">
+        <!-- Shop 1 -->
+        <a class="row" href="#" onclick="event.preventDefault();" aria-label="Web design placeholder 1">
+          <div class="row__thumb" style="display: flex; align-items: center; justify-content: center; background: var(--color-paper-3);">
+            <div style="font-family: var(--font-label); font-size: var(--text-xs); color: var(--color-muted); text-align: center; padding: var(--space-md); text-transform: uppercase; letter-spacing: 0.06em;">
+              [Mahgol Resin Shop]<br />[E-Commerce Platform]<br />[Active Storefront Template]
+            </div>
+          </div>
+          <div>
+             <h3 class="row__title">Mahgol Resin E-Commerce Storefront</h3>
+             <ul class="row__stack">
+               <li>Django</li><li>Celery</li><li>Redis</li><li>Tailwind CSS</li><li>Telegram Bot</li>
+             </ul>
+             <p class="row__desc">
+               A high-performance production e-commerce engine integrated with an active
+               Telegram notification bot for seamless purchase workflows. Features a royal
+               purple and gold theme customized to match the brand's exact design palette,
+               asynchronous order dispatching with Celery, and real-time database-driven
+               product inventory management.
+             </p>
+             <p class="row__side">
+               <span class="label">Production-grade storefront · Template active</span>
+               <span class="row__arrow mono" aria-hidden="true">→</span>
+             </p>
+          </div>
+        </a>
+
+        <!-- Design 2 -->
+        <a class="row" href="#" onclick="event.preventDefault();" aria-label="Web design placeholder 2">
+          <div class="row__thumb" style="display: flex; align-items: center; justify-content: center; background: var(--color-paper-3);">
+            <div style="font-family: var(--font-label); font-size: var(--text-xs); color: var(--color-muted); text-align: center; padding: var(--space-md); text-transform: uppercase; letter-spacing: 0.06em;">
+              [Custom Web Interface]<br />[UI/UX Design Spec]<br />[Clean Minimal Layout]
+            </div>
+          </div>
+          <div>
+             <h3 class="row__title">Minimalist Portfolio &amp; Project Index</h3>
+             <ul class="row__stack">
+               <li>HTML5</li><li>CSS Grid</li><li>OKLCH Tokens</li><li>CDP Auditor</li>
+             </ul>
+             <p class="row__desc">
+               A pristine, high-contrast digital index engineered with pure CSS custom
+               properties, flexible responsive column-collapsing, and verified with zero-issue CDP automation.
+               Optimized to serve as a fast-loading central portal for engineering logs, academic coursework, and live software demos.
+             </p>
+             <p class="row__side">
+               <span class="label">Custom UI template · Ready to route</span>
+               <span class="row__arrow mono" aria-hidden="true">→</span>
+             </p>
+          </div>
+        </a>
       </div>
     </div>
   </section>
