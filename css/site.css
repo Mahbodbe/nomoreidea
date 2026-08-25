@@ -44,6 +44,68 @@
   background: var(--color-graphite);
 }
 
+
+/* ── Language toggle ──────────────────────────────────────────── */
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3xs);
+  min-height: 2.5rem;
+  padding: var(--space-xs) var(--space-sm);
+  background: transparent;
+  border: var(--rule-hair) solid var(--color-rule-2);
+  border-radius: var(--radius-input);
+  cursor: pointer;
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  color: var(--color-muted);
+  transition: border-color var(--dur-short) var(--ease-out),
+              color var(--dur-short) var(--ease-out);
+}
+.lang-toggle:hover { border-color: var(--color-accent); }
+.lang-opt { opacity: 0.55; transition: opacity var(--dur-short) var(--ease-out); }
+.lang-opt.is-active { opacity: 1; color: var(--color-accent); font-weight: 600; }
+.lang-sep { opacity: 0.35; }
+
+/* ── Persian mode — RTL + Vazirmatn ───────────────────────────── */
+body.fa-mode,
+body.fa-mode input,
+body.fa-mode button {
+  font-family: "Vazirmatn", var(--font-body);
+}
+body.fa-mode .hero__display,
+body.fa-mode .section__title,
+body.fa-mode .row__title,
+body.fa-mode .plate__claim,
+body.fa-mode .wordmark {
+  font-family: "Vazirmatn", var(--font-display);
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+body.fa-mode .label,
+body.fa-mode .lang-toggle,
+body.fa-mode .nav__cta,
+body.fa-mode .mono {
+  font-family: "Vazirmatn", Tahoma, sans-serif;
+  letter-spacing: 0.02em;
+}
+[dir="rtl"] .hero__col { align-items: flex-start; text-align: right; }
+[dir="rtl"] .hero__meta { justify-content: flex-start; }
+[dir="rtl"] .cta-type span { transform: none; }
+[dir="rtl"] .row { direction: rtl; }
+[dir="rtl"] .row__side { direction: rtl; }
+[dir="rtl"] .spec { direction: rtl; text-align: right; }
+[dir="rtl"] .contact { direction: rtl; }
+[dir="rtl"] .contact__row { direction: rtl; }
+
+
 /* ── Reset + page edge ────────────────────────────────────────── */
 html, body { overflow-x: clip; }
 
