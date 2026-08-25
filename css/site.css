@@ -361,7 +361,7 @@ img, svg { display: block; max-width: 100%; height: auto; }
   position: relative;
   overflow: clip;
   background: var(--color-graphite);
-  color: var(--color-accent-ink);
+  color: var(--color-band-ink-strong);
   border-block: var(--rule-hair) solid var(--color-graphite);
 }
 
@@ -375,7 +375,7 @@ img, svg { display: block; max-width: 100%; height: auto; }
   font-size: var(--text-display-s);
   line-height: 1.15;
   letter-spacing: var(--tracking-tight);
-  color: var(--color-accent-ink);
+  color: var(--color-band-ink-strong);
   margin: 0 0 var(--space-lg);
   max-width: 32ch;
   overflow-wrap: anywhere;
@@ -388,7 +388,7 @@ img, svg { display: block; max-width: 100%; height: auto; }
 }
 
 .plate__label {
-  color: var(--color-accent);
+  color: var(--color-accent-bright);
   font-family: var(--font-label);
   font-size: var(--text-xs);
   font-weight: 500;
@@ -403,7 +403,7 @@ img, svg { display: block; max-width: 100%; height: auto; }
   grid-template-columns: minmax(0, 1fr);
   gap: var(--space-lg);
   padding-top: var(--space-lg);
-  border-top: var(--rule-hair) solid color-mix(in oklab, var(--color-accent-ink) 15%, transparent);
+  border-top: var(--rule-hair) solid color-mix(in oklab, var(--color-footer-link) 20%, transparent);
 }
 
 .plate__row dt {
@@ -412,12 +412,12 @@ img, svg { display: block; max-width: 100%; height: auto; }
   font-weight: 500;
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  color: color-mix(in oklab, var(--color-accent-ink) 50%, transparent);
+  color: var(--color-accent-bright);
   margin-bottom: var(--space-2xs);
 }
 .plate__row dd {
   margin: 0;
-  color: var(--color-accent-ink);
+  color: var(--color-band-ink-strong);
   font-size: var(--text-base);
 }
 
@@ -542,9 +542,9 @@ img, svg { display: block; max-width: 100%; height: auto; }
 
 .colophon__text {
   font-family: var(--font-body);
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   line-height: 1.6;
-  color: var(--color-paper);
+  color: var(--color-footer-text);
   max-width: 74ch;
   margin: 0;
 }
@@ -578,7 +578,7 @@ img, svg { display: block; max-width: 100%; height: auto; }
   top: 0;
   z-index: var(--z-modal);
   background: var(--color-graphite);
-  color: var(--color-paper);
+  color: var(--color-footer-link);
   padding: var(--space-sm) var(--space-md);
   font-family: var(--font-label);
   font-size: var(--text-xs);
