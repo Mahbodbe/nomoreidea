@@ -12,10 +12,10 @@
 <meta property="og:description" content="Embedded systems, digital design, and instrumentation. An index of work." />
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/129793596?v=4" />
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fbfbfc'/%3E%3Crect x='6' y='6' width='20' height='20' fill='%232438a8'/%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fafafa'/%3E%3Crect x='6' y='6' width='20' height='20' fill='%233b82f6'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/site.css" />
 </head>
 
@@ -25,7 +25,7 @@
 <!-- ══ N9 · Edge-aligned minimal ══════════════════════════════ -->
 <header class="nav">
   <div class="shell nav__inner">
-    <a class="wordmark" href="#top"><span class="wordmark__full">mahbod bemanicham</span><span class="wordmark__short">mahbod b.</span><span class="period" aria-hidden="true"></span></a>
+    <a class="wordmark" href="#top">mahbod bemanicham<span class="wordmark__dot" aria-hidden="true"></span></a>
     <a class="nav__cta" href="#contact">Contact</a>
   </div>
 </header>
@@ -34,12 +34,10 @@
 
   <!-- ══ Hero ═════════════════════════════════════════════════ -->
   <section class="band hero">
-    <div class="rails" aria-hidden="true"></div>
     <div class="shell">
       <div class="hero__grid">
         <div class="hero__col">
-          <hr class="bar" aria-hidden="true" />
-          <h1 class="hero__display">electrical engineering, built with a soldering iron<span class="period" aria-hidden="true"></span></h1>
+          <h1 class="hero__display">electrical engineering, built with <em>precision</em>.</h1>
           <p class="hero__lede">
             Undergraduate at Amirkabir University of Technology (Tehran Polytechnic).
             I work at the seam where firmware meets hardware — ESP32 data acquisition,
@@ -53,25 +51,15 @@
           </div>
         </div>
 
-        <figure class="hero__figure" aria-label="Constructed geometric figure: five grid cells holding a quarter-disc, a dot lattice, a registration mark, a diagonal rule and a solid signal square.">
-          <div class="cell"><div class="quarter" aria-hidden="true"></div></div>
-          <div class="cell dots" aria-hidden="true"></div>
-          <div class="cell"><div class="register" aria-hidden="true"></div></div>
-          <div class="cell cell--diag" aria-hidden="true"></div>
-          <div class="cell" aria-hidden="true"><span class="period period--lg"></span></div>
+        <figure class="hero__portrait">
+          <img class="hero__img" src="images/mahbod.jpg" alt="Mahbod BemaniCham — Chest-up portrait against Tehran cityscape" fetchpriority="high" />
         </figure>
-
-        <div class="hero__aside">
-          <p class="numeral" aria-hidden="true">07</p>
-          <p class="label hero__aside-note">Seven builds indexed<br />on this sheet</p>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- ══ The index — Index-First macrostructure ═══════════════ -->
   <section class="band section" id="index">
-    <div class="rails" aria-hidden="true"></div>
     <div class="shell">
       <header class="section__head">
         <h2 class="section__title">selected work</h2>
@@ -83,37 +71,43 @@
 
       <div class="index">
 
-        <a class="row" href="https://github.com/Mahbodbe/smart-parking" target="_blank" rel="noreferrer">
+        <!-- 1. Smart Parking -->
+        <div class="row">
+          <div class="row__thumb">
+            <img src="images/projects/sysinfo.png" alt="Smart Parking System Telemetry Dashboard showing live CPU and Memory utilization" loading="lazy" />
+          </div>
           <div>
             <h3 class="row__title">Smart Parking DAQ System &amp; IoT Control</h3>
             <ul class="row__stack">
               <li>ESP32</li><li>C++</li><li>Python</li><li>SQLite</li><li>Proteus</li>
             </ul>
-          </div>
-          <div>
             <p class="row__desc">
               End-to-end data-acquisition and control system for a multi-storey car park:
               RFID and ANPR two-factor vehicle authentication, ultrasonic and Hall-effect
-              cross-verified occupancy sensing, PID-driven servo barrier with an IR
+              cross-verified occupancy sensing, PID-driven servo barrier with an active IR
               break-beam anti-pinch trigger, and live telemetry to a web dashboard and a
               Telegram bot. Instrumentation and Measurement course project, built with
               Erfan Ashkesh and Mani Mohammadi.
             </p>
             <p class="row__side">
               <span class="label">Team of three · AUT</span>
-              <span class="row__arrow mono" aria-hidden="true">→</span>
+              <a class="row__arrow mono" href="https://github.com/Mahbodbe/smart-parking" target="_blank" rel="noreferrer" aria-label="Open Smart Parking repository">→</a>
             </p>
           </div>
-        </a>
+        </div>
 
-        <a class="row" href="https://github.com/Mahbodbe/HammingProject" target="_blank" rel="noreferrer">
+        <!-- 2. Hamming VHDL -->
+        <div class="row">
+          <div class="row__thumb" style="display: flex; align-items: center; justify-content: center; background: var(--color-paper-3);">
+            <div style="font-family: var(--font-label); font-size: var(--text-xs); color: var(--color-muted); text-align: center; padding: var(--space-md);">
+              [VHDL Packet Engine]<br />[Hamming ECC Layer]
+            </div>
+          </div>
           <div>
             <h3 class="row__title">Hardware Packet Processor with Hamming ECC</h3>
             <ul class="row__stack">
               <li>VHDL</li><li>FPGA</li><li>ModelSim</li><li>RTL</li>
             </ul>
-          </div>
-          <div>
             <p class="row__desc">
               A modular RTL packet engine: SIPO/PISO serialisation layers, an
               ALU execution core, an 8×32 RAM block, and a finite-state control unit,
@@ -123,19 +117,22 @@
             </p>
             <p class="row__side">
               <span class="label">Two authors · digital design lead</span>
-              <span class="row__arrow mono" aria-hidden="true">→</span>
+              <a class="row__arrow mono" href="https://github.com/Mahbodbe/HammingProject" target="_blank" rel="noreferrer" aria-label="Open Hamming project repository">→</a>
             </p>
           </div>
         </a>
+        </div>
 
-        <a class="row" href="https://github.com/Mahbodbe/Qt-Deep-Dive" target="_blank" rel="noreferrer">
+        <!-- 3. Qt Deep Dive -->
+        <div class="row">
+          <div class="row__thumb">
+            <img src="images/projects/todo.png" alt="ToDo Application screenshot showing the custom handcrafted Cyber Dark QSS Skin" loading="lazy" />
+          </div>
           <div>
             <h3 class="row__title">Qt Deep Dive</h3>
             <ul class="row__stack">
               <li>C++17</li><li>Qt 6</li><li>QSS</li><li>SQLite</li><li>MSVC</li>
             </ul>
-          </div>
-          <div>
             <p class="row__desc">
               A fourteen-chapter engineering log through modern Qt desktop architecture,
               rebuilt rather than transcribed: a task manager on type-safe signal
@@ -147,19 +144,46 @@
             </p>
             <p class="row__side">
               <span class="label">In progress · 3 of 14 chapters</span>
-              <span class="row__arrow mono" aria-hidden="true">→</span>
+              <a class="row__arrow mono" href="https://github.com/Mahbodbe/Qt-Deep-Dive" target="_blank" rel="noreferrer" aria-label="Open Qt Deep Dive repository">→</a>
             </p>
           </div>
-        </a>
+        </div>
 
-        <a class="row" href="https://github.com/Mahbodbe/DoorLock" target="_blank" rel="noreferrer">
+        <!-- 4. IEC 61850 -->
+        <div class="row">
+          <div class="row__thumb">
+            <img src="images/projects/iec61850.png" alt="IEC 61850 Substation automation signal services flow-diagram" loading="lazy" />
+          </div>
+          <div>
+            <h3 class="row__title">SCADA Telemetry &amp; High-Voltage Protocols</h3>
+            <ul class="row__stack">
+              <li>IEC 61850</li><li>DNP3</li><li>IEC 104</li><li>Modbus</li>
+            </ul>
+            <p class="row__desc">
+              Systematic engineering reports and dual-layer architecture designs for
+              TAVANIR high-voltage substations. Covers GOOSE retransmission latency under
+              heavy traffic loads, RTU analog/digital marshalling, FEP gateway routing,
+              and cybersecurity threat modeling for SCADA control centers.
+            </p>
+            <p class="row__side">
+              <span class="label">SCADA series · TAVANIR reference</span>
+              <a class="row__arrow mono" href="https://github.com/Mahbodbe/Learning-Qt" target="_blank" rel="noreferrer" aria-label="Open SCADA repositories">→</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- 5. DoorLock -->
+        <div class="row">
+          <div class="row__thumb" style="display: flex; align-items: center; justify-content: center; background: var(--color-paper-3);">
+            <div style="font-family: var(--font-label); font-size: var(--text-xs); color: var(--color-muted); text-align: center; padding: var(--space-md);">
+              [MFRC522 RFID Module]<br />[PIR Motion Sensor]<br />[Beam Breaker]
+            </div>
+          </div>
           <div>
             <h3 class="row__title">Smart Door Lock System</h3>
             <ul class="row__stack">
               <li>MFRC522</li><li>PIR</li><li>Assembly</li><li>Solenoid</li>
             </ul>
-          </div>
-          <div>
             <p class="row__desc">
               An access-control build assembled module by module rather than all at once:
               MFRC522 RFID read/write and card identification, PIR presence detection at
@@ -169,83 +193,21 @@
             </p>
             <p class="row__side">
               <span class="label">Phased hardware build</span>
-              <span class="row__arrow mono" aria-hidden="true">→</span>
+              <a class="row__arrow mono" href="https://github.com/Mahbodbe/DoorLock" target="_blank" rel="noreferrer" aria-label="Open Smart Door Lock repository">→</a>
             </p>
           </div>
-        </a>
-
-        <a class="row" href="https://github.com/Mahbodbe/VHDL-Learning-Project" target="_blank" rel="noreferrer">
-          <div>
-            <h3 class="row__title">Digital Logic &amp; VHDL Laboratory</h3>
-            <ul class="row__stack">
-              <li>VHDL</li><li>Logic design</li><li>Lab</li>
-            </ul>
-          </div>
-          <div>
-            <p class="row__desc">
-              Coursework and laboratory material from Digital Logic Design under
-              Dr. Pourfard — theoretical implementations on one side, hardware
-              description language exercises on the other. The same course I later
-              joined as a teaching assistant.
-            </p>
-            <p class="row__side">
-              <span class="label">Course + laboratory</span>
-              <span class="row__arrow mono" aria-hidden="true">→</span>
-            </p>
-          </div>
-        </a>
-
-        <a class="row" href="https://github.com/Mahbodbe/Learning-Qt" target="_blank" rel="noreferrer">
-          <div>
-            <h3 class="row__title">Learning Qt — GUI practice projects</h3>
-            <ul class="row__stack">
-              <li>C++</li><li>Qt 5 / 6</li><li>Qt Creator</li>
-            </ul>
-          </div>
-          <div>
-            <p class="row__desc">
-              The groundwork before Qt Deep Dive: widget layout, signals and slots,
-              and small desktop applications worked through from
-              <em>Getting Started with Qt 5</em>. Kept public because the early
-              mistakes are part of the record.
-            </p>
-            <p class="row__side">
-              <span class="label">Bilingual documentation</span>
-              <span class="row__arrow mono" aria-hidden="true">→</span>
-            </p>
-          </div>
-        </a>
-
-        <a class="row" href="https://github.com/Mahbodbe/Logic-Circuit-C" target="_blank" rel="noreferrer">
-          <div>
-            <h3 class="row__title">ATmega32 — code and Proteus simulations</h3>
-            <ul class="row__stack">
-              <li>Assembly</li><li>ATmega32</li><li>Proteus</li>
-            </ul>
-          </div>
-          <div>
-            <p class="row__desc">
-              Bare-metal ATmega32 exercises paired with their Proteus circuit
-              simulations — register-level I/O, timers and interrupts, verified in
-              simulation before touching the board.
-            </p>
-            <p class="row__side">
-              <span class="label">Microcontroller fundamentals</span>
-              <span class="row__arrow mono" aria-hidden="true">→</span>
-            </p>
-          </div>
-        </a>
+        </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ══ The plate — one poster moment ═══════════════════════ -->
+  <!-- ══ The graphite plate — light -> dark -> light rhythm ────── -->
   <section class="plate">
     <div class="shell">
       <div class="plate__inner">
-        <p class="label plate__label">Currently</p>
-        <p class="plate__claim">i would rather build the thing than write about building the thing<span class="period period--inv" aria-hidden="true"></span></p>
+        <span class="plate__label">Live Environment</span>
+        <p class="plate__claim">I would rather build the thing than <em>write</em> about building it.</p>
         <dl class="plate__grid">
           <div class="plate__row">
             <dt>Studying</dt>
@@ -256,8 +218,8 @@
             <dd>Electromagnetics (Dr. Askarpour) and Digital Logic Design (Dr. Pourfard), separate semesters</dd>
           </div>
           <div class="plate__row">
-            <dt>Building</dt>
-            <dd>Embedded data acquisition, VHDL on FPGA, Qt desktop applications, Django services</dd>
+            <dt>Focus</dt>
+            <dd>Embedded data acquisition, VHDL on FPGA, Qt desktop applications, Django web services</dd>
           </div>
         </dl>
       </div>
@@ -266,7 +228,6 @@
 
   <!-- ══ Tools — F3 tabular spec sheet ═══════════════════════ -->
   <section class="band section" id="tools">
-    <div class="rails" aria-hidden="true"></div>
     <div class="shell">
       <div class="section--split">
         <header class="section__head">
@@ -321,7 +282,6 @@
 
   <!-- ══ Counts — real numbers only ══════════════════════════ -->
   <section class="band section--tight">
-    <div class="rails" aria-hidden="true"></div>
     <div class="shell">
       <div class="strip">
         <div class="strip__item">
@@ -346,7 +306,6 @@
 
   <!-- ══ About ═══════════════════════════════════════════════ -->
   <section class="band section" id="about">
-    <div class="rails" aria-hidden="true"></div>
     <div class="shell">
       <div class="section--split">
         <header class="section__head">
@@ -379,14 +338,17 @@
 
   <!-- ══ Contact ═════════════════════════════════════════════ -->
   <section class="band section" id="contact">
-    <div class="rails" aria-hidden="true"></div>
     <div class="shell">
       <header class="section__head">
         <h2 class="section__title">get in touch</h2>
-        <p class="section__note">Email is read daily. The rest is where the work lives.</p>
+        <p class="section__note">Telegram is checked daily. Drop a direct message there.</p>
       </header>
 
       <dl class="contact">
+        <div class="contact__row">
+          <dt class="label">Telegram</dt>
+          <dd><a class="link" href="https://t.me/Mb_Mb84" target="_blank" rel="noreferrer">@Mb_Mb84 <span class="label" style="text-transform:none">(DMs are open — fast response)</span></a></dd>
+        </div>
         <div class="contact__row">
           <dt class="label">GitHub</dt>
           <dd><a class="link" href="https://github.com/Mahbodbe" target="_blank" rel="noreferrer">@Mahbodbe</a></dd>
@@ -399,33 +361,26 @@
           <dt class="label">Email</dt>
           <dd><a class="link" href="mailto:mahbod2023@gmail.com">mahbod2023@gmail.com</a></dd>
         </div>
-        <div class="contact__row">
-          <dt class="label">Based in</dt>
-          <dd>Tehran, Iran</dd>
-        </div>
       </dl>
     </div>
   </section>
 
 </main>
 
-<!-- ══ Ft4 · Dense colophon ═════════════════════════════════ -->
+<!-- ══ Footer · Inline single line ══════════════════════════ -->
 <footer class="band">
-  <div class="rails" aria-hidden="true"></div>
   <div class="shell colophon">
     <p class="colophon__text">
       Mahbod BemaniCham. Electrical engineering, Amirkabir University of Technology
-      (Tehran Polytechnic), Tehran. Set in Archivo with Spline Sans Mono. Built as
-      two static files on an exposed twelve-column grid — no framework, no build step,
-      no tracker. Source at
+      (Tehran Polytechnic). Built as two static files under the Cobalt design system
+      — no build step, no tracker. Code at
       <a class="link" href="https://github.com/Mahbodbe/nomoreidea" target="_blank" rel="noreferrer">github.com/Mahbodbe/nomoreidea</a>.
       2026.
     </p>
     <div class="colophon__meta">
-      <span class="register" aria-hidden="true"></span>
+      <a class="link label" href="https://t.me/Mb_Mb84" target="_blank" rel="noreferrer">Telegram</a>
       <a class="link label" href="https://github.com/Mahbodbe" target="_blank" rel="noreferrer">GitHub</a>
       <a class="link label" href="https://www.linkedin.com/in/mahbod-bemanicham-048b252ab" target="_blank" rel="noreferrer">LinkedIn</a>
-      <a class="link label" href="mailto:mahbod2023@gmail.com">Email</a>
       <a class="link label" href="#top">Back to top</a>
     </div>
   </div>

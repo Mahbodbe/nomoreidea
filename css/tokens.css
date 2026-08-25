@@ -1,41 +1,39 @@
 /* ──────────────────────────────────────────────────────────────
    tokens.css — the portable design system for this site.
-   Theme: Grid (Swiss neo-grotesque · exposed 12-column hairline
-   grid · one grotesk · one signal ink spent on geometry).
-   Axes: paper-band = light · display-style = grotesk-heavy
-         accent-hue = ultramarine (technical / institutional)
-   Every colour and every font in site.css references a token
-   from this file. No inline values anywhere.
+   Theme: Cobalt (Modern-minimal · dev-tool register · cool
+   engineered near-white paper · electric cobalt signal accent).
+   Axes: paper-band = light · display-style = grotesk-sans
+         accent-hue = cobalt (technical / API)
    ────────────────────────────────────────────────────────────── */
 
 :root {
   /* ── Surfaces ─────────────────────────────────────────────── */
-  --color-paper:      oklch(99%   0.003 255);   /* near-white sheet, faintly cool, never #fff */
-  --color-paper-2:    oklch(97.2% 0.003 255);   /* faint band */
-  --color-paper-3:    oklch(94.5% 0.004 255);   /* elevated cell */
-
-  /* ── Rules ────────────────────────────────────────────────── */
-  --color-rule:       oklch(88%   0.004 255);   /* the exposed grid hairline */
-  --color-rule-2:     oklch(72%   0.005 255);   /* section rule */
+  --color-paper:      oklch(98.5% 0.004 250);   /* cool engineered near-white */
+  --color-paper-2:    oklch(96.5% 0.005 252);   /* faint cool band */
+  --color-paper-3:    oklch(94%   0.006 254);   /* elevated cool surface */
+  --color-rule:       oklch(91%   0.008 255);   /* hairline — borders do the work */
+  --color-rule-2:     oklch(83%   0.011 255);
 
   /* ── Ink ──────────────────────────────────────────────────── */
-  --color-muted:      oklch(48%   0.006 255);   /* captions, meta, labels */
-  --color-neutral:    oklch(34%   0.006 255);   /* secondary body */
-  --color-ink-2:      oklch(26%   0.008 255);   /* body text */
-  --color-ink:        oklch(16%   0.010 255);   /* cool near-black — never #000 */
+  --color-muted:      oklch(56%   0.013 255);   /* captions, meta, labels */
+  --color-neutral:    oklch(46%   0.015 255);   /* secondary body */
+  --color-ink-2:      oklch(34%   0.018 257);   /* body text */
+  --color-ink:        oklch(24%   0.020 258);   /* cool charcoal — never black */
 
   /* ── The one signal ink ───────────────────────────────────── */
-  --color-accent:     oklch(45%   0.19  264);   /* ultramarine */
-  --color-accent-ink: oklch(99%   0.003 255);   /* text on the ultramarine plate */
-  --color-focus:      oklch(45%   0.19  264);
+  --color-accent:     oklch(58%   0.20  256);   /* electric cobalt */
+  --color-accent-ink: oklch(99%   0.004 256);   /* text on the cobalt plate */
+  --color-focus:      oklch(58%   0.20  256);
+  --color-graphite:   oklch(14%   0.012 250);   /* dark code-card ground */
 
   /* ── Type ─────────────────────────────────────────────────── */
-  --font-display: "Archivo", "Helvetica Neue", ui-sans-serif, system-ui, sans-serif;
-  --font-body:    "Archivo", "Helvetica Neue", ui-sans-serif, system-ui, sans-serif;
-  --font-label:   "Archivo", ui-sans-serif, sans-serif;
-  --font-mono:    "Spline Sans Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-display: "Space Grotesk", "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --font-body:    "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif:   "Inter", ui-sans-serif, system-ui, sans-serif;  /* Cobalt is all-sans */
+  --font-label:   "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-  --display-weight: 800;
+  --display-weight: 500;
   --display-style:  normal;
 
   /* ── Scale — major third (1.25) off a 16px body ───────────── */
@@ -48,16 +46,16 @@
   --text-2xl:  2.4414rem;  /* 39px */
   --text-3xl:  3.0518rem;  /* 49px */
 
-  --text-display:   clamp(2.75rem, 8vw + 0.5rem, 5.25rem);
-  --text-display-s: clamp(1.85rem, 3.5vw + 0.5rem, 3rem);
-  --text-numeral:   clamp(6rem, 20vw, 18rem);
+  --text-display:   clamp(2.5rem, 6vw + 0.5rem, 4.5rem);
+  --text-display-s: clamp(1.85rem, 3vw + 0.5rem, 2.75rem);
+  --text-numeral:   clamp(5rem, 15vw, 12rem);
 
-  --tracking-display: -0.045em;
-  --tracking-tight:   -0.02em;
-  --tracking-label:    0.09em;
+  --tracking-display: -0.03em;
+  --tracking-tight:   -0.015em;
+  --tracking-label:    0.06em;
 
-  --lh-display: 0.9;
-  --lh-tight:   1.1;
+  --lh-display: 1.05;
+  --lh-tight:   1.15;
   --lh-body:    1.55;
 
   /* ── Space — 4pt base, named by role ─────────────────────── */
@@ -72,24 +70,25 @@
   --space-3xl: 6rem;       /*  96px */
   --space-4xl: 9rem;       /* 144px */
 
-  --shell:       1280px;
-  --page-gutter: clamp(1rem, 4vw, 2.5rem);
-  --section-gap: clamp(4rem, 10vw, 9.5rem);
+  --shell:       1200px;
+  --page-gutter: clamp(1rem, 4vw, 2rem);
+  --section-gap: clamp(3.5rem, 8vw, 8rem);
 
-  /* ── Geometry — Grid runs zero radius, zero shadow ───────── */
-  --radius-card:  0;
-  --radius-pill:  0;
-  --radius-input: 0;
+  /* ── Geometry — Cobalt runs tight technical radii ────────── */
+  --radius-card:  8px;
+  --radius-pill:  999px;
+  --radius-input: 6px;
+  --radius-inner: 4px;
   --rule-hair:    1px;
-  --rule-solid:   2px;
-  --rule-signal:  3px;
-  --shadow-card:  none;
+  --rule-solid:   1px;
+  --rule-signal:  2px;
+  --shadow-card:  0 1px 2px rgba(0, 0, 0, 0.04);
 
   /* ── Motion ───────────────────────────────────────────────── */
-  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-in:     cubic-bezier(0.64, 0, 0.78, 0);
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:     cubic-bezier(0.7, 0, 0.84, 0);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --dur-short:   0.18s;
+  --dur-short:   0.15s;
   --dur-mid:      0.2s;
 
   /* ── Z scale — six named levels, never freestyle ─────────── */
