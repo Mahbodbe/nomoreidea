@@ -16,8 +16,30 @@
   background: var(--color-paper);
 }
 .band--alt {
-  background: var(--color-paper-2);
+  background: var(--color-band);
+  color: var(--color-band-ink);
 }
+.band--alt .section__title,
+.band--alt .row__title { color: var(--color-band-ink-strong); }
+.band--alt .section__note,
+.band--alt .row__desc { color: var(--color-band-ink-muted); }
+.band--alt .label { color: var(--color-band-label); }
+.band--alt .row__stack li {
+  color: var(--color-band-label);
+  border-color: var(--color-band-rule);
+}
+.band--alt .spec thead th { color: var(--color-band-label); }
+.band--alt .spec tbody th { color: var(--color-band-ink-strong); }
+.band--alt .spec td { color: var(--color-band-ink); }
+.band--alt .spec td:last-child { color: var(--color-band-label); }
+.band--alt .link,
+.band--alt .cta-type { color: var(--color-band-ink-strong); border-color: var(--color-band-ink-strong); }
+.band--alt .strip__figure { color: var(--color-band-ink-strong); }
+.band--alt .contact__row,
+.band--alt .index,
+.band--alt .row,
+.band--alt .hero__meta,
+.band--alt .strip { border-color: var(--color-band-rule); }
 .plate {
   background: var(--color-graphite);
 }
@@ -515,7 +537,7 @@ img, svg { display: block; max-width: 100%; height: auto; }
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
-  background: var(--color-ink);
+  background: var(--color-graphite);
 }
 
 .colophon__text {
@@ -526,13 +548,27 @@ img, svg { display: block; max-width: 100%; height: auto; }
   max-width: 74ch;
   margin: 0;
 }
-.colophon__text a { color: var(--color-accent); }
+.colophon__text a {
+  color: var(--color-accent-bright);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 
 .colophon__meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-sm) var(--space-lg);
+}
+.colophon__meta .label {
+  color: var(--color-footer-link);
+  border-bottom: 1px solid var(--color-footer-link);
+  padding-bottom: 2px;
+  transition: color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out);
+}
+.colophon__meta .label:hover {
+  color: var(--color-accent-bright);
+  border-color: var(--color-accent-bright);
 }
 
 /* ── Skip link ────────────────────────────────────────────────── */

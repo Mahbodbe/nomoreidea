@@ -21,10 +21,23 @@
   --color-ink:        oklch(24%   0.020 258);   /* cool charcoal — never black */
 
   /* ── The one signal ink ───────────────────────────────────── */
-  --color-accent:     oklch(58%   0.20  256);   /* electric cobalt */
-  --color-accent-ink: oklch(99%   0.004 256);   /* text on the cobalt plate */
-  --color-focus:      oklch(58%   0.20  256);
-  --color-graphite:   oklch(14%   0.012 250);   /* dark code-card ground */
+  --color-accent:        oklch(58%   0.20  256);   /* electric cobalt */
+  --color-accent-ink:    oklch(99%   0.004 256);   /* text on the cobalt plate */
+  --color-accent-bright: oklch(72%   0.16  250);   /* brighter cobalt for dark surfaces */
+  --color-focus:         oklch(58%   0.20  256);
+  --color-graphite:      oklch(14%   0.012 250);   /* dark code-card ground */
+
+  /* ── Alternating band — deep cool navy register ────────────── */
+  --color-band:           oklch(93%   0.014 252);  /* soft cool navy-grey sheet */
+  --color-band-rule:      oklch(82%   0.020 254);
+  --color-band-label:     oklch(46%   0.040 255);
+  --color-band-ink:       oklch(28%   0.032 256);
+  --color-band-ink-muted: oklch(38%   0.034 255);
+  --color-band-ink-strong:oklch(20%   0.045 257);
+
+  /* ── Footer on graphite ─────────────────────────────────────── */
+  --color-footer-text: oklch(86%   0.008 250);
+  --color-footer-link: oklch(94%   0.006 250);
 
   /* ── Type ─────────────────────────────────────────────────── */
   --font-display: "Space Grotesk", "Inter Tight", ui-sans-serif, system-ui, sans-serif;
