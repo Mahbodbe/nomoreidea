@@ -107,7 +107,7 @@ img, svg { display: block; max-width: 100%; height: auto; }
   position: sticky;
   top: 0;
   z-index: var(--z-sticky-nav);
-  background: color-mix(in oklab, var(--color-paper) 85%, transparent);
+  background: color-mix(in oklab, var(--color-paper) 78%, transparent);
   backdrop-filter: blur(12px);
   border-bottom: var(--rule-hair) solid var(--color-rule);
 }
@@ -577,7 +577,7 @@ img, svg { display: block; max-width: 100%; height: auto; }
   left: -9999px;
   top: 0;
   z-index: var(--z-modal);
-  background: var(--color-ink);
+  background: var(--color-graphite);
   color: var(--color-paper);
   padding: var(--space-sm) var(--space-md);
   font-family: var(--font-label);

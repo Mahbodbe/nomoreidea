@@ -1,43 +1,43 @@
 /* ──────────────────────────────────────────────────────────────
    tokens.css — the portable design system for this site.
-   Theme: Cobalt (Modern-minimal · dev-tool register · cool
-   engineered near-white paper · electric cobalt signal accent).
-   Axes: paper-band = light · display-style = grotesk-sans
+   Theme: Cobalt Night (Modern-minimal · dev-tool register ·
+   deep navy-blue ground · electric cobalt signal accent).
+   Axes: paper-band = dark · display-style = grotesk-sans
          accent-hue = cobalt (technical / API)
    ────────────────────────────────────────────────────────────── */
 
 :root {
-  /* ── Surfaces ─────────────────────────────────────────────── */
-  --color-paper:      oklch(98.5% 0.004 250);   /* cool engineered near-white */
-  --color-paper-2:    oklch(96.5% 0.005 252);   /* faint cool band */
-  --color-paper-3:    oklch(94%   0.006 254);   /* elevated cool surface */
-  --color-rule:       oklch(91%   0.008 255);   /* hairline — borders do the work */
-  --color-rule-2:     oklch(83%   0.011 255);
+  /* ── Surfaces — dark blue, layered lightness ──────────────── */
+  --color-paper:      oklch(16%   0.028 258);   /* deep navy ground */
+  --color-paper-2:    oklch(19%   0.032 258);   /* raised band */
+  --color-paper-3:    oklch(23%   0.036 256);   /* elevated cell / card */
+  --color-rule:       oklch(30%   0.040 256);   /* hairline on dark */
+  --color-rule-2:     oklch(40%   0.048 255);
 
-  /* ── Ink ──────────────────────────────────────────────────── */
-  --color-muted:      oklch(56%   0.013 255);   /* captions, meta, labels */
-  --color-neutral:    oklch(46%   0.015 255);   /* secondary body */
-  --color-ink-2:      oklch(34%   0.018 257);   /* body text */
-  --color-ink:        oklch(24%   0.020 258);   /* cool charcoal — never black */
+  /* ── Ink — light text on dark ─────────────────────────────── */
+  --color-muted:      oklch(68%   0.028 255);   /* captions, meta, labels */
+  --color-neutral:    oklch(78%   0.022 254);   /* secondary body */
+  --color-ink-2:      oklch(88%   0.014 253);   /* body text */
+  --color-ink:        oklch(96%   0.008 250);   /* near-white headline */
 
   /* ── The one signal ink ───────────────────────────────────── */
-  --color-accent:        oklch(58%   0.20  256);   /* electric cobalt */
-  --color-accent-ink:    oklch(99%   0.004 256);   /* text on the cobalt plate */
-  --color-accent-bright: oklch(72%   0.16  250);   /* brighter cobalt for dark surfaces */
-  --color-focus:         oklch(58%   0.20  256);
-  --color-graphite:      oklch(14%   0.012 250);   /* dark code-card ground */
+  --color-accent:        oklch(70%   0.15  245);  /* electric cobalt, lifted for dark */
+  --color-accent-ink:    oklch(12%   0.020 258);  /* dark text on the cobalt plate */
+  --color-accent-bright: oklch(78%   0.13  240);  /* brighter cyan-cobalt for links */
+  --color-focus:         oklch(75%   0.14  245);
+  --color-graphite:      oklch(11%   0.024 260);  /* darkest band / footer */
 
-  /* ── Alternating band — deep cool navy register ────────────── */
-  --color-band:           oklch(93%   0.014 252);  /* soft cool navy-grey sheet */
-  --color-band-rule:      oklch(82%   0.020 254);
-  --color-band-label:     oklch(46%   0.040 255);
-  --color-band-ink:       oklch(28%   0.032 256);
-  --color-band-ink-muted: oklch(38%   0.034 255);
-  --color-band-ink-strong:oklch(20%   0.045 257);
+  /* ── Alternating band — one step up from the ground ────────── */
+  --color-band:            oklch(19%   0.034 256);
+  --color-band-rule:       oklch(32%   0.044 256);
+  --color-band-label:      oklch(66%   0.050 250);
+  --color-band-ink:        oklch(86%   0.018 253);
+  --color-band-ink-muted:  oklch(74%   0.026 254);
+  --color-band-ink-strong: oklch(97%   0.006 250);
 
   /* ── Footer on graphite ─────────────────────────────────────── */
-  --color-footer-text: oklch(86%   0.008 250);
-  --color-footer-link: oklch(94%   0.006 250);
+  --color-footer-text: oklch(80%   0.018 250);
+  --color-footer-link: oklch(93%   0.010 248);
 
   /* ── Type ─────────────────────────────────────────────────── */
   --font-display: "Space Grotesk", "Inter Tight", ui-sans-serif, system-ui, sans-serif;
@@ -95,7 +95,7 @@
   --rule-hair:    1px;
   --rule-solid:   1px;
   --rule-signal:  2px;
-  --shadow-card:  0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-card:  0 1px 2px rgba(0, 0, 0, 0.35);
 
   /* ── Motion ───────────────────────────────────────────────── */
   --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
