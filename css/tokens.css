@@ -1,0 +1,103 @@
+/* ──────────────────────────────────────────────────────────────
+   tokens.css — the portable design system for this site.
+   Theme: Grid (Swiss neo-grotesque · exposed 12-column hairline
+   grid · one grotesk · one signal ink spent on geometry).
+   Axes: paper-band = light · display-style = grotesk-heavy
+         accent-hue = ultramarine (technical / institutional)
+   Every colour and every font in site.css references a token
+   from this file. No inline values anywhere.
+   ────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Surfaces ─────────────────────────────────────────────── */
+  --color-paper:      oklch(99%   0.003 255);   /* near-white sheet, faintly cool, never #fff */
+  --color-paper-2:    oklch(97.2% 0.003 255);   /* faint band */
+  --color-paper-3:    oklch(94.5% 0.004 255);   /* elevated cell */
+
+  /* ── Rules ────────────────────────────────────────────────── */
+  --color-rule:       oklch(88%   0.004 255);   /* the exposed grid hairline */
+  --color-rule-2:     oklch(72%   0.005 255);   /* section rule */
+
+  /* ── Ink ──────────────────────────────────────────────────── */
+  --color-muted:      oklch(48%   0.006 255);   /* captions, meta, labels */
+  --color-neutral:    oklch(34%   0.006 255);   /* secondary body */
+  --color-ink-2:      oklch(26%   0.008 255);   /* body text */
+  --color-ink:        oklch(16%   0.010 255);   /* cool near-black — never #000 */
+
+  /* ── The one signal ink ───────────────────────────────────── */
+  --color-accent:     oklch(45%   0.19  264);   /* ultramarine */
+  --color-accent-ink: oklch(99%   0.003 255);   /* text on the ultramarine plate */
+  --color-focus:      oklch(45%   0.19  264);
+
+  /* ── Type ─────────────────────────────────────────────────── */
+  --font-display: "Archivo", "Helvetica Neue", ui-sans-serif, system-ui, sans-serif;
+  --font-body:    "Archivo", "Helvetica Neue", ui-sans-serif, system-ui, sans-serif;
+  --font-label:   "Archivo", ui-sans-serif, sans-serif;
+  --font-mono:    "Spline Sans Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --display-weight: 800;
+  --display-style:  normal;
+
+  /* ── Scale — major third (1.25) off a 16px body ───────────── */
+  --text-xs:   0.75rem;    /* 12px — label voice */
+  --text-sm:   0.875rem;   /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-md:   1.25rem;    /* 20px */
+  --text-lg:   1.5625rem;  /* 25px */
+  --text-xl:   1.9531rem;  /* 31px */
+  --text-2xl:  2.4414rem;  /* 39px */
+  --text-3xl:  3.0518rem;  /* 49px */
+
+  --text-display:   clamp(2.75rem, 8vw + 0.5rem, 5.25rem);
+  --text-display-s: clamp(1.85rem, 3.5vw + 0.5rem, 3rem);
+  --text-numeral:   clamp(6rem, 20vw, 18rem);
+
+  --tracking-display: -0.045em;
+  --tracking-tight:   -0.02em;
+  --tracking-label:    0.09em;
+
+  --lh-display: 0.9;
+  --lh-tight:   1.1;
+  --lh-body:    1.55;
+
+  /* ── Space — 4pt base, named by role ─────────────────────── */
+  --space-3xs: 0.125rem;   /*   2px */
+  --space-2xs: 0.25rem;    /*   4px */
+  --space-xs:  0.5rem;     /*   8px */
+  --space-sm:  0.75rem;    /*  12px */
+  --space-md:  1rem;       /*  16px */
+  --space-lg:  1.5rem;     /*  24px */
+  --space-xl:  2.5rem;     /*  40px */
+  --space-2xl: 4rem;       /*  64px */
+  --space-3xl: 6rem;       /*  96px */
+  --space-4xl: 9rem;       /* 144px */
+
+  --shell:       1280px;
+  --page-gutter: clamp(1rem, 4vw, 2.5rem);
+  --section-gap: clamp(4rem, 10vw, 9.5rem);
+
+  /* ── Geometry — Grid runs zero radius, zero shadow ───────── */
+  --radius-card:  0;
+  --radius-pill:  0;
+  --radius-input: 0;
+  --rule-hair:    1px;
+  --rule-solid:   2px;
+  --rule-signal:  3px;
+  --shadow-card:  none;
+
+  /* ── Motion ───────────────────────────────────────────────── */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in:     cubic-bezier(0.64, 0, 0.78, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-short:   0.18s;
+  --dur-mid:      0.2s;
+
+  /* ── Z scale — six named levels, never freestyle ─────────── */
+  --z-base:       1;
+  --z-raised:    10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-sticky-nav: 300;
+  --z-modal:    400;
+  --z-toast:    500;
+}
