@@ -1,7 +1,4 @@
-/* Full header scroll behavior.
-   The header is normal in document flow at the top.
-   js/header-scroll.js adds .nav-floating after the user scrolls.
-*/
+/* Full-size header: normal in document flow until JS adds .nav--stuck. */
 .nav {
   position: relative;
   z-index: var(--z-sticky-nav);
@@ -12,35 +9,10 @@
   padding-block: var(--space-sm);
 }
 
-.nav-placeholder {
-  width: 100%;
-}
-
-.nav-floating .nav {
+.nav.nav--stuck {
   position: fixed;
   inset-block-start: 0;
   inset-inline: 0;
   width: 100%;
   z-index: var(--z-sticky-nav);
-  background: color-mix(in oklab, var(--color-paper) 94%, transparent);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
-}
-
-.nav-floating .nav__inner {
-  min-height: 4rem;
-  padding-block: var(--space-sm);
-}
-
-.nav-floating-enter {
-  animation: nav-drop-in 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes nav-drop-in {
-  from { transform: translateY(-100%); }
-  to { transform: translateY(0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .nav-floating-enter { animation: none !important; }
 }
