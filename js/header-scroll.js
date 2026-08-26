@@ -1,62 +1,43 @@
 (() => {
-  const nav = document.querySelector('.nav');
-  if (!nav) return;
+  const start = () => {
+    const nav = document.querySelector('.nav');
+    if (!nav || nav.dataset.headerScrollReady) return;
+    nav.dataset.headerScrollReady = '1';
 
-  let placeholder = null;
-  let floating = false;
-  let lastHeight = 0;
+    let stuck = false;
+    let ticking = false;
+    let threshold = 0;
 
-  const syncPlaceholder = () => {
-    if (placeholder) {
-      lastHeight = nav.getBoundingClientRect().height;
-      placeholder.style.height = `${lastHeight}px`;
-    }
+    const measure = () => {
+      if (!stuck) threshold = Math.max(nav.offsetHeight + nav.offsetTop + 8, 72);
+    };
+
+    const setStuck = (next) => {
+      if (next === stuck) return;
+      stuck = next;
+      nav.classList.toggle('nav--stuck', stuck);
+      document.body.classList.toggle('nav-has-sticky', stuck);
+    };
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        measure();
+        setStuck(window.scrollY > threshold);
+        ticking = false;
+      });
+    };
+
+    measure();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', () => { measure(); onScroll(); }, { passive: true });
+    onScroll();
   };
 
-  const enterFloating = () => {
-    if (floating) return;
-    floating = true;
-    lastHeight = nav.getBoundingClientRect().height;
-    placeholder = document.createElement('div');
-    placeholder.className = 'nav-placeholder';
-    placeholder.setAttribute('aria-hidden', 'true');
-    placeholder.style.height = `${lastHeight}px`;
-    nav.parentNode.insertBefore(placeholder, nav.nextSibling);
-    document.body.classList.add('nav-floating');
-    nav.classList.remove('nav-returning');
-    void nav.offsetWidth;
-    nav.classList.add('nav-floating-enter');
-  };
-
-  const leaveFloating = () => {
-    if (!floating) return;
-    nav.classList.remove('nav-floating-enter', 'nav-returning');
-    document.body.classList.remove('nav-floating');
-    if (placeholder) {
-      placeholder.remove();
-      placeholder = null;
-    }
-    floating = false;
-  };
-
-  const update = () => {
-    const threshold = Math.max(nav.getBoundingClientRect().height + 8, 72);
-    if (window.scrollY > threshold) enterFloating();
-    else leaveFloating();
-    syncPlaceholder();
-  };
-
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      update();
-      ticking = false;
-    });
-  }, { passive: true });
-
-  window.addEventListener('resize', syncPlaceholder, { passive: true });
-  window.addEventListener('load', update);
-  update();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', start, { once: true });
+  } else {
+    start();
+  }
 })();
