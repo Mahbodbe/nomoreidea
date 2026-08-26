@@ -1,21 +1,21 @@
 /* Mobile/RTL hardening fixes */
 
 /* Browser default figure margin was pushing the portrait 40px outside the shell. */
-.hero__portrait { margin: 0; }
+.hero__portrait { margin: 0 !important; }
 
 /* Keep the accessibility skip link visually hidden without creating a huge RTL canvas. */
 .skip {
-  position: fixed;
-  inset-block-start: 0;
-  inset-inline-start: var(--page-gutter);
-  left: auto;
-  top: auto;
-  transform: translateY(-200%);
+  position: fixed !important;
+  inset-block-start: 0 !important;
+  inset-inline-start: var(--page-gutter) !important;
+  left: auto !important;
+  top: auto !important;
+  transform: translateY(-200%) !important;
 }
 .skip:focus {
-  inset-block-start: var(--space-xs);
-  inset-inline-start: var(--page-gutter);
-  transform: translateY(0);
+  inset-block-start: var(--space-xs) !important;
+  inset-inline-start: var(--page-gutter) !important;
+  transform: translateY(0) !important;
 }
 
 /* Touch targets: WCAG-friendly minimum without changing the visual register much. */
@@ -23,13 +23,13 @@
 .lang-toggle,
 .nav__cta,
 .cta-type {
-  min-height: 44px;
+  min-height: 44px !important;
 }
 
 @media (max-width: 47.99rem) {
   .nav__inner { align-items: center; }
-  .wordmark { min-height: 44px; }
+  .wordmark { min-height: 44px !important; }
   .lang-toggle,
   .nav__cta,
-  .cta-type { min-height: 44px; }
+  .cta-type { min-height: 44px !important; }
 }
