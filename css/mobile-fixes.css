@@ -1,0 +1,35 @@
+/* Mobile/RTL hardening fixes */
+
+/* Browser default figure margin was pushing the portrait 40px outside the shell. */
+.hero__portrait { margin: 0; }
+
+/* Keep the accessibility skip link visually hidden without creating a huge RTL canvas. */
+.skip {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-start: var(--page-gutter);
+  left: auto;
+  top: auto;
+  transform: translateY(-200%);
+}
+.skip:focus {
+  inset-block-start: var(--space-xs);
+  inset-inline-start: var(--page-gutter);
+  transform: translateY(0);
+}
+
+/* Touch targets: WCAG-friendly minimum without changing the visual register much. */
+.wordmark,
+.lang-toggle,
+.nav__cta,
+.cta-type {
+  min-height: 44px;
+}
+
+@media (max-width: 47.99rem) {
+  .nav__inner { align-items: center; }
+  .wordmark { min-height: 44px; }
+  .lang-toggle,
+  .nav__cta,
+  .cta-type { min-height: 44px; }
+}
