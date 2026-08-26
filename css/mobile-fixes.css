@@ -26,10 +26,47 @@
   min-height: 44px !important;
 }
 
+/* Full header at the top; the same element compresses into the navigation bar on scroll. */
+.nav {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: var(--z-sticky-nav);
+  transition: background-color var(--dur-mid) var(--ease-out),
+              box-shadow var(--dur-mid) var(--ease-out);
+}
+.nav__inner {
+  transition: min-height var(--dur-mid) var(--ease-out),
+              padding-block var(--dur-mid) var(--ease-out);
+}
+.nav.is-compact {
+  background: color-mix(in oklab, var(--color-paper) 92%, transparent);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+.nav.is-compact .nav__inner {
+  min-height: 3.25rem;
+  padding-block: 0.375rem;
+}
+.nav.is-compact .wordmark,
+.nav.is-compact .lang-toggle,
+.nav.is-compact .nav__cta {
+  min-height: 40px !important;
+}
+
 @media (max-width: 47.99rem) {
   .nav__inner { align-items: center; }
   .wordmark { min-height: 44px !important; }
   .lang-toggle,
   .nav__cta,
   .cta-type { min-height: 44px !important; }
+
+  .nav.is-compact .wordmark,
+  .nav.is-compact .lang-toggle,
+  .nav.is-compact .nav__cta {
+    min-height: 40px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav,
+  .nav__inner { transition: none; }
 }
