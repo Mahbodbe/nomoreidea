@@ -700,3 +700,14 @@ img, svg { display: block; max-width: 100%; height: auto; }
     animation-iteration-count: 1 !important;
   }
 }
+
+
+/* Quality cleanup: presentation belongs in CSS, not inline HTML. */
+.row__thumb--placeholder { display: flex; align-items: center; justify-content: center; background: var(--color-paper-3); }
+.row__placeholder-label { font-family: var(--font-label); font-size: var(--text-xs); color: var(--color-muted); text-align: center; padding: var(--space-md); }
+.row__placeholder-label--caps { text-transform: uppercase; letter-spacing: var(--tracking-label); }
+.row__thumb-split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xs); width: 100%; aspect-ratio: 1.6; }
+.row__thumb--split { border: 0; box-shadow: none; aspect-ratio: auto; height: 100%; overflow: clip; }
+.row__thumb--split img { height: 100%; width: 100%; object-fit: cover; }
+.index--bordered { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.label--normal { text-transform: none; }

@@ -44,7 +44,7 @@ This project follows the [Hallmark](https://github.com/nutlope/hallmark) anti-AI
 | **No re-drawn chrome** | No fake browser bars, no fake phone frames, no fake IDE windows. Real screenshots inside `<figure>` elements with hairline borders. |
 | **Structural variety** | The page is an *index*, not the default "hero → 3 feature cards → CTA → footer" AI template. |
 | **Mobile floor** | Verified pixel-perfect at 320 / 375 / 414 / 768 / 1280 / 1920 px via automated CDP audit. |
-| **Accessibility** | WCAG AA contrast on every text/background pair, visible focus rings, full keyboard navigation, reduced-motion support. |
+| **Accessibility** | automated WCAG AA checks for computed solid-color text/background pairs, visible focus rings, full keyboard navigation, reduced-motion support. |
 
 ## 🛠️ Tech Stack
 

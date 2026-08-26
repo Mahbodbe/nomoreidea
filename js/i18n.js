@@ -233,3 +233,71 @@ function setLang(lang) {
     setLang(next);
   });
 })();
+
+
+/* Quality cleanup: complete the bilingual surface, including text that used to be hard-coded. */
+Object.assign(I18N.en, {
+  switch_language: "Switch language", skip_to_index: "Skip to the index",
+  studying: "Studying", studying_value: "B.Sc. Electrical Engineering (Control Major · Electronics Minor), Amirkabir University of Technology (Tehran Polytechnic)",
+  ta: "Teaching assistant", ta_value: "Electromagnetics (Dr. Askarpour) and Digital Logic Design (Dr. Pourfard), separate semesters",
+  focus: "Focus", focus_value: "Embedded data acquisition, VHDL on FPGA, Qt desktop applications, Django web services",
+  tools_caption: "Working tool set", tools_layer: "Layer", tools_tools: "Tools", tools_used: "Used in",
+  tool_silicon: "Silicon", tool_silicon_used: "Parking DAQ, door lock, Hamming",
+  tool_hdl: "Hardware description", tool_hdl_used: "Packet processor, logic lab",
+  tool_firmware: "Firmware", tool_firmware_used: "All embedded builds",
+  tool_application: "Application", tool_application_used: "Qt Deep Dive, web services",
+  tool_data: "Data", tool_data_used: "Parking telemetry, shop backend",
+  tool_bench: "Bench", tool_bench_used: "Every project above",
+  webdesigns_note: "Selected web interfaces and storefront systems I have engineered. These are active templates; production destinations will be connected as they are ready.",
+  internships_note: "Current focus areas, practical learning logs, and industrial internship work.",
+  count_repos: "Public repositories", count_courses: "Courses assisted", count_since: "On GitHub since", count_languages: "Languages in repos",
+  contact_telegram: "Telegram", contact_dm: "(DMs are open — fast response)", contact_github: "GitHub", contact_linkedin: "LinkedIn", contact_email: "Email",
+  footer_text: "Mahbod BemaniCham — Electrical Engineering (Control major, Electronics minor), Amirkabir University of Technology (Tehran Polytechnic), Tehran. 2026.",
+  back_to_top: "Back to top"
+});
+
+Object.assign(I18N.fa, {
+  switch_language: "تغییر زبان", skip_to_index: "رفتن به فهرست",
+  hero_lede: "دانشجوی کارشناسی دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران). در نقطه اتصال فریم‌ور و سخت‌افزار کار می‌کنم؛ از جمع‌آوری داده با ESP32 و طراحی FPGA با VHDL گرفته تا اپلیکیشن‌های دسکتاپ Qt و سرویس‌های جنگو. همچنین سابقه دستیاری آموزشی در درس‌های الکترومغناطیس و مدارهای منطقی را دارم.",
+  studying: "تحصیل", studying_value: "کارشناسی مهندسی برق، گرایش کنترل، دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران)",
+  ta: "دستیار آموزشی", ta_value: "الکترومغناطیس با دکتر عسکرپور و مدارهای منطقی با دکتر پوردرد، در دو نیم‌سال جداگانه",
+  focus: "حوزه تمرکز", focus_value: "جمع‌آوری داده و سیستم‌های نهفته، VHDL و FPGA، اپلیکیشن‌های دسکتاپ Qt و سرویس‌های وب جنگو",
+  tools_caption: "مجموعه ابزارهای مورد استفاده", tools_layer: "لایه", tools_tools: "ابزارها", tools_used: "کاربرد",
+  tool_silicon: "سخت‌افزار", tool_silicon_used: "پارکینگ هوشمند، قفل درب، همینگ",
+  tool_hdl: "توصیف سخت‌افزار", tool_hdl_used: "پردازنده بسته، آزمایشگاه مدار منطقی",
+  tool_firmware: "فریم‌ور", tool_firmware_used: "تمام پروژه‌های نهفته",
+  tool_application: "نرم‌افزار کاربردی", tool_application_used: "Qt Deep Dive، سرویس‌های وب",
+  tool_data: "داده و زیرساخت", tool_data_used: "تله‌متری پارکینگ، بک‌اند فروشگاه",
+  tool_bench: "ابزار آزمایش و توسعه", tool_bench_used: "تمام پروژه‌های بالا",
+  webdesigns_note: "چند رابط وب و فروشگاه که طراحی و پیاده‌سازی کرده‌ام. این موارد فعلاً به‌صورت قالب‌های فعال نمایش داده می‌شوند و مقصد نهایی پروژه‌ها به‌مرور متصل خواهد شد.",
+  internships_note: "حوزه‌های تمرکز فعلی، یادداشت‌های فنی و تجربه‌های عملی حاصل از کارآموزی.",
+  count_repos: "مخزن عمومی", count_courses: "درس با سابقه دستیاری", count_since: "عضویت در گیت‌هاب از", count_languages: "زبان‌های موجود در مخزن‌ها",
+  contact_telegram: "تلگرام", contact_dm: "(پیام مستقیم باز است و معمولاً سریع پاسخ می‌دهم)", contact_github: "گیت‌هاب", contact_linkedin: "لینکدین", contact_email: "ایمیل",
+  footer_text: "مهبد بمانی‌چم — مهندسی برق (گرایش کنترل، حوزه تخصصی الکترونیک)، دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران)، تهران. ۱۴۰۵.",
+  back_to_top: "بازگشت به بالا",
+  about_p1: "من دانشجوی کارشناسی مهندسی برق دانشگاه صنعتی امیرکبیر هستم. بیشتر چیزهایی که یاد گرفته‌ام از پروژه‌هایی آمده که بار اول درست کار نکرده‌اند؛ از یک سروو که تا تنظیم درست PWM مدام می‌لرزید، تا دیکدری که در شبیه‌سازی سالم بود اما روی برد شکست می‌خورد، و حتی یک ورکر جنگو که هر شب بی‌سروصدا از کار می‌افتاد.",
+  about_p2: "من سخت‌افزاری را دوست دارم که بتوانم نتیجه‌اش را از نزدیک ببینم و درسی را که بتوانم آموزش بدهم. دو نیم‌سال دستیاری آموزشی در درس‌های الکترومغناطیس با دکتر عسکرپور و مدارهای منطقی با دکتر پوردرد به من یاد داد که وقتی چیزی را برای دیگری توضیح می‌دهی، خیلی زود متوجه می‌شوی کجای فهم خودت هنوز جای کار دارد. مسیر تحصیلی من روی گرایش <strong>کنترل</strong> است و در کنار آن، حوزه <strong>الکترونیک</strong> را هم جدی دنبال می‌کنم.",
+  about_p3: "این صفحه قرار نیست یک تبلیغ اغراق‌آمیز از من باشد؛ یک فهرست واقعی از چیزهایی است که ساخته‌ام و رویشان کار کرده‌ام. اگر پروژه‌ای برایتان جالب بود، مخزن آن یک کلیک فاصله دارد و تاریخچهٔ تغییراتش هم روند واقعی کار را نشان می‌دهد.",
+  int_p1: "<strong>امنیت SCADA و اتوماسیون پست برق — کارآموزی موج نیرو:</strong><br />در حال گذراندن کارآموزی مهندسی در <strong>موج نیرو</strong> هستم و روی مطالعه، تحلیل و مستندسازی پست‌های متعارف، سیستم‌های DCS و معماری تله‌متری SCADA در شبکه برق ایران کار می‌کنم.",
+  int_p2: "تمرکز پژوهشی فعلی من روی زنجیره پروتکل‌های <strong>IEC 61850</strong>، <strong>DNP3</strong>، <strong>IEC 60870-5-104</strong> و <strong>Modbus</strong> است. در این مسیر، روی مستندسازی تأخیر ارسال مجدد پیام‌های GOOSE در ترافیک سنگین، منطق مارشالینگ RTU، نگاشت گیت‌وی FEP و تهیهٔ ماتریس ریسک برای تهدیدهای سایبری سامانه‌های دیسپاچینگ صنعتی کار می‌کنم."
+});
+
+const _originalSetLang = setLang;
+function setLangComplete(lang) {
+  _originalSetLang(lang);
+  const t = I18N[lang] || I18N.en;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (Object.prototype.hasOwnProperty.call(t, key)) el.innerHTML = t[key];
+  });
+  document.querySelectorAll("[data-i18n-aria]").forEach(el => {
+    const key = el.getAttribute("data-i18n-aria");
+    if (Object.prototype.hasOwnProperty.call(t, key)) el.setAttribute("aria-label", t[key]);
+  });
+}
+setLangComplete(document.documentElement.lang === "fa" ? "fa" : "en");
+const _langToggle = document.getElementById("langToggle");
+if (_langToggle && !_langToggle.dataset.completeBound) {
+  _langToggle.dataset.completeBound = "1";
+  _langToggle.addEventListener("click", () => setLangComplete(document.documentElement.lang === "en" ? "fa" : "en"));
+}
