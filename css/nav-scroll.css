@@ -1,7 +1,9 @@
-/* Scroll-driven compact navigation. */
+/* Full header scroll behavior.
+   The header is normal in document flow at the top.
+   js/header-scroll.js adds .nav-floating after the user scrolls.
+*/
 .nav {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: var(--z-sticky-nav);
 }
 
@@ -10,43 +12,35 @@
   padding-block: var(--space-sm);
 }
 
-@supports (animation-timeline: scroll()) {
-  .nav__inner {
-    animation: nav-compact 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 160px;
-  }
-
-  .nav {
-    animation: nav-surface 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 160px;
-  }
+.nav-placeholder {
+  width: 100%;
 }
 
-@keyframes nav-compact {
-  from {
-    min-height: 4rem;
-    padding-block: var(--space-sm);
-  }
-  to {
-    min-height: 2.75rem;
-    padding-block: 0;
-  }
+.nav-floating .nav {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  width: 100%;
+  z-index: var(--z-sticky-nav);
+  background: color-mix(in oklab, var(--color-paper) 94%, transparent);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
 }
 
-@keyframes nav-surface {
-  from {
-    background: color-mix(in oklab, var(--color-paper) 78%, transparent);
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  }
-  to {
-    background: color-mix(in oklab, var(--color-paper) 94%, transparent);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
-  }
+.nav-floating .nav__inner {
+  min-height: 4rem;
+  padding-block: var(--space-sm);
+}
+
+.nav-floating-enter {
+  animation: nav-drop-in 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes nav-drop-in {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nav,
-  .nav__inner { animation: none !important; }
+  .nav-floating-enter { animation: none !important; }
 }
