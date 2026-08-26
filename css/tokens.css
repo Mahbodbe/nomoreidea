@@ -1,14 +1,12 @@
-@import url("mobile-fixes.css");
-
 /* ──────────────────────────────────────────────────────────────
-   tokens.css — the portable design system for this site.
-   Theme: Cobalt Night (Modern-minimal · dev-tool register ·
-   deep navy-blue ground · electric cobalt signal accent).
-   Axes: paper-band = dark · display-style = grotesk-sans
-         accent-hue = cobalt (technical / API)
+   tokens.css — portable design system, multi-theme.
+   Default theme: Cobalt Night (deep navy ground · electric cobalt
+   signal). Alternates: Paper (light), CRT (phosphor), Ember (warm).
+   Every color a component uses flows through these custom props.
    ────────────────────────────────────────────────────────────── */
 
-:root {
+:root,
+[data-theme="cobalt"] {
   --color-paper:      oklch(16%   0.028 258);
   --color-paper-2:    oklch(19%   0.032 258);
   --color-paper-3:    oklch(23%   0.036 256);
@@ -31,9 +29,103 @@
   --color-band-ink-strong: oklch(97%   0.006 250);
   --color-footer-text: oklch(88%   0.012 250);
   --color-footer-link: oklch(93%   0.010 248);
+  --color-ok:       oklch(78% 0.16 155);
+  --color-glow:     oklch(70% 0.15 245 / 0.14);
+  --skeleton-a:     oklch(21% 0.03 257);
+  --skeleton-b:     oklch(27% 0.035 255);
+}
+
+[data-theme="paper"] {
+  --color-paper:      oklch(97%   0.006 260);
+  --color-paper-2:    oklch(94%   0.008 260);
+  --color-paper-3:    oklch(91%   0.010 258);
+  --color-rule:       oklch(86%   0.012 258);
+  --color-rule-2:     oklch(76%   0.016 258);
+  --color-muted:      oklch(46%   0.020 258);
+  --color-neutral:    oklch(34%   0.020 259);
+  --color-ink-2:      oklch(24%   0.022 260);
+  --color-ink:        oklch(17%   0.024 261);
+  --color-accent:        oklch(52% 0.19 253);
+  --color-accent-ink:    oklch(98% 0.006 260);
+  --color-accent-bright: oklch(45% 0.19 253);
+  --color-focus:         oklch(52% 0.19 253);
+  --color-graphite:      oklch(93% 0.010 259);
+  --color-band:            oklch(94%   0.008 260);
+  --color-band-rule:       oklch(80%   0.014 258);
+  --color-band-label:      oklch(48%   0.020 258);
+  --color-band-ink:        oklch(28%   0.022 260);
+  --color-band-ink-muted:  oklch(36%   0.020 259);
+  --color-band-ink-strong: oklch(18%   0.024 261);
+  --color-footer-text: oklch(30% 0.022 260);
+  --color-footer-link: oklch(22% 0.023 261);
+  --color-ok:       oklch(52% 0.15 155);
+  --color-glow:     oklch(52% 0.19 253 / 0.10);
+  --skeleton-a:     oklch(92% 0.008 260);
+  --skeleton-b:     oklch(87% 0.010 259);
+}
+
+[data-theme="crt"] {
+  --color-paper:      oklch(14%  0.02 160);
+  --color-paper-2:    oklch(17%  0.025 160);
+  --color-paper-3:    oklch(21%  0.03 162);
+  --color-rule:       oklch(30%  0.05 160);
+  --color-rule-2:     oklch(42%  0.08 158);
+  --color-muted:      oklch(70%  0.10 155);
+  --color-neutral:    oklch(80%  0.09 152);
+  --color-ink-2:      oklch(89%  0.10 150);
+  --color-ink:        oklch(95%  0.13 148);
+  --color-accent:        oklch(84% 0.20 150);
+  --color-accent-ink:    oklch(12% 0.02 160);
+  --color-accent-bright: oklch(90% 0.20 148);
+  --color-focus:         oklch(88% 0.20 148);
+  --color-graphite:      oklch(11% 0.018 162);
+  --color-band:            oklch(17% 0.025 160);
+  --color-band-rule:       oklch(32% 0.055 160);
+  --color-band-label:      oklch(66% 0.10 156);
+  --color-band-ink:        oklch(86% 0.09 152);
+  --color-band-ink-muted:  oklch(75% 0.09 154);
+  --color-band-ink-strong: oklch(96% 0.12 149);
+  --color-footer-text: oklch(87% 0.09 152);
+  --color-footer-link: oklch(92% 0.10 151);
+  --color-ok:       oklch(85% 0.19 150);
+  --color-glow:     oklch(84% 0.20 150 / 0.12);
+  --skeleton-a:     oklch(19% 0.025 160);
+  --skeleton-b:     oklch(25% 0.032 159);
+}
+
+[data-theme="ember"] {
+  --color-paper:      oklch(15%  0.022 40);
+  --color-paper-2:    oklch(18%  0.026 40);
+  --color-paper-3:    oklch(22%  0.030 38);
+  --color-rule:       oklch(30%  0.034 38);
+  --color-rule-2:     oklch(41%  0.044 36);
+  --color-muted:      oklch(70%  0.030 44);
+  --color-neutral:    oklch(79%  0.024 42);
+  --color-ink-2:      oklch(88%  0.016 40);
+  --color-ink:        oklch(96%  0.010 38);
+  --color-accent:        oklch(72% 0.17 42);
+  --color-accent-ink:    oklch(13% 0.020 40);
+  --color-accent-bright: oklch(79% 0.15 46);
+  --color-focus:         oklch(76% 0.16 42);
+  --color-graphite:      oklch(11% 0.020 42);
+  --color-band:            oklch(18% 0.028 40);
+  --color-band-rule:       oklch(32% 0.040 38);
+  --color-band-label:      oklch(67% 0.045 44);
+  --color-band-ink:        oklch(86% 0.014 42);
+  --color-band-ink-muted:  oklch(75% 0.022 44);
+  --color-band-ink-strong: oklch(97% 0.006 38);
+  --color-footer-text: oklch(88% 0.010 40);
+  --color-footer-link: oklch(93% 0.008 42);
+  --color-ok:       oklch(78% 0.16 155);
+  --color-glow:     oklch(72% 0.17 42 / 0.14);
+  --skeleton-a:     oklch(20% 0.026 40);
+  --skeleton-b:     oklch(27% 0.030 39);
+}
+
+:root {
   --font-display: "Space Grotesk", "Inter Tight", ui-sans-serif, system-ui, sans-serif;
   --font-body:    "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif:   "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-fa:      "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
   --font-label:   "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
   --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
   --display-weight: 500;
@@ -48,7 +140,6 @@
   --text-3xl:  3.0518rem;
   --text-display:   clamp(2.5rem, 6vw + 0.5rem, 4.5rem);
   --text-display-s: clamp(1.85rem, 3vw + 0.5rem, 2.75rem);
-  --text-numeral:   clamp(5rem, 15vw, 12rem);
   --tracking-display: -0.03em;
   --tracking-tight:   -0.015em;
   --tracking-label:    0.06em;

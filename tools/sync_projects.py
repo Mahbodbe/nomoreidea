@@ -1,0 +1,159 @@
+#!/usr/bin/env python3
+"""sync_projects.py — regenerate data/projects.json from the GitHub API.
+
+Reads every public repository of MAHBOD_USER, extracts a summary from the
+first meaningful paragraph of each repo's README, and writes a compact
+snapshot consumed by js/data.js on page load.
+
+Optional env:
+  GITHUB_TOKEN   a PAT (classic or fine-grained, public-repo read is enough)
+  MAHBOD_USER    override the username (default Mahbodbe)
+
+Run locally:
+  python tools/sync_projects.py
+The GitHub Action .github/workflows/sync-projects.yml runs this daily.
+"""
+from __future__ import annotations
+
+import base64
+import json
+import os
+import re
+import sys
+import time
+import urllib.request
+
+USER = os.environ.get("MAHBOD_USER", "Mahbodbe")
+API = f"https://api.github.com"
+TOKEN = os.environ.get("GITHUB_TOKEN", "").strip()
+OUT = os.path.join(os.path.dirname(__file__), "..", "data", "projects.json")
+
+SKIP_EXACT = {"nomoreidea"}  # the portfolio repo itself
+
+
+def gh(url: str) -> dict:
+    req = urllib.request.Request(url)
+    req.add_header("Accept", "application/vnd.github+json")
+    req.add_header("User-Agent", "nomoreidea-sync")
+    if TOKEN:
+        req.add_header("Authorization", f"Bearer {TOKEN}")
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return json.loads(r.read().decode("utf-8"))
+
+
+def readme_raw(full_name: str) -> str:
+    url = f"{API}/repos/{full_name}/readme"
+    req = urllib.request.Request(url)
+    req.add_header("Accept", "application/vnd.github.raw+json")
+    req.add_header("User-Agent", "nomoreidea-sync")
+    if TOKEN:
+        req.add_header("Authorization", f"Bearer {TOKEN}")
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return r.read().decode("utf-8", errors="replace")
+    except Exception as e:  # noqa: BLE001 - missing README is fine
+        print(f"  ! readme fetch failed for {full_name}: {e}", file=sys.stderr)
+        return ""
+
+
+BADGE_LINE = re.compile(
+    r"^(?:#|!\[|\[!|<|&lt;|\||\* \[|- \[|```|={3,}|-{3,})"
+)
+
+
+def excerpt_from_readme(md: str, limit: int = 300) -> str:
+    """First meaningful paragraph of a markdown file, cleaned to plain text."""
+    if not md:
+        return ""
+    buf: list[str] = []
+    for raw in md.replace("\r", "").split("\n"):
+        s = raw.strip()
+        if s.startswith(">"):  # unwrap blockquotes (skip GH alerts)
+            inner = s.lstrip("> ").strip()
+            if not inner or inner.startswith("[!"):
+                continue
+            s = inner
+        if not s:
+            if buf:
+                break
+            continue
+        if BADGE_LINE.match(s):
+            continue
+        if re.match(r"^\[[^\]]*\]\(https?://[^)]*\)$", s):  # lone link badge
+            continue
+        if re.match(r"^[A-Za-z ]+\s*\|\s*", s) and len(s) < 40:
+            continue  # "English | فارسی" language switch lines
+        if len(s) < 120 and re.search(r"\|", s) and re.search(r"read|english|فارسی|مطالعه|نسخه|language", s, re.I):
+            continue  # emoji language-switch banners
+        buf.append(s)
+        if sum(len(x) for x in buf) > limit + 80:
+            break
+    out = " ".join(buf)
+    out = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", out)
+    out = out.replace("![]", "")
+    out = re.sub(r"\*\*?([^*]+)\*\*?", r"\1", out)
+    out = re.sub(r"`([^`]+)`", r"\1", out)
+    out = re.sub(r"_{1,3}([^_]+)_{1,3}", r"\1", out)
+    out = re.sub(r"\s+", " ", out).strip()
+    if len(out) > limit:
+        out = out[: limit - 1].rsplit(" ", 1)[0] + "…"
+    return out
+
+
+def main() -> int:
+    repos: list[dict] = []
+    page = 1
+    while True:
+        batch = gh(f"{API}/users/{USER}/repos?per_page=100&page={page}&sort=pushed")
+        repos.extend(batch)
+        if len(batch) < 100:
+            break
+        page += 1
+
+    entries = []
+    for r in repos:
+        name = r["name"]
+        if name in SKIP_EXACT or r.get("fork"):
+            continue
+        print(f"· {name}")
+        md = readme_raw(r["full_name"])
+        entries.append({
+            "name": name,
+            "full_name": r["full_name"],
+            "url": r["html_url"],
+            "description": (r.get("description") or "").strip(),
+            "language": r.get("language"),
+            "stars": r.get("stargazers_count", 0),
+            "forks": r.get("forks_count", 0),
+            "topics": (r.get("topics") or [])[:6],
+            "pushed_at": r.get("pushed_at", ""),
+            "archived": bool(r.get("archived")),
+            "homepage": r.get("homepage") or "",
+            "excerpt": excerpt_from_readme(md),
+        })
+        time.sleep(0.15)  # be gentle without a token
+
+    pinned_order = ["smart-parking", "HammingProject", "Qt-Deep-Dive"]
+    rank = {n: i for i, n in enumerate(pinned_order)}
+    entries.sort(key=lambda e: e["pushed_at"] or "", reverse=True)
+    entries.sort(key=lambda e: rank.get(e["name"], 99))
+
+    snap = {
+        "_comment": "generated by tools/sync_projects.py — do not edit by hand",
+        "user": USER,
+        "syncedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "count": len(entries),
+        "repos": entries,
+    }
+
+    path = os.path.abspath(OUT)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(snap, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+    print(f"\nwrote {path}: {len(entries)} repos")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

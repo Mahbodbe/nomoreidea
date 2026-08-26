@@ -1,9 +1,11 @@
-/* ── i18n dictionary ──────────────────────────────────────────── */
+/* ── i18n dictionary v2 ──────────────────────────────────────── */
 const I18N = {
   en: {
     dir: "ltr", lang: "en",
     brand: "Mahbod BemaniCham",
-    nav_cta: "Contact",
+    nav_work: "Work", nav_stack: "Stack", nav_about: "About", nav_contact: "Contact",
+    switch_language: "Switch language", skip_to_index: "Skip to the index",
+    status_open: "Open to internships & collaborations",
     hero_title: 'electrical engineering, built with <em>precision</em>.',
     hero_lede: `Undergraduate at Amirkabir University of Technology (Tehran Polytechnic).
             I work at the seam where firmware meets hardware — ESP32 data acquisition,
@@ -11,80 +13,133 @@ const I18N = {
             for Electromagnetics and Digital Logic Design.`,
     meta_loc: "Tehran, Iran",
     meta_degree: "B.Sc. Electrical Engineering (Control Major · Electronics Minor)",
-    read_index: "Read the index",
-    work_title: "selected work",
-    work_note: `Every entry below is a repository you can open and read. No screenshots of
-          things that do not exist, no metrics I did not measure.`,
+    view_index: "Browse the live index",
+    count_repos: "Public repositories", count_stars: "Stars earned",
+    count_followers: "Followers", count_since: "On GitHub since",
+    work_title: "the index",
+    work_note: `Every entry below is a repository you can open and read. This section is
+          wired directly to GitHub — when a new repository appears, its card is generated
+          automatically from the top of its README.`,
+    badge_syncing: "syncing…", badge_live: "live · github api", badge_offline: "snapshot mode",
+    search_ph: "Filter repositories…", sort_label: "sort",
+    sort_pushed: "Recently pushed", sort_stars: "Most starred", sort_name: "Name A→Z",
+    chip_all: "all",
+    loading_msg: "syncing repositories from GitHub…",
+    empty_msg: "no repositories match this filter.",
+    err_msg: "github unreachable — showing last synced snapshot.",
+    flag_new: "new",
+    rel_updated: "updated",
+    sync_pending: "snapshot pending first sync",
+    sync_note_fmt: "auto-synced from GitHub · {d}",
+    copy_email: "copy", copied_email: "email copied ✓",
+    footer_text: "Mahbod BemaniCham — Electrical Engineering (Control major, Electronics minor), Amirkabir University of Technology (Tehran Polytechnic), Tehran. 2026.",
+    footer_hint: "press ? for shortcuts · ~ for terminal",
+    back_to_top: "Back to top",
+
     plate_label: "Live Environment",
     plate_claim: 'I would rather build the thing than <em>write</em> about building it.',
     studying: "Studying",
+    studying_value: "B.Sc. Electrical Engineering (Control Major · Electronics Minor), Amirkabir University of Technology (Tehran Polytechnic)",
     ta: "Teaching assistant",
+    ta_value: "Electromagnetics (Dr. Askarpour) and Digital Logic Design (Dr. Pourfard), separate semesters",
     focus: "Focus",
+    focus_value: "Embedded data acquisition, VHDL on FPGA, Qt desktop applications, Django web services",
+
     tools_title: "what i actually use",
     tools_note: `Grouped by where it sits in a build, not by how confident it sounds.
           Anything I have only read about is not on this list.`,
-    webdesigns_title: "web designs",
-    webdesigns_note: `Selected web interfaces and storefront systems I have engineered. Links are
-           active templates; I will wire their full production destinations soon.`,
+    tools_caption: "Working tool set", tools_layer: "Layer", tools_tools: "Tools", tools_used: "Used in",
+    tool_silicon: "Silicon", tool_silicon_used: "Parking DAQ, door lock, Hamming",
+    tool_hdl: "Hardware description", tool_hdl_used: "Packet processor, logic lab",
+    tool_firmware: "Firmware", tool_firmware_used: "All embedded builds",
+    tool_application: "Application", tool_application_used: "Qt Deep Dive, web services",
+    tool_data: "Data", tool_data_used: "Parking telemetry, shop backend",
+    tool_bench: "Bench", tool_bench_used: "Every project above",
+
     about_title: "about",
-    internships_title: "internships & active research",
-    contact_title: "get in touch",
-  
-  p1_title: "Smart Parking DAQ System &amp; IoT Control",
-  p1_desc: `End-to-end data-acquisition and control system for a multi-storey car park: RFID and ANPR two-factor vehicle authentication, ultrasonic and Hall-effect cross-verified occupancy sensing, PID-driven servo barrier with an active IR break-beam anti-pinch trigger, and live telemetry to a web dashboard and a Telegram bot. Instrumentation and Measurement course project, built with Erfan Ashkesh and Mani Mohammadi.`,
-  p1_side: "Team of three · AUT",
-  p2_title: "Hardware Packet Processor with Hamming ECC",
-  p2_desc: `A modular RTL packet engine: SIPO/PISO serialisation layers, an ALU execution core, an 8×32 RAM block, and a finite-state control unit, wrapped in a Hamming encoder/decoder that flags, isolates and repairs single-bit inversions in transit. Digital design and control-unit architecture were my half; verification and the ECC pipeline were Parsa Bishe's.`,
-  p2_side: "Two authors · digital design lead",
-  p3_title: "Learning Qt",
-  p3_desc: `The foundational groundwork before entering production-grade system designs. Focuses on learning Qt core layouts, widgets, signals and slots, custom dialog interactions, and compiles a complete, fully functional bilingual task manager (ToDo) with a custom, handcrafted Cyber Dark QSS stylesheet, as well as multi-document word processors and data managers. Exercises worked from <em>Getting Started with Qt 5</em>.`,
-  p3_side: "Bilingual documentation · Foundation",
-  p4_title: "Qt Deep Dive",
-  p4_desc: `A fourteen-chapter engineering log through modern Qt desktop architecture, rebuilt rather than transcribed.
-              <strong>Chapter 1 (ToDo)</strong> — a component-driven task manager running on pointer-to-member signals with lambda event capture;
-              <strong>Chapter 2 (SysInfo)</strong> — a cross-platform hardware monitor reading
-              <code class="mono">/proc/stat</code>, <code class="mono">GetSystemTimes</code>, and Mach host statistics behind a unified polymorphic singleton with live Qt Charts visualizations;
-              <strong>Chapter 3 (gallery-core)</strong> — a modular database-driven shared library containing domain models, a secure Meyers-singleton DatabaseManager, and thread-safe Model/View adapters.`,
-  p4_side: "In progress · 3 of 14 chapters · Dual-Screenshot",
-  p5_title: "Smart Door Lock System",
-  p5_desc: `An access-control build assembled module by module rather than all at once: MFRC522 RFID read/write and card identification, PIR presence detection at the door, an optical break-beam barrier for entry and exit tracking, and relay-switched electric lock actuation. Each module has its own test phase in the repository before integration.`,
-  p5_side: "Phased hardware build",
-  w1_title: "Mahgol Resin E-Commerce Storefront",
-  w1_desc: `A high-performance production e-commerce engine integrated with an active Telegram notification bot for seamless purchase workflows. Features a royal purple and gold theme customized to match the brand's exact design palette, asynchronous order dispatching with Celery, and real-time database-driven product inventory management.`,
-  w1_side: "Production-grade storefront · Template active",
-  w2_title: "Minimalist Portfolio &amp; Project Index",
-  w2_desc: `A pristine, high-contrast digital index engineered with pure CSS custom properties, flexible responsive column-collapsing, and verified with zero-issue CDP automation. Optimized to serve as a fast-loading central portal for engineering logs, academic coursework, and live software demos.`,
-  w2_side: "Custom UI template · Ready to route",
-  about_p1: `I am an electrical engineering undergraduate at Amirkabir University of
+    about_p1: `I am an electrical engineering undergraduate at Amirkabir University of
             Technology. Most of what I know came from projects that did not work the
             first time — a servo that jittered until the PWM channel was right, a
             decoder that passed simulation and failed on the board, a Django worker
             that died quietly every night at three.`,
-  about_p2: `I prefer hardware you can touch and courses you can teach. Two semesters
+    about_p2: `I prefer hardware you can touch and courses you can teach. Two semesters
             as an undergraduate teaching assistant — Electromagnetics with
             Dr. Askarpour, Digital Logic Design with Dr. Pourfard — taught me that
             explaining a concept twice is the fastest way to find the hole in your own
             understanding of it. My academic path is anchored on a <strong>Control Systems</strong>
             major, actively reinforced with an <strong>Electronics</strong> minor.`,
-  about_p3: `This page is an index, not a pitch. If something here is relevant to you,
+    about_p3: `This page is an index, not a pitch. If something here is relevant to you,
             the repository is one click away and the commit history is honest about
             how long it took.`,
-  int_p1: `<strong>SCADA Security &amp; Substation Automation (Modje Niroo Internship):</strong><br />
+
+    internships_title: "internships & active research",
+    int_p1: `<strong>SCADA Security &amp; Substation Automation (Modje Niroo Internship):</strong><br />
             I am currently passing an engineering internship at <strong>Modje Niroo</strong>,
             actively analyzing, studying, and documenting conventional substations, DCS
             (Distributed Control Systems), and national SCADA telemetry layouts in Iran's power grid.`,
-  int_p2: `My current research focuses on the <strong>IEC 61850</strong>, <strong>DNP3</strong>,
+    int_p2: `My current research focuses on the <strong>IEC 61850</strong>, <strong>DNP3</strong>,
             <strong>IEC 60870-5-104</strong>, and <strong>Modbus</strong> protocol chains. Specifically,
             I am compiling detailed technical logs on GOOSE message retransmission latency under heavy
             traffic spikes, RTU marshalling logic, FEP gateway mapping, and compiling risk matrices
             for potential cybersecurity threat vectors on industrial dispatching.`,
 
-  contact_note: "Telegram is checked daily. Drop a direct message there."
+    webdesigns_title: "web designs",
+    webdesigns_note: `Selected web interfaces and storefront systems I have engineered. Links are
+           active templates; I will wire their full production destinations soon.`,
+    w1_title: "Mahgol Resin E-Commerce Storefront",
+    w1_desc: `A high-performance production e-commerce engine integrated with an active Telegram notification bot for seamless purchase workflows. Features a royal purple and gold theme customized to match the brand's exact design palette, asynchronous order dispatching with Celery, and real-time database-driven product inventory management.`,
+    w1_side: "Production-grade storefront · Template active",
+    w2_title: "Minimalist Portfolio &amp; Project Index",
+    w2_desc: `A pristine, high-contrast digital index engineered with pure CSS custom properties, flexible responsive column-collapsing, and verified with zero-issue CDP automation. Optimized to serve as a fast-loading central portal for engineering logs, academic coursework, and live software demos.`,
+    w2_side: "Custom UI template · Ready to route",
+
+    contact_title: "get in touch",
+    contact_note: "Telegram is checked daily. Drop a direct message there.",
+    contact_telegram: "Telegram", contact_dm: "(DMs are open — fast response)",
+    contact_github: "GitHub", contact_linkedin: "LinkedIn", contact_email: "Email",
+
+    pal_ph: "Type a command or search…",
+    grp_navigate: "navigate", grp_projects: "repositories", grp_theme: "theme",
+    grp_language: "language", grp_links: "links", grp_actions: "actions",
+    act_open_term: "Open terminal", act_shortcuts: "Keyboard shortcuts",
+    act_copy_email: "Copy email address",
+
+    sc_title: "keyboard shortcuts",
+    sc_palette: "Open command palette", sc_search: "Focus repository filter",
+    sc_theme: "Cycle color theme", sc_lang: "Toggle EN / فارسی",
+    sc_term: "Toggle terminal", sc_help: "This dialog", sc_esc: "Close overlays",
+    sc_close: "close",
+
+    toast_theme: "theme → {v}", toast_lang: "language → {v}",
+    toast_hack: "HACK MODE engaged. konami respected.",
+    term_welcome: [
+      'mahbod-os v2 — interactive shell',
+      'type "help" for commands.'
+    ],
+    term_help_rows: [
+      "help              this list",
+      "whoami            who is behind this site",
+      "ls                list repositories",
+      "cat <repo>        print a repo's readme summary",
+      "open <repo>       open repo on github",
+      "stats             live github numbers",
+      "theme [name]      cobalt | paper | crt | ember",
+      "lang [en|fa]      switch language",
+      "goto <section>    scroll to work|stack|about|contact",
+      "contact           ways to reach me",
+      "clear             clear the screen",
+      "exit              close terminal"
+    ],
+    term_unknown: "command not found: {v} — try \"help\"",
+    term_bye: "bye."
   },
+
   fa: {
     dir: "rtl", lang: "fa",
     brand: "مهبد بمانی‌چم",
-    nav_cta: "تماس",
+    nav_work: "نمونه‌کارها", nav_stack: "ابزارها", nav_about: "درباره", nav_contact: "تماس",
+    switch_language: "تغییر زبان", skip_to_index: "رفتن به فهرست",
+    status_open: "آمادهٔ کارآموزی و همکاری",
     hero_title: 'مهندسی برق، ساخته‌شده با <em>دقت</em>.',
     hero_lede: `دانشجوی کارشناسی دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران).
             من در مرزِ اتصال فریم‌ور به سخت‌افزار کار می‌کنم — جمع‌آوری داده با ESP32،
@@ -92,225 +147,156 @@ const I18N = {
             دستیار آموزشی درس الکترومغناطیس و مدارهای منطقی بوده‌ام.`,
     meta_loc: "تهران، ایران",
     meta_degree: "کارشناسی مهندسی برق (گرایش کنترل · ماینور الکترونیک)",
-    read_index: "مشاهده فهرست",
-    work_title: "نمونه‌کارهای منتخب",
-    work_note: `هر مورد در این فهرست یک مخزن است که می‌توانید بازش کنید و بخوانید. نه اسکرین‌شات از چیزهایی که وجود ندارند، نه آماری که اندازه نگرفته‌ام.`,
+    view_index: "مشاهدهٔ فهرست زنده",
+    count_repos: "مخزن عمومی", count_stars: "ستاره‌های دریافتی",
+    count_followers: "دنبال‌کننده", count_since: "عضو گیت‌هاب از",
+    work_title: "فهرست پروژه‌ها",
+    work_note: `هر مورد در این فهرست یک مخزن است که می‌توانید بازش کنید و بخوانید. این بخش مستقیماً به گیت‌هاب وصله — هر ریپوی جدیدی اضافه شود، کارتش به‌صورت خودکار از ابتدای README همان ریپو ساخته می‌شود.`,
+    badge_syncing: "در حال همگام‌سازی…", badge_live: "زنده · گیت‌هاب", badge_offline: "حالت اسنپ‌شات",
+    search_ph: "فیلتر مخزن‌ها…", sort_label: "ترتیب",
+    sort_pushed: "جدیدترین پوش", sort_stars: "بیشترین ستاره", sort_name: "نام الفبا",
+    chip_all: "همه",
+    loading_msg: "در حال دریافت مخزن‌ها از گیت‌هاب…",
+    empty_msg: "هیچ مخزنی با این فیلتر پیدا نشد.",
+    err_msg: "دسترسی به گیت‌هاب ممکن نشد — آخرین اسنپ‌شات نمایش داده می‌شود.",
+    flag_new: "جدید",
+    rel_updated: "به‌روزرسانی",
+    sync_pending: "اسنپ‌شات منتظر اولین همگام‌سازی",
+    sync_note_fmt: "همگام‌سازی خودکار از گیت‌هاب · {d}",
+    copy_email: "کپی", copied_email: "ایمیل کپی شد ✓",
+    footer_text: "مهبد بمانی‌چم — مهندسی برق (گرایش کنترل، حوزه تخصصی الکترونیک)، دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران)، تهران. ۱۴۰۵.",
+    footer_hint: "کلید ؟ برای میانبرها · ~ برای ترمینال",
+    back_to_top: "بازگشت به بالا",
+
     plate_label: "وضعیت فعلی",
     plate_claim: 'ترجیح می‌دهم چیزی را <em>بسازم</em> تا اینکه دربارهٔ ساختنش بنویسم.',
-    studying: "در حال تحصیل",
+    studying: "تحصیل",
+    studying_value: "کارشناسی مهندسی برق، گرایش کنترل، دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران)",
     ta: "دستیار آموزشی",
-    focus: "تمرکز",
+    ta_value: "الکترومغناطیس با دکتر عسکرپور و مدارهای منطقی با دکتر پوردرد، در دو نیم‌سال جداگانه",
+    focus: "حوزه تمرکز",
+    focus_value: "جمع‌آوری داده و سیستم‌های نهفته، VHDL و FPGA، اپلیکیشن‌های دسکتاپ Qt و سرویس‌های وب جنگو",
+
     tools_title: "ابزارهایی که واقعاً استفاده می‌کنم",
     tools_note: `بر اساس جایگاهشان در پروژه دسته‌بندی شده‌اند، نه بر اساس جذاب بودن نامشان.
           هر چیزی که فقط درباره‌اش خوانده باشم، اینجا نیست.`,
-    webdesigns_title: "طراحی وب",
-    webdesigns_note: `رابط‌ها و فروشگاه‌هایی که طراحی و پیاده کرده‌ام. لینک‌ها فعال هستند؛ مقصدهای نهایی را به‌زودی متصل می‌کنم.`,
+    tools_caption: "مجموعه ابزارهای مورد استفاده", tools_layer: "لایه", tools_tools: "ابزارها", tools_used: "کاربرد",
+    tool_silicon: "سخت‌افزار", tool_silicon_used: "پارکینگ هوشمند، قفل درب، همینگ",
+    tool_hdl: "توصیف سخت‌افزار", tool_hdl_used: "پردازنده بسته، آزمایشگاه مدار منطقی",
+    tool_firmware: "فریم‌ور", tool_firmware_used: "تمام پروژه‌های نهفته",
+    tool_application: "نرم‌افزار کاربردی", tool_application_used: "Qt Deep Dive، سرویس‌های وب",
+    tool_data: "داده و زیرساخت", tool_data_used: "تله‌متری پارکینگ، بک‌اند فروشگاه",
+    tool_bench: "ابزار آزمایش و توسعه", tool_bench_used: "تمام پروژه‌های بالا",
+
     about_title: "درباره من",
+    about_p1: `من دانشجوی کارشناسی مهندسی برق دانشگاه صنعتی امیرکبیر هستم. بیشتر چیزهایی که یاد گرفته‌ام از پروژه‌هایی آمده که بار اول درست کار نکرده‌اند؛ از یک سروو که تا تنظیم درست PWM مدام می‌لرزد، تا دیکدری که در شبیه‌سازی سالم بود اما روی برد شکست می‌خورد، و حتی یک ورکر جنگو که هر شب بی‌سروصدا از کار می‌افتاد.`,
+    about_p2: "من سخت‌افزاری را دوست دارم که بتوانم نتیجه‌اش را از نزدیک ببینم و درسی را که بتوانم آموزش بدهم. دو نیم‌سال دستیاری آموزشی در درس‌های الکترومغناطیس با دکتر عسکرپور و مدارهای منطقی با دکتر پوردرد به من یاد داد که وقتی چیزی را برای دیگری توضیح می‌دهی، خیلی زود متوجه می‌شوی کجای فهم خودت هنوز جای کار دارد. مسیر تحصیلی من روی گرایش <strong>کنترل</strong> است و در کنار آن، حوزه <strong>الکترونیک</strong> را هم جدی دنبال می‌کنم.",
+    about_p3: "این صفحه قرار نیست یک تبلیغ اغراق‌آمیز از من باشد؛ یک فهرست واقعی از چیزهایی است که ساخته‌ام و رویشان کار کرده‌ام. اگر پروژه‌ای برایتان جالب بود، مخزن آن یک کلیک فاصله دارد و تاریخچهٔ تغییراتش هم روند واقعی کار را نشان می‌دهد.",
+
     internships_title: "کارآموزی و پژوهش فعال",
+    int_p1: "<strong>امنیت SCADA و اتوماسیون پست برق — کارآموزی موج نیرو:</strong><br />در حال گذراندن کارآموزی مهندسی در <strong>موج نیرو</strong> هستم و روی مطالعه، تحلیل و مستندسازی پست‌های متعارف، سیستم‌های DCS و معماری تله‌متری SCADA در شبکه برق ایران کار می‌کنم.",
+    int_p2: "تمرکز پژوهشی فعلی من روی زنجیره پروتکل‌های <strong>IEC 61850</strong>، <strong>DNP3</strong>، <strong>IEC 60870-5-104</strong> و <strong>Modbus</strong> است. در این مسیر، روی مستندسازی تأخیر ارسال مجدد پیام‌های GOOSE در ترافیک سنگین، منطق مارشالینگ RTU، نگاشت گیت‌وی FEP و تهیهٔ ماتریس ریسک برای تهدیدهای سایبری سامانه‌های دیسپاچینگ صنعتی کار می‌کنم.",
+
+    webdesigns_title: "طراحی وب",
+    webdesigns_note: "چند رابط وب و فروشگاه که طراحی و پیاده‌سازی کرده‌ام. این موارد فعلاً به‌صورت قالب‌های فعال نمایش داده می‌شوند و مقصد نهایی پروژه‌ها به‌مرور متصل خواهد شد.",
+    w1_title: "فروشگاه آنلاین مهگل رزین",
+    w1_desc: `موتور فروشگاهی تولیدی پرسرعت با اتصال مستقیم به ربات تلگرام برای گردش خرید بدون درز. تم بنفش سلطنتی و طلایی دقیقاً مطابق پالت برند، ارسال سفارش ناهمگام با Celery، و مدیریت موجودی لحظه‌ای دیتابیس‌محور.`,
+    w1_side: "فروشگاه تولیدی · قالب فعال",
+    w2_title: "پورتفولیوی مینیمال و ایندکس پروژه",
+    w2_desc: `ایندکس دیجیتال پرکنتراست ساخته‌شده با متغیرهای CSS خالص، فروپاشی ستون ریسپانسیو، و راستی‌آزمایی صفر-خطا با اتوماسیون CDP. بهینه برای پرتال مرکزیِ لاگ‌های مهندسی، coursework دانشگاهی و دموهای نرم‌افزار.`,
+    w2_side: "قالب UI اختصاصی · آماده اتصال",
+
     contact_title: "ارتباط با من",
-  
-  p1_title: "سیستم جمع‌آوری داده پارکینگ هوشمند و کنترل IoT",
-  p1_desc: `سیستم جامع جمع‌آوری داده و کنترل برای یک پارکینگ چندطبقه: احراز هویت دومرحله‌ای خودرو با RFID و پلاک‌خوانی (ANPR)، سنسورهای اشغال‌سنج اولتراسونیک و اثر هال با راستی‌آزمایی متقاطع، بازوی باریر سروو با کنترل PID و تریگر ایمنی ضدِ‌گیرش مادون قرمز، و تله‌متری زنده روی داشبورد وب و ربات تلگرام. پروژه درس ابزار اندازه‌گیری، ساخته‌شده با عرفان آشکش و مانی محمدی.`,
-  p1_side: "تیم سه‌نفره · امیرکبیر",
+    contact_note: "تلگرام را روزانه چک می‌کنم؛ همان‌جا پیام بدهید.",
+    contact_telegram: "تلگرام", contact_dm: "(پیام مستقیم باز است و معمولاً سریع پاسخ می‌دهم)",
+    contact_github: "گیت‌هاب", contact_linkedin: "لینکدین", contact_email: "ایمیل",
 
-  p2_title: "پردازنده سخت‌افزاری بسته با تصحیح خطای همینگ",
-  p2_desc: `موتور بستهٔ RTL ماژولار: لایه‌های سریال‌سازی SIPO/PISO، هسته اجرایی ALU، بلوک RAM ۸×۳۲، و یونیت کنترل حالت-محدود، همه در قالب انکودر/دیکودر همینگ که خطاهای تک‌بیتی حین انتقال را علامت‌گذاری، ایزوله و ترمیم می‌کند. طراحی دیجیتال و معماری یونیت کنترل سهم من بود؛ وریفیکیشن و پایپ‌لاین ECC کار پارسا بیشه.`,
-  p2_side: "دو نویسنده · سرپرست طراحی دیجیتال",
+    pal_ph: "یک فرمان بنویسید یا جستجو کنید…",
+    grp_navigate: "ناوبری", grp_projects: "مخزن‌ها", grp_theme: "پوسته",
+    grp_language: "زبان", grp_links: "پیوندها", grp_actions: "کنش‌ها",
+    act_open_term: "باز کردن ترمینال", act_shortcuts: "میانبرهای صفحه‌کلید",
+    act_copy_email: "کپی نشانی ایمیل",
 
-  p3_title: "یادگیری Qt",
-  p3_desc: `زمین بازی قبل از ورود به طراحی‌های تولیدی: چیدمان ویجت‌ها، سیگنال و اسلات، تعامل دیالوگ‌ها، و ساخت یک تسک‌منیجر دوزبانه کامل با استایل دست‌ساز Cyber Dark QSS، به‌همراه پردازنده‌های چندسندی و مدیریت داده. تمرین‌ها از کتاب <em>Getting Started with Qt 5</em> کار شده‌اند.`,
-  p3_side: "داکیومنت دوزبانه · پایه",
+    sc_title: "میانبرهای صفحه‌کلید",
+    sc_palette: "باز کردن کامند پالت", sc_search: "فوکوس روی فیلتر مخزن‌ها",
+    sc_theme: "چرخش پوستهٔ رنگی", sc_lang: "تغییر EN / فارسی",
+    sc_term: "باز/بستن ترمینال", sc_help: "این پنجره", sc_esc: "بستن پنجره‌ها",
+    sc_close: "بستن",
 
-  p4_title: "Qt Deep Dive",
-  p4_desc: `لاگ مهندسی چهارده‌فصلی معماری مدرن دسکتاپ کیوت — بازسازی از صفر نه رونویسی.
-              <strong>فصل ۱ (ToDo)</strong> — تسک‌منیجر کامپوننت‌محور روی سیگنال‌های اشاره‌گر-به-عضو با کپچر لامبدا؛
-              <strong>فصل ۲ (SysInfo)</strong> — مانیتور سخت‌افزار چندسکویی خواندن
-              <code class="mono">/proc/stat</code> و <code class="mono">GetSystemTimes</code> و آمار هاست Mach پشت یک سینگلتون چندریختی با نمودارهای زندهٔ Qt Charts؛
-              <strong>فصل ۳ (gallery-core)</strong> — کتابخانهٔ اشتراکی دیتابیس‌محور شامل مدل‌های دامنه، DatabaseManager سینگلتون امن، و آداپتورهای Model/View ترید-سیف.`,
-  p4_side: "در حال انجام · ۳ از ۱۴ فصل · دو اسکرین‌شات",
-
-  p5_title: "قفل درب هوشمند",
-  p5_desc: `ساخت سیستم کنترل دسترسی ماژولار — نه همه با هم: خواندن/نوشتن و شناسایی کارت MFRC522 RFID، تشخیص حضور PIR پشت در، بریک‌بین نوری برای شمارش ورود/خروج، و فعال‌سازی قفل برقی با رله. هر ماژول فاز تست مستقل خودش را در مخزن دارد، قبل از یکپارچه‌سازی.`,
-  p5_side: "ساخت سخت‌افزار مرحله‌ای",
-
-  w1_title: "فروشگاه آنلاین مهگل رزین",
-  w1_desc: `موتور فروشگاهی تولیدی پرسرعت با اتصال مستقیم به ربات تلگرام برای گردش خرید بدون درز. تم بنفش سلطنتی و طلایی دقیقاً مطابق پالت برند، ارسال سفارش ناهمگام با Celery، و مدیریت موجودی لحظه‌ای دیتابیس‌محور.`,
-  w1_side: "فروشگاه تولیدی · قالب فعال",
-
-  w2_title: "پورتفولیوی مینیمال و ایندکس پروژه",
-  w2_desc: `ایندکس دیجیتال پرکنتراست ساخته‌شده با متغیرهای CSS خالص، فروپاشی ستون ریسپانسیو، و راستی‌آزمایی صفر-خطا با اتوماسیون CDP. بهینه برای پرتال مرکزیِ لاگ‌های مهندسی، coursework دانشگاهی و دموهای نرم‌افزار.`,
-  w2_side: "قالب UI اختصاصی · آماده اتصال",
-
-  tools_note: `بر اساس جایگاهشان در پروژه دسته‌بندی شده‌اند، نه بر اساس جذاب بودن نامشان.
-          هر چیزی که فقط درباره‌اش خوانده باشم، اینجا نیست.`,
-
-  about_p1: `من دانشجوی کارشناسی مهندسی برق دانشگاه صنعتی امیرکبیر هستم. بیشتر چیزهایی که می‌دانم از پروژه‌هایی آمده که بار اول جواب ندادند — سروویی که تا کانال PWM درست نشده بود می‌لرزید، دیکدری که در شبیه‌سازی پاس می‌شد و روی برد خراب می‌کرد، و ورکر جنگویی که هر شب ساعت سه بی‌صدا می‌مرد.`,
-  about_p2: `سخت‌افزاری را ترجیح می‌دهم که لمسش کنی و درسی را که بتوانی تدریسش کنی. دو نیم‌سال دستیاری آموزشی — الکترومغناطیس با دکتر عسکرپور و مدارهای منطقی با دکتر پوردرد — یادم داد که توضیح‌دادنِ دوبارهٔ یک مفهوم، سریع‌ترین راه پیدا کردن حفرهٔ فهم خودت است. مسیر تحصیلی‌ام روی گرایش <strong>کنترل</strong> سوار است و با <strong>ماینور الکترونیک</strong> تقویت شده.`,
-  about_p3: `این صفحه یک ایندکس است، نه یک پچ‌پچ. اگر چیزی از این‌ها برایتان مهم بود، ریپو یک کلیک فاصله دارد و تاریخچهٔ کامیت‌ها دربارهٔ زمان واقعیِ ساخت صادق است.`,
-
-  int_p1: `<strong>امنیت SCADA و اتوماسیون پست فشارقوی (کارآموزی موج نیرو):</strong><br />
-            در حال گذراندن کارآموزی مهندسی در <strong>موج نیرو</strong> هستم؛ تحلیل، مطالعه و مستندسازی پست‌های متعارف، سیستم‌های DCS (کنترل توزیع‌شده) و چیدمان تله‌متری SCADA ملی شبکه برق ایران.`,
-  int_p2: `پژوهش فعلی‌ام روی زنجیره پروتکل‌های <strong>IEC 61850</strong>، <strong>DNP3</strong>،
-            <strong>IEC 60870-5-104</strong> و <strong>Modbus</strong> است. مشخصاً روی تدوین لاگ‌های فنی تأخیر ارسال مجدد GOOSE زیر ترافیک سنگین، منطق مارشالینگ RTU، نگاشت گیت‌وی FEP و تهیه ماتریس ریسک برای بردارهای تهدید سایبری روی دیسپاچینگ صنعتی کار می‌کنم.`,
-  p1_title: "سیستم جمع‌آوری داده پارکینگ هوشمند و کنترل IoT",
-  p1_desc: `سیستم جامع جمع‌آوری داده و کنترل برای یک پارکینگ چندطبقه: احراز هویت دومرحله‌ای خودرو با RFID و پلاک‌خوانی (ANPR)، سنسورهای اشغال‌سنج اولتراسونیک و اثر هال با راستی‌آزمایی متقاطع، بازوی باریر سروو با کنترل PID و تریگر ایمنی ضدِ‌گیرش مادون قرمز، و تله‌متری زنده روی داشبورد وب و ربات تلگرام. پروژه درس ابزار اندازه‌گیری، ساخته‌شده با عرفان آشکش و مانی محمدی.`,
-  p1_side: "تیم سه‌نفره · امیرکبیر",
-
-  p2_title: "پردازنده سخت‌افزاری بسته با تصحیح خطای همینگ",
-  p2_desc: `موتور بستهٔ RTL ماژولار: لایه‌های سریال‌سازی SIPO/PISO، هسته اجرایی ALU، بلوک RAM ۸×۳۲، و یونیت کنترل حالت-محدود، همه در قالب انکودر/دیکودر همینگ که خطاهای تک‌بیتی حین انتقال را علامت‌گذاری، ایزوله و ترمیم می‌کند. طراحی دیجیتال و معماری یونیت کنترل سهم من بود؛ وریفیکیشن و پایپ‌لاین ECC کار پارسا بیشه.`,
-  p2_side: "دو نویسنده · سرپرست طراحی دیجیتال",
-
-  p3_title: "یادگیری Qt",
-  p3_desc: `زمین بازی قبل از ورود به طراحی‌های تولیدی: چیدمان ویجت‌ها، سیگنال و اسلات، تعامل دیالوگ‌ها، و ساخت یک تسک‌منیجر دوزبانه کامل با استایل دست‌ساز Cyber Dark QSS، به‌همراه پردازنده‌های چندسندی و مدیریت داده. تمرین‌ها از کتاب <em>Getting Started with Qt 5</em> کار شده‌اند.`,
-  p3_side: "داکیومنت دوزبانه · پایه",
-
-  p4_title: "Qt Deep Dive",
-  p4_desc: `لاگ مهندسی چهارده‌فصلی معماری مدرن دسکتاپ کیوت — بازسازی از صفر نه رونویسی.
-              <strong>فصل ۱ (ToDo)</strong> — تسک‌منیجر کامپوننت‌محور روی سیگنال‌های اشاره‌گر-به-عضو با کپچر لامبدا؛
-              <strong>فصل ۲ (SysInfo)</strong> — مانیتور سخت‌افزار چندسکویی خواندن
-              <code class="mono">/proc/stat</code> و <code class="mono">GetSystemTimes</code> و آمار هاست Mach پشت یک سینگلتون چندریختی با نمودارهای زندهٔ Qt Charts؛
-              <strong>فصل ۳ (gallery-core)</strong> — کتابخانهٔ اشتراکی دیتابیس‌محور شامل مدل‌های دامنه، DatabaseManager سینگلتون امن، و آداپتورهای Model/View ترید-سیف.`,
-  p4_side: "در حال انجام · ۳ از ۱۴ فصل · دو اسکرین‌شات",
-
-  p5_title: "قفل درب هوشمند",
-  p5_desc: `ساخت سیستم کنترل دسترسی ماژولار — نه همه با هم: خواندن/نوشتن و شناسایی کارت MFRC522 RFID، تشخیص حضور PIR پشت در، بریک‌بین نوری برای شمارش ورود/خروج، و فعال‌سازی قفل برقی با رله. هر ماژول فاز تست مستقل خودش را در مخزن دارد، قبل از یکپارچه‌سازی.`,
-  p5_side: "ساخت سخت‌افزار مرحله‌ای",
-
-  w1_title: "فروشگاه آنلاین مهگل رزین",
-  w1_desc: `موتور فروشگاهی تولیدی پرسرعت با اتصال مستقیم به ربات تلگرام برای گردش خرید بدون درز. تم بنفش سلطنتی و طلایی دقیقاً مطابق پالت برند، ارسال سفارش ناهمگام با Celery، و مدیریت موجودی لحظه‌ای دیتابیس‌محور.`,
-  w1_side: "فروشگاه تولیدی · قالب فعال",
-
-  w2_title: "پورتفولیوی مینیمال و ایندکس پروژه",
-  w2_desc: `ایندکس دیجیتال پرکنتراست ساخته‌شده با متغیرهای CSS خالص، فروپاشی ستون ریسپانسیو، و راستی‌آزمایی صفر-خطا با اتوماسیون CDP. بهینه برای پرتال مرکزیِ لاگ‌های مهندسی، coursework دانشگاهی و دموهای نرم‌افزار.`,
-  w2_side: "قالب UI اختصاصی · آماده اتصال",
-
-  tools_note: `بر اساس جایگاهشان در پروژه دسته‌بندی شده‌اند، نه بر اساس جذاب بودن نامشان.
-          هر چیزی که فقط درباره‌اش خوانده باشم، اینجا نیست.`,
-
-  about_p1: `من دانشجوی کارشناسی مهندسی برق دانشگاه صنعتی امیرکبیر هستم. بیشتر چیزهایی که می‌دانم از پروژه‌هایی آمده که بار اول جواب ندادند — سروویی که تا کانال PWM درست نشده بود می‌لرزید، دیکدری که در شبیه‌سازی پاس می‌شد و روی برد خراب می‌کرد، و ورکر جنگویی که هر شب ساعت سه بی‌صدا می‌مرد.`,
-  about_p2: `سخت‌افزاری را ترجیح می‌دهم که لمسش کنی و درسی را که بتوانی تدریسش کنی. دو نیم‌سال دستیاری آموزشی — الکترومغناطیس با دکتر عسکرپور و مدارهای منطقی با دکتر پوردرد — یادم داد که توضیح‌دادنِ دوبارهٔ یک مفهوم، سریع‌ترین راه پیدا کردن حفرهٔ فهم خودت است. مسیر تحصیلی‌ام روی گرایش <strong>کنترل</strong> سوار است و با <strong>ماینور الکترونیک</strong> تقویت شده.`,
-  about_p3: `این صفحه یک ایندکس است، نه یک پچ‌پچ. اگر چیزی از این‌ها برایتان مهم بود، ریپو یک کلیک فاصله دارد و تاریخچهٔ کامیت‌ها دربارهٔ زمان واقعیِ ساخت صادق است.`,
-
-  int_p1: `<strong>امنیت SCADA و اتوماسیون پست فشارقوی (کارآموزی موج نیرو):</strong><br />
-            در حال گذراندن کارآموزی مهندسی در <strong>موج نیرو</strong> هستم؛ تحلیل، مطالعه و مستندسازی پست‌های متعارف، سیستم‌های DCS (کنترل توزیع‌شده) و چیدمان تله‌متری SCADA ملی شبکه برق ایران.`,
-  int_p2: `پژوهش فعلی‌ام روی زنجیره پروتکل‌های <strong>IEC 61850</strong>، <strong>DNP3</strong>،
-            <strong>IEC 60870-5-104</strong> و <strong>Modbus</strong> است. مشخصاً روی تدوین لاگ‌های فنی تأخیر ارسال مجدد GOOSE زیر ترافیک سنگین، منطق مارشالینگ RTU، نگاشت گیت‌وی FEP و تهیه ماتریس ریسک برای بردارهای تهدید سایبری روی دیسپاچینگ صنعتی کار می‌کنم.`,
-  contact_note: "تلگرام را روزانه چک می‌کنم؛ همان‌جا پیام بدهید."
+    toast_theme: "پوسته ← {v}", toast_lang: "زبان ← {v}",
+    toast_hack: "HACK MODE فعال شد. کونامی محترم.",
+    term_welcome: [
+      'mahbod-os v2 — شل تعاملی',
+      'برای فهرست فرمان‌ها help بنویسید.'
+    ],
+    term_help_rows: [
+      "help              همین فهرست",
+      "whoami            چه کسی پشت این سایت است",
+      "ls                فهرست مخزن‌ها",
+      "cat <repo>        خلاصه README یک مخزن",
+      "open <repo>       باز کردن مخزن در گیت‌هاب",
+      "stats             آمار زنده گیت‌هاب",
+      "theme [name]      cobalt | paper | crt | ember",
+      "lang [en|fa]      تغییر زبان",
+      "goto <section>    پرش به work|stack|about|contact",
+      "contact           راه‌های ارتباطی",
+      "clear             پاک کردن صفحه",
+      "exit              بستن ترمینال"
+    ],
+    term_unknown: 'فرمان ناشناخته: {v} — «help» را امتحان کنید',
+    term_bye: "خدانگهدار."
   }
 };
 
+function t(key) {
+  const lang = document.documentElement.lang === "fa" ? "fa" : "en";
+  return (I18N[lang] && I18N[lang][key]) || I18N.en[key] || key;
+}
+function fmt(key, vars) {
+  let s = t(key);
+  Object.keys(vars || {}).forEach(k => { s = s.replace(new RegExp("\\{" + k + "\\}", "g"), vars[k]); });
+  return s;
+}
+
 function setLang(lang) {
-  const t = I18N[lang];
+  const d = I18N[lang] || I18N.en;
+  lang = d.lang;
   document.documentElement.lang = lang;
-  document.documentElement.dir = t.dir;
+  document.documentElement.dir = d.dir;
   document.title = lang === "fa"
     ? "مهبد بمانی‌چم — مهندسی برق، دانشگاه صنعتی امیرکبیر"
     : "Mahbod BemaniCham — Electrical Engineering, Amirkabir University of Technology";
 
-  // text nodes
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
-    if (t[key]) el.innerHTML = t[key];
+    if (d[key] !== undefined) el.innerHTML = d[key];
+  });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => {
+    const key = el.getAttribute("data-i18n-ph");
+    if (d[key] !== undefined) el.setAttribute("placeholder", d[key]);
+  });
+  document.querySelectorAll("[data-i18n-aria]").forEach(el => {
+    const key = el.getAttribute("data-i18n-aria");
+    if (d[key] !== undefined) el.setAttribute("aria-label", d[key]);
   });
 
-  // body font switches to Vazirmatn for Persian
   document.body.classList.toggle("fa-mode", lang === "fa");
-
-  // toggle active state on the pill
   document.querySelectorAll(".lang-opt").forEach(o =>
     o.classList.toggle("is-active", o.dataset.l === lang));
 
   try { localStorage.setItem("site_lang", lang); } catch (e) {}
+  if (window.App && App.onLangChange) App.onLangChange();
 }
 
 (function initLang() {
   let saved = null;
   try { saved = localStorage.getItem("site_lang"); } catch (e) {}
-  setLang(saved || "en");
+  if (!saved) saved = (document.documentElement.lang === "fa" ? "fa" : "en");
+  setLang(saved);
 
-  document.getElementById("langToggle").addEventListener("click", () => {
-    const next = (localStorage.getItem("site_lang") || "en") === "en" ? "fa" : "en";
+  const toggle = document.getElementById("langToggle");
+  if (toggle) toggle.addEventListener("click", () => {
+    const next = (document.documentElement.lang === "fa") ? "en" : "fa";
     setLang(next);
   });
-})();
-
-
-/* Quality cleanup: complete the bilingual surface, including text that used to be hard-coded. */
-Object.assign(I18N.en, {
-  switch_language: "Switch language", skip_to_index: "Skip to the index",
-  studying: "Studying", studying_value: "B.Sc. Electrical Engineering (Control Major · Electronics Minor), Amirkabir University of Technology (Tehran Polytechnic)",
-  ta: "Teaching assistant", ta_value: "Electromagnetics (Dr. Askarpour) and Digital Logic Design (Dr. Pourfard), separate semesters",
-  focus: "Focus", focus_value: "Embedded data acquisition, VHDL on FPGA, Qt desktop applications, Django web services",
-  tools_caption: "Working tool set", tools_layer: "Layer", tools_tools: "Tools", tools_used: "Used in",
-  tool_silicon: "Silicon", tool_silicon_used: "Parking DAQ, door lock, Hamming",
-  tool_hdl: "Hardware description", tool_hdl_used: "Packet processor, logic lab",
-  tool_firmware: "Firmware", tool_firmware_used: "All embedded builds",
-  tool_application: "Application", tool_application_used: "Qt Deep Dive, web services",
-  tool_data: "Data", tool_data_used: "Parking telemetry, shop backend",
-  tool_bench: "Bench", tool_bench_used: "Every project above",
-  webdesigns_note: "Selected web interfaces and storefront systems I have engineered. These are active templates; production destinations will be connected as they are ready.",
-  internships_note: "Current focus areas, practical learning logs, and industrial internship work.",
-  count_repos: "Public repositories", count_courses: "Courses assisted", count_since: "On GitHub since", count_languages: "Languages in repos",
-  contact_telegram: "Telegram", contact_dm: "(DMs are open — fast response)", contact_github: "GitHub", contact_linkedin: "LinkedIn", contact_email: "Email",
-  footer_text: "Mahbod BemaniCham — Electrical Engineering (Control major, Electronics minor), Amirkabir University of Technology (Tehran Polytechnic), Tehran. 2026.",
-  back_to_top: "Back to top"
-});
-
-Object.assign(I18N.fa, {
-  switch_language: "تغییر زبان", skip_to_index: "رفتن به فهرست",
-  hero_lede: "دانشجوی کارشناسی دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران). در نقطه اتصال فریم‌ور و سخت‌افزار کار می‌کنم؛ از جمع‌آوری داده با ESP32 و طراحی FPGA با VHDL گرفته تا اپلیکیشن‌های دسکتاپ Qt و سرویس‌های جنگو. همچنین سابقه دستیاری آموزشی در درس‌های الکترومغناطیس و مدارهای منطقی را دارم.",
-  studying: "تحصیل", studying_value: "کارشناسی مهندسی برق، گرایش کنترل، دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران)",
-  ta: "دستیار آموزشی", ta_value: "الکترومغناطیس با دکتر عسکرپور و مدارهای منطقی با دکتر پوردرد، در دو نیم‌سال جداگانه",
-  focus: "حوزه تمرکز", focus_value: "جمع‌آوری داده و سیستم‌های نهفته، VHDL و FPGA، اپلیکیشن‌های دسکتاپ Qt و سرویس‌های وب جنگو",
-  tools_caption: "مجموعه ابزارهای مورد استفاده", tools_layer: "لایه", tools_tools: "ابزارها", tools_used: "کاربرد",
-  tool_silicon: "سخت‌افزار", tool_silicon_used: "پارکینگ هوشمند، قفل درب، همینگ",
-  tool_hdl: "توصیف سخت‌افزار", tool_hdl_used: "پردازنده بسته، آزمایشگاه مدار منطقی",
-  tool_firmware: "فریم‌ور", tool_firmware_used: "تمام پروژه‌های نهفته",
-  tool_application: "نرم‌افزار کاربردی", tool_application_used: "Qt Deep Dive، سرویس‌های وب",
-  tool_data: "داده و زیرساخت", tool_data_used: "تله‌متری پارکینگ، بک‌اند فروشگاه",
-  tool_bench: "ابزار آزمایش و توسعه", tool_bench_used: "تمام پروژه‌های بالا",
-  webdesigns_note: "چند رابط وب و فروشگاه که طراحی و پیاده‌سازی کرده‌ام. این موارد فعلاً به‌صورت قالب‌های فعال نمایش داده می‌شوند و مقصد نهایی پروژه‌ها به‌مرور متصل خواهد شد.",
-  internships_note: "حوزه‌های تمرکز فعلی، یادداشت‌های فنی و تجربه‌های عملی حاصل از کارآموزی.",
-  count_repos: "مخزن عمومی", count_courses: "درس با سابقه دستیاری", count_since: "عضویت در گیت‌هاب از", count_languages: "زبان‌های موجود در مخزن‌ها",
-  contact_telegram: "تلگرام", contact_dm: "(پیام مستقیم باز است و معمولاً سریع پاسخ می‌دهم)", contact_github: "گیت‌هاب", contact_linkedin: "لینکدین", contact_email: "ایمیل",
-  footer_text: "مهبد بمانی‌چم — مهندسی برق (گرایش کنترل، حوزه تخصصی الکترونیک)، دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران)، تهران. ۱۴۰۵.",
-  back_to_top: "بازگشت به بالا",
-  about_p1: "من دانشجوی کارشناسی مهندسی برق دانشگاه صنعتی امیرکبیر هستم. بیشتر چیزهایی که یاد گرفته‌ام از پروژه‌هایی آمده که بار اول درست کار نکرده‌اند؛ از یک سروو که تا تنظیم درست PWM مدام می‌لرزد، تا دیکدری که در شبیه‌سازی سالم بود اما روی برد شکست می‌خورد، و حتی یک ورکر جنگو که هر شب بی‌سروصدا از کار می‌افتاد.",
-  about_p2: "من سخت‌افزاری را دوست دارم که بتوانم نتیجه‌اش را از نزدیک ببینم و درسی را که بتوانم آموزش بدهم. دو نیم‌سال دستیاری آموزشی در درس‌های الکترومغناطیس با دکتر عسکرپور و مدارهای منطقی با دکتر پوردرد به من یاد داد که وقتی چیزی را برای دیگری توضیح می‌دهی، خیلی زود متوجه می‌شوی کجای فهم خودت هنوز جای کار دارد. مسیر تحصیلی من روی گرایش <strong>کنترل</strong> است و در کنار آن، حوزه <strong>الکترونیک</strong> را هم جدی دنبال می‌کنم.",
-  about_p3: "این صفحه قرار نیست یک تبلیغ اغراق‌آمیز از من باشد؛ یک فهرست واقعی از چیزهایی است که ساخته‌ام و رویشان کار کرده‌ام. اگر پروژه‌ای برایتان جالب بود، مخزن آن یک کلیک فاصله دارد و تاریخچهٔ تغییراتش هم روند واقعی کار را نشان می‌دهد.",
-  int_p1: "<strong>امنیت SCADA و اتوماسیون پست برق — کارآموزی موج نیرو:</strong><br />در حال گذراندن کارآموزی مهندسی در <strong>موج نیرو</strong> هستم و روی مطالعه، تحلیل و مستندسازی پست‌های متعارف، سیستم‌های DCS و معماری تله‌متری SCADA در شبکه برق ایران کار می‌کنم.",
-  int_p2: "تمرکز پژوهشی فعلی من روی زنجیره پروتکل‌های <strong>IEC 61850</strong>، <strong>DNP3</strong>، <strong>IEC 60870-5-104</strong> و <strong>Modbus</strong> است. در این مسیر، روی مستندسازی تأخیر ارسال مجدد پیام‌های GOOSE در ترافیک سنگین، منطق مارشالینگ RTU، نگاشت گیت‌وی FEP و تهیهٔ ماتریس ریسک برای تهدیدهای سایبری سامانه‌های دیسپاچینگ صنعتی کار می‌کنم."
-});
-
-setLang(document.documentElement.lang === "fa" ? "fa" : "en");
-
-/* Full header reveal: normal at page top, fixed only after scrolling past the header. */
-(() => {
-  const nav = document.querySelector(".nav");
-  if (!nav) return;
-
-  const threshold = () => Math.max(nav.offsetHeight + 16, 80);
-  let stuck = false;
-  let ticking = false;
-
-  const updateNav = () => {
-    const shouldStick = window.scrollY > threshold();
-    if (shouldStick === stuck) return;
-    stuck = shouldStick;
-    nav.classList.toggle("nav--stuck", stuck);
-    document.body.classList.toggle("nav-has-sticky", stuck);
-  };
-
-  const onScroll = () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      updateNav();
-      ticking = false;
-    });
-  };
-
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", updateNav, { passive: true });
-  updateNav();
 })();

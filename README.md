@@ -46,17 +46,45 @@ This project follows the [Hallmark](https://github.com/nutlope/hallmark) anti-AI
 | **Mobile floor** | Verified pixel-perfect at 320 / 375 / 414 / 768 / 1280 / 1920 px via automated CDP audit. |
 | **Accessibility** | automated WCAG AA checks for computed solid-color text/background pairs, visible focus rings, full keyboard navigation, reduced-motion support. |
 
+## ⚡ Features (v2)
+
+- **Living project index** — the Work section is wired straight to GitHub. Push a new
+  repository and its card appears automatically, summarized from the top of that repo's README.
+- **Four themes** — Cobalt Night (default), Paper (light), CRT (phosphor green), Ember (warm).
+  Cycle with the `◑` button or the `T` key; persisted in `localStorage`.
+- **Fully bilingual** — English / فارسی with complete RTL mirroring (`L` key or the EN/فا toggle).
+- **Command palette** — `Ctrl+K` / `⌘K`: jump to sections, open repos, switch theme/language.
+- **Interactive terminal** — press `` ~ ``: `ls`, `cat <repo>`, `stats`, `theme`, `goto`, …
+- **Live stats strip** — repos / stars / followers / join-year pulled from the GitHub API.
+- **Filter & sort** — search `/`, topic chips, sort by pushed / stars / name.
+- **Keyboard-first** — full shortcut map under `?`, scroll-spy nav, progress bar,
+  reveal animations, reduced-motion respected.
+- **Easter eggs** — try the Konami code.
+
+## 🔄 How the index stays fresh
+
+Three resilient layers, zero build step:
+
+1. **Daily Action** — `.github/workflows/sync-projects.yml` runs `tools/sync_projects.py`
+   every night, regenerating `data/projects.json` (repo list + README summaries) and committing it.
+2. **Live merge** — on every visit, `js/data.js` also queries the GitHub REST API for repos
+   newer than the snapshot and renders them instantly with a `NEW` flag.
+3. **Lazy excerpts + cache** — card summaries are fetched per-visible-card via
+   `IntersectionObserver` and cached in `localStorage`, so we stay far below rate limits.
+
+If GitHub is unreachable, the committed snapshot still renders — the site never shows an empty index.
+
 ## 🛠️ Tech Stack
 
 Deliberately boring. Deliberately fast.
 
 ```
 HTML5 · CSS3 (custom properties, OKLCH color space, CSS Grid)
-Zero JavaScript frameworks · Zero build step · Zero trackers
+Vanilla ES2020 JavaScript · Zero frameworks · Zero build step · Zero trackers
+GitHub Actions for nightly data sync · GitHub Pages for hosting
 ```
 
-Everything is two files: `index.html` and `css/site.css` (+ `css/tokens.css`). That's it.
-No React. No Tailwind. No Webpack. It loads instantly and works offline.
+No React. No Tailwind. No Webpack. It loads instantly.
 
 ## 📂 Repository Structure
 
@@ -64,13 +92,24 @@ No React. No Tailwind. No Webpack. It loads instantly and works offline.
 nomoreidea/
 ├── index.html                  # Semantic single-page markup
 ├── css/
-│   ├── tokens.css              # Portable OKLCH design tokens
-│   └── site.css                # Layout, typography, components
+│   ├── tokens.css              # Portable OKLCH tokens × 4 theme palettes
+│   └── site.css                # Layout, typography, components, overlays
+├── js/
+│   ├── i18n.js                 # EN/FA dictionary + language engine
+│   ├── data.js                 # GitHub → project-index engine (snapshot/live/cache)
+│   └── app.js                  # Rendering, filters, palette, terminal, shortcuts
+├── data/
+│   └── projects.json           # Generated snapshot (auto-committed daily)
 ├── images/
 │   ├── mahbod.jpg              # Portrait
 │   └── projects/               # Real screenshots from real repos
-└── tools/
-    └── audit.py                # Headless-Chromium CDP responsive & contrast auditor
+├── tools/
+│   ├── audit.py                # Headless-Chromium CDP responsive & contrast auditor
+│   ├── audit-ci.py             # CI variant used by the quality workflow
+│   └── sync_projects.py        # Regenerates data/projects.json from the API
+└── .github/workflows/
+    ├── quality.yml             # Responsive/bilingual audit on push
+    └── sync-projects.yml       # Nightly project-index sync
 ```
 
 ## 🔍 Automated Quality Gate
