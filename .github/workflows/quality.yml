@@ -1,0 +1,28 @@
+name: Quality audit
+
+on:
+  push:
+    branches: [main, fix/i18n-quality-audit]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Install Chromium and audit dependency
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium
+          python -m pip install websockets
+      - name: Serve site
+        run: python -m http.server 8899 --directory . > /tmp/site.log 2>&1 &
+      - name: Run responsive accessibility audit
+        run: python tools/audit.py http://127.0.0.1:8899/index.html

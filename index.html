@@ -20,14 +20,14 @@
 </head>
 
 <body>
-<a class="skip" href="#index">Skip to the index</a>
+<a class="skip" href="#index" data-i18n="skip_to_index">Skip to the index</a>
 
 <!-- ══ N9 · Edge-aligned minimal ══════════════════════════════ -->
 <header class="nav">
   <div class="shell nav__inner">
     <a class="wordmark" href="#top"><span data-i18n="brand">Mahbod BemaniCham</span><span class="wordmark__dot" aria-hidden="true"></span></a>
     <div class="nav__actions">
-      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language" data-i18n-aria="switch_language">
         <span class="lang-opt" data-l="en">EN</span><span class="lang-sep">/</span><span class="lang-opt" data-l="fa">فا</span>
       </button>
       <a class="nav__cta" href="#contact" data-i18n="nav_cta">Contact</a>
@@ -43,7 +43,7 @@
       <div class="hero__grid">
         <div class="hero__col">
           <h1 class="hero__display" data-i18n="hero_title">electrical engineering, built with <em>precision</em>.</h1>
-          <p class="hero__lede">
+          <p class="hero__lede" data-i18n="hero_lede">
             Undergraduate at Amirkabir University of Technology (Tehran Polytechnic).
             I work at the seam where firmware meets hardware — ESP32 data acquisition,
             VHDL on FPGA, Qt desktop applications, Django services. Teaching assistant
@@ -52,7 +52,7 @@
           <div class="hero__meta">
             <span class="label" data-i18n="meta_loc">Tehran, Iran</span>
             <span class="label" data-i18n="meta_degree">B.Sc. Electrical Engineering (Control Major · Electronics Minor)</span>
-            <a class="cta-type" href="#index">Read the index <span aria-hidden="true">→</span></a>
+            <a class="cta-type" href="#index" data-i18n="read_index">Read the index <span aria-hidden="true">→</span></a>
           </div>
         </div>
 
@@ -93,8 +93,8 @@
 
         <!-- 2. Hamming VHDL -->
         <div class="row">
-          <div class="row__thumb" style="display: flex; align-items: center; justify-content: center; background: var(--color-paper-3);">
-            <div style="font-family: var(--font-label); font-size: var(--text-xs); color: var(--color-muted); text-align: center; padding: var(--space-md);">
+          <div class="row__thumb row__thumb--placeholder">
+            <div class="row__placeholder-label">
               [VHDL Packet Engine]<br />[Hamming ECC Layer]
             </div>
           </div>
@@ -109,7 +109,6 @@
               <a class="row__arrow mono" href="https://github.com/Mahbodbe/HammingProject" target="_blank" rel="noreferrer" aria-label="Open Hamming project repository">→</a>
             </p>
           </div>
-        </a>
         </div>
 
         <!-- 3. Learning Qt — foundation -->
@@ -132,9 +131,9 @@
 
         <!-- 4. Qt Deep Dive — dual-screenshot showcase -->
         <div class="row">
-          <div class="row__thumb-split" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xs); width: 100%; aspect-ratio: 1.6;">
-            <div class="row__thumb" style="border: 0; box-shadow: none; aspect-ratio: auto; height: 100%; overflow: clip;"><img src="images/projects/todo.png" alt="ToDo App dark QSS theme" style="height: 100%; width: 100%; object-fit: cover;" loading="lazy" /></div>
-            <div class="row__thumb" style="border: 0; box-shadow: none; aspect-ratio: auto; height: 100%; overflow: clip;"><img src="images/projects/sysinfo.png" alt="SysInfo CPU Monitor area chart" style="height: 100%; width: 100%; object-fit: cover;" loading="lazy" /></div>
+          <div class="row__thumb-split">
+            <div class="row__thumb row__thumb--split"><img src="images/projects/todo.png" alt="ToDo App dark QSS theme" loading="lazy" /></div>
+            <div class="row__thumb row__thumb--split"><img src="images/projects/sysinfo.png" alt="SysInfo CPU Monitor area chart" loading="lazy" /></div>
           </div>
           <div>
             <h3 class="row__title" data-i18n="p4_title">Qt Deep Dive</h3>
@@ -160,8 +159,8 @@
 
         <!-- 5. DoorLock -->
         <div class="row">
-          <div class="row__thumb" style="display: flex; align-items: center; justify-content: center; background: var(--color-paper-3);">
-            <div style="font-family: var(--font-label); font-size: var(--text-xs); color: var(--color-muted); text-align: center; padding: var(--space-md);">
+          <div class="row__thumb row__thumb--placeholder">
+            <div class="row__placeholder-label">
               [MFRC522 RFID Module]<br />[PIR Motion Sensor]<br />[Beam Breaker]
             </div>
           </div>
@@ -190,16 +189,16 @@
         <p class="plate__claim" data-i18n="plate_claim">I would rather build the thing than <em>write</em> about building it.</p>
         <dl class="plate__grid">
           <div class="plate__row">
-            <dt>Studying</dt>
-            <dd>B.Sc. Electrical Engineering (Control Major · Electronics Minor), Amirkabir University of Technology (Tehran Polytechnic)</dd>
+            <dt data-i18n="studying">Studying</dt>
+            <dd data-i18n="studying_value">B.Sc. Electrical Engineering (Control Major · Electronics Minor), Amirkabir University of Technology (Tehran Polytechnic)</dd>
           </div>
           <div class="plate__row">
-            <dt>Teaching assistant</dt>
-            <dd>Electromagnetics (Dr. Askarpour) and Digital Logic Design (Dr. Pourfard), separate semesters</dd>
+            <dt data-i18n="ta">Teaching assistant</dt>
+            <dd data-i18n="ta_value">Electromagnetics (Dr. Askarpour) and Digital Logic Design (Dr. Pourfard), separate semesters</dd>
           </div>
           <div class="plate__row">
-            <dt>Focus</dt>
-            <dd>Embedded data acquisition, VHDL on FPGA, Qt desktop applications, Django web services</dd>
+            <dt data-i18n="focus">Focus</dt>
+            <dd data-i18n="focus_value">Embedded data acquisition, VHDL on FPGA, Qt desktop applications, Django web services</dd>
           </div>
         </dl>
       </div>
@@ -216,40 +215,40 @@
         </header>
 
         <table class="spec">
-          <caption class="label">Working tool set</caption>
+          <caption class="label" data-i18n="tools_caption">Working tool set</caption>
           <thead>
-            <tr><th scope="col">Layer</th><th scope="col">Tools</th><th scope="col">Used in</th></tr>
+            <tr><th scope="col" data-i18n="tools_layer">Layer</th><th scope="col" data-i18n="tools_tools">Tools</th><th scope="col" data-i18n="tools_used">Used in</th></tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row">Silicon</th>
+              <th scope="row" data-i18n="tool_silicon">Silicon</th>
               <td>ESP32 · ESP32-S3 · ATmega32 · FPGA</td>
-              <td>Parking DAQ, door lock, Hamming</td>
+              <td data-i18n="tool_silicon_used">Parking DAQ, door lock, Hamming</td>
             </tr>
             <tr>
-              <th scope="row">Hardware description</th>
+              <th scope="row" data-i18n="tool_hdl">Hardware description</th>
               <td>VHDL · RTL design · ModelSim</td>
-              <td>Packet processor, logic lab</td>
+              <td data-i18n="tool_hdl_used">Packet processor, logic lab</td>
             </tr>
             <tr>
-              <th scope="row">Firmware</th>
+              <th scope="row" data-i18n="tool_firmware">Firmware</th>
               <td>C · C++ · AVR assembly · Arduino</td>
-              <td>All embedded builds</td>
+              <td data-i18n="tool_firmware_used">All embedded builds</td>
             </tr>
             <tr>
-              <th scope="row">Application</th>
+              <th scope="row" data-i18n="tool_application">Application</th>
               <td>C++17 / Qt 6 · Python · Django</td>
-              <td>Qt Deep Dive, web services</td>
+              <td data-i18n="tool_application_used">Qt Deep Dive, web services</td>
             </tr>
             <tr>
-              <th scope="row">Data</th>
+              <th scope="row" data-i18n="tool_data">Data</th>
               <td>SQLite · PostgreSQL · Redis · Celery</td>
-              <td>Parking telemetry, shop backend</td>
+              <td data-i18n="tool_data_used">Parking telemetry, shop backend</td>
             </tr>
             <tr>
-              <th scope="row">Bench</th>
+              <th scope="row" data-i18n="tool_bench">Bench</th>
               <td>Proteus · oscilloscope · Git · Linux</td>
-              <td>Every project above</td>
+              <td data-i18n="tool_bench_used">Every project above</td>
             </tr>
           </tbody>
         </table>
@@ -262,17 +261,17 @@
     <div class="shell">
       <header class="section__head">
          <h2 class="section__title" data-i18n="webdesigns_title">web designs</h2>
-         <p class="section__note">
+         <p class="section__note" data-i18n="webdesigns_note">
            Selected web interfaces and storefront systems I have engineered. Links are
            active templates; I will wire their full production destinations soon.
          </p>
       </header>
 
-      <div class="index" style="border-bottom: var(--rule-hair) solid var(--color-rule);">
+      <div class="index index--bordered">
         <!-- Shop 1 -->
         <a class="row" href="#" onclick="event.preventDefault();" aria-label="Web design placeholder 1">
-          <div class="row__thumb" style="display: flex; align-items: center; justify-content: center; background: var(--color-paper-3);">
-            <div style="font-family: var(--font-label); font-size: var(--text-xs); color: var(--color-muted); text-align: center; padding: var(--space-md); text-transform: uppercase; letter-spacing: 0.06em;">
+          <div class="row__thumb row__thumb--placeholder">
+            <div class="row__placeholder-label row__placeholder-label--caps">
               [Mahgol Resin Shop]<br />[E-Commerce Platform]<br />[Active Storefront Template]
             </div>
           </div>
@@ -291,8 +290,8 @@
 
         <!-- Design 2 -->
         <a class="row" href="#" onclick="event.preventDefault();" aria-label="Web design placeholder 2">
-          <div class="row__thumb" style="display: flex; align-items: center; justify-content: center; background: var(--color-paper-3);">
-            <div style="font-family: var(--font-label); font-size: var(--text-xs); color: var(--color-muted); text-align: center; padding: var(--space-md); text-transform: uppercase; letter-spacing: 0.06em;">
+          <div class="row__thumb row__thumb--placeholder">
+            <div class="row__placeholder-label row__placeholder-label--caps">
               [Custom Web Interface]<br />[UI/UX Design Spec]<br />[Clean Minimal Layout]
             </div>
           </div>
@@ -318,19 +317,19 @@
       <div class="strip">
         <div class="strip__item">
           <span class="strip__figure">11</span>
-          <span class="label">Public repositories</span>
+          <span class="label" data-i18n="count_repos">Public repositories</span>
         </div>
         <div class="strip__item">
           <span class="strip__figure">2</span>
-          <span class="label">Courses assisted</span>
+          <span class="label" data-i18n="count_courses">Courses assisted</span>
         </div>
         <div class="strip__item">
           <span class="strip__figure">2023</span>
-          <span class="label">On GitHub since</span>
+          <span class="label" data-i18n="count_since">On GitHub since</span>
         </div>
         <div class="strip__item">
           <span class="strip__figure">5</span>
-          <span class="label">Languages in repos</span>
+          <span class="label" data-i18n="count_languages">Languages in repos</span>
         </div>
       </div>
     </div>
@@ -375,7 +374,7 @@
       <div class="section--split">
         <header class="section__head">
           <h2 class="section__title" data-i18n="internships_title">internships &amp; active research</h2>
-          <p class="section__note">
+          <p class="section__note" data-i18n="internships_note">
             Active focus areas, real-world learning logs, and industrial internships.
           </p>
         </header>
@@ -408,19 +407,19 @@
 
       <dl class="contact">
         <div class="contact__row">
-          <dt class="label">Telegram</dt>
-          <dd><a class="link" href="https://t.me/Mb_Mb84" target="_blank" rel="noreferrer">@Mb_Mb84 <span class="label" style="text-transform:none">(DMs are open — fast response)</span></a></dd>
+          <dt class="label" data-i18n="contact_telegram">Telegram</dt>
+          <dd><a class="link" href="https://t.me/Mb_Mb84" target="_blank" rel="noreferrer">@Mb_Mb84 <span class="label" class="label label--normal">(DMs are open — fast response)</span></a></dd>
         </div>
         <div class="contact__row">
-          <dt class="label">GitHub</dt>
+          <dt class="label" data-i18n="contact_github">GitHub</dt>
           <dd><a class="link" href="https://github.com/Mahbodbe" target="_blank" rel="noreferrer">@Mahbodbe</a></dd>
         </div>
         <div class="contact__row">
-          <dt class="label">LinkedIn</dt>
+          <dt class="label" data-i18n="contact_linkedin">LinkedIn</dt>
           <dd><a class="link" href="https://www.linkedin.com/in/mahbod-bemanicham-048b252ab" target="_blank" rel="noreferrer">mahbod-bemanicham</a></dd>
         </div>
         <div class="contact__row">
-          <dt class="label">Email</dt>
+          <dt class="label" data-i18n="contact_email">Email</dt>
           <dd><a class="link" href="mailto:mahbod2023@gmail.com">mahbod2023@gmail.com</a></dd>
         </div>
       </dl>
@@ -432,7 +431,7 @@
 <!-- ══ Footer · Inline single line ══════════════════════════ -->
 <footer class="band">
   <div class="shell colophon">
-    <p class="colophon__text">
+    <p class="colophon__text" data-i18n="footer_text">
       Mahbod BemaniCham — Electrical Engineering (Control major, Electronics minor),
       Amirkabir University of Technology (Tehran Polytechnic), Tehran. 2026.
     </p>
@@ -440,7 +439,7 @@
       <a class="link label" href="https://t.me/Mb_Mb84" target="_blank" rel="noreferrer">Telegram</a>
       <a class="link label" href="https://github.com/Mahbodbe" target="_blank" rel="noreferrer">GitHub</a>
       <a class="link label" href="https://www.linkedin.com/in/mahbod-bemanicham-048b252ab" target="_blank" rel="noreferrer">LinkedIn</a>
-      <a class="link label" href="#top">Back to top</a>
+      <a class="link label" href="#top" data-i18n="back_to_top">Back to top</a>
     </div>
   </div>
 </footer>
