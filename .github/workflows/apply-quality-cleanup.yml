@@ -1,0 +1,28 @@
+name: Apply quality cleanup
+
+on:
+  push:
+    branches: [fix/i18n-quality-audit]
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    if: ${{ !contains(github.event.head_commit.message, '[quality-cleanup]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply cleanup
+        run: python3 .github/scripts/quality_cleanup.py
+
+      - name: Commit cleanup and CI
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "fix: complete localization and quality cleanup [quality-cleanup]"
+          git push
