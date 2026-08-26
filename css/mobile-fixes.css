@@ -22,7 +22,6 @@
 .nav__cta,
 .cta-type {
   min-height: 44px !important;
-  height: 44px !important;
 }
 
 .row__arrow {
@@ -35,25 +34,51 @@
   flex: 0 0 44px;
 }
 
-/* Full masthead at the top; after scrolling, only the lower nav strip remains sticky. */
+/* Full masthead at the top; compact 44px navbar after scrolling. */
 .nav {
   position: sticky !important;
-  top: -20px !important;
+  top: 0 !important;
   z-index: var(--z-sticky-nav);
   background: color-mix(in oklab, var(--color-paper) 94%, transparent) !important;
   backdrop-filter: blur(12px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
 }
 .nav__inner {
   min-height: 64px;
   padding-block: var(--space-sm);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 }
 
-/* Disable the experimental scroll-timeline version: the sticky offset above is the actual behavior. */
-.nav__inner,
-.nav {
-  animation: none !important;
-  transition: none !important;
+@supports (animation-timeline: scroll()) {
+  .nav__inner {
+    animation: nav-compact-by-scroll linear both;
+    animation-timeline: scroll();
+    animation-range: 0 180px;
+  }
+  .nav {
+    animation: nav-surface-by-scroll linear both;
+    animation-timeline: scroll();
+    animation-range: 0 180px;
+  }
+
+  @keyframes nav-compact-by-scroll {
+    from {
+      min-height: 64px;
+      padding-block: var(--space-sm);
+    }
+    to {
+      min-height: 44px;
+      padding-block: 0.25rem;
+    }
+  }
+
+  @keyframes nav-surface-by-scroll {
+    from {
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+    to {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    }
+  }
 }
 
 @media (max-width: 47.99rem) {
@@ -61,11 +86,10 @@
   .wordmark,
   .lang-toggle,
   .nav__cta,
-  .cta-type { min-height: 44px !important; height: 44px !important; }
-  .nav { top: -20px !important; }
+  .cta-type { min-height: 44px !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .nav,
-  .nav__inner { transition: none !important; animation: none !important; }
+  .nav__inner { animation: none !important; }
 }
