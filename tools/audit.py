@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
-"""Responsive bilingual audit using headless Chromium/CDP."""
+"""Responsive bilingual audit using headless Chrome/CDP."""
 import asyncio, json, subprocess, sys, time, urllib.request
 import websockets
 
 URL = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:8899/index.html"
 WIDTHS = [320, 375, 414, 768, 1280, 1920]
 PORT = 9333
+
+# Google Chrome is installed by CI; avoid Ubuntu's chromium snap wrapper.
+CHROME_BIN = "google-chrome-stable"
+
+# Keep the existing audit body unchanged below; only the browser launcher is explicit.
 
 JS_AUDIT = r'''(() => {
   const out = {
@@ -44,7 +49,6 @@ JS_AUDIT = r'''(() => {
     }
   }
 
-  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   const textLines = (el) => {
     const ys = [];
     const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
@@ -140,7 +144,7 @@ async def audit(ws_url):
     return results
 
 def main():
-    proc=subprocess.Popen(["chromium","--headless=new","--no-sandbox","--disable-gpu",f"--remote-debugging-port={PORT}","--hide-scrollbars","about:blank"],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+    proc=subprocess.Popen([CHROME_BIN,"--headless=new","--no-sandbox","--disable-gpu",f"--remote-debugging-port={PORT}","--hide-scrollbars","about:blank"],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
     try:
         for _ in range(60):
             try: urllib.request.urlopen(f"http://127.0.0.1:{PORT}/json/version",timeout=1); break
