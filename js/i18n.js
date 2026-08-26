@@ -282,22 +282,4 @@ Object.assign(I18N.fa, {
   int_p2: "تمرکز پژوهشی فعلی من روی زنجیره پروتکل‌های <strong>IEC 61850</strong>، <strong>DNP3</strong>، <strong>IEC 60870-5-104</strong> و <strong>Modbus</strong> است. در این مسیر، روی مستندسازی تأخیر ارسال مجدد پیام‌های GOOSE در ترافیک سنگین، منطق مارشالینگ RTU، نگاشت گیت‌وی FEP و تهیهٔ ماتریس ریسک برای تهدیدهای سایبری سامانه‌های دیسپاچینگ صنعتی کار می‌کنم."
 });
 
-const _originalSetLang = setLang;
-function setLangComplete(lang) {
-  _originalSetLang(lang);
-  const t = I18N[lang] || I18N.en;
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    if (Object.prototype.hasOwnProperty.call(t, key)) el.innerHTML = t[key];
-  });
-  document.querySelectorAll("[data-i18n-aria]").forEach(el => {
-    const key = el.getAttribute("data-i18n-aria");
-    if (Object.prototype.hasOwnProperty.call(t, key)) el.setAttribute("aria-label", t[key]);
-  });
-}
-setLangComplete(document.documentElement.lang === "fa" ? "fa" : "en");
-const _langToggle = document.getElementById("langToggle");
-if (_langToggle && !_langToggle.dataset.completeBound) {
-  _langToggle.dataset.completeBound = "1";
-  _langToggle.addEventListener("click", () => setLangComplete(document.documentElement.lang === "en" ? "fa" : "en"));
-}
+setLang(document.documentElement.lang === "fa" ? "fa" : "en");
