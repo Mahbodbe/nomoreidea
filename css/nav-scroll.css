@@ -1,13 +1,16 @@
-/* Scroll-driven compact navigation. No JavaScript required. */
+/* Scroll-driven compact navigation without JavaScript. */
 .nav {
   position: sticky;
-  top: 0;
+  top: -1.25rem;
   z-index: var(--z-sticky-nav);
   transform-origin: top center;
 }
 
 .nav__inner {
-  transition: min-height 180ms var(--ease-out), padding-block 180ms var(--ease-out);
+  transition: min-height 180ms var(--ease-out),
+              padding-block 180ms var(--ease-out),
+              box-shadow 180ms var(--ease-out),
+              background-color 180ms var(--ease-out);
 }
 
 @supports (animation-timeline: scroll()) {
