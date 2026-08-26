@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
 """Headless-Chromium CDP audit for the bilingual site.
-Checks English and Persian at several viewport widths for horizontal overflow,
-tap targets, two-line clickable text, and computed contrast for text nodes.
+Checks English and Persian at phone/tablet/desktop widths for horizontal overflow,
+tap targets, clickable wrapping, RTL activation, and computed contrast.
 """
-import asyncio, json, subprocess, sys, time, urllib.request
+import asyncio
+import json
+import subprocess
+import sys
+import time
+import urllib.request
+
 import websockets
 
 URL = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:8899/index.html"
@@ -16,6 +22,7 @@ JS = r"""
   const out = {
     lang: document.documentElement.lang,
     dir: document.documentElement.dir,
+    faMode: document.body.classList.contains('fa-mode'),
     vw: window.innerWidth,
     overflow: [], taps: [], twoLine: [], contrast: []
   };
@@ -23,9 +30,6 @@ JS = r"""
   out.docScrollW = document.documentElement.scrollWidth;
   out.docClientW = document.documentElement.clientWidth;
 
-  // 1. Elements visibly sticking past the viewport. This is intentionally
-  // independent of document scrollWidth because CSS overflow clipping can hide
-  // scrollbars while the visual layout is still broken.
   for (const el of document.querySelectorAll('body *')) {
     const r = el.getBoundingClientRect();
     if (r.width === 0 && r.height === 0) continue;
@@ -33,17 +37,17 @@ JS = r"""
       out.overflow.push({
         sel: el.tagName.toLowerCase() + '.' +
              (el.className || '').toString().split(' ')[0],
-        left: Math.round(r.left), right: Math.round(r.right)
+        left: Math.round(r.left), right: Math.round(r.right),
+        width: Math.round(r.width)
       });
     }
   }
 
-  // 2. Clickable affordances: tap target >= 44px, short labels must not wrap.
   for (const el of document.querySelectorAll('a, button')) {
     const r = el.getBoundingClientRect();
     if (r.width === 0 && r.height === 0) continue;
     const cs = getComputedStyle(el);
-    if (cs.position === 'absolute' && r.left < 0) continue; // skip-link at rest
+    if (cs.position === 'absolute' && r.left < 0) continue;
     const name = (el.textContent || '').trim().slice(0, 44);
     if (r.height < 44) out.taps.push({name, h: Math.round(r.height)});
     const lh = parseFloat(cs.lineHeight) || parseFloat(cs.fontSize) * 1.2;
@@ -54,7 +58,6 @@ JS = r"""
     }
   }
 
-  // 3. Contrast — WCAG 2.1 ratio for every text-bearing leaf.
   const lum = (c) => {
     const [r, g, b] = c.map(v => {
       v /= 255;
@@ -110,10 +113,14 @@ JS = r"""
 
 def launch():
     p = subprocess.Popen(
-        ["chromium", "--headless=new", "--no-sandbox", "--disable-gpu",
-         f"--remote-debugging-port={PORT}", "--hide-scrollbars",
-         "--window-size=1280,900", "about:blank"],
-        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        [
+            "chromium", "--headless=new", "--no-sandbox", "--disable-gpu",
+            f"--remote-debugging-port={PORT}", "--hide-scrollbars",
+            "--window-size=1280,900", "about:blank",
+        ],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
     for _ in range(60):
         try:
             urllib.request.urlopen(
@@ -133,33 +140,31 @@ async def audit(ws_url):
         async def send(method, params=None):
             nonlocal i
             i += 1
-            await ws.send(json.dumps({
-                "id": i, "method": method, "params": params or {}
-            }))
+            await ws.send(json.dumps({"id": i, "method": method, "params": params or {}}))
             while True:
                 msg = json.loads(await ws.recv())
                 if msg.get("id") == i:
                     return msg
 
         await send("Page.enable")
-
         for lang, _label in LANGS:
             results[lang] = {}
             for w in WIDTHS:
+                mobile = w < 768
                 await send("Emulation.setDeviceMetricsOverride", {
-                    "width": w, "height": 900, "deviceScaleFactor": 1,
-                    "mobile": False, "screenWidth": w, "screenHeight": 900,
+                    "width": w,
+                    "height": 900,
+                    "deviceScaleFactor": 2 if mobile else 1,
+                    "mobile": mobile,
+                    "screenWidth": w,
+                    "screenHeight": 900,
                     "viewport": {
-                        "x": 0, "y": 0, "width": w, "height": 900,
-                        "scale": 1
-                    }
+                        "x": 0, "y": 0, "width": w, "height": 900, "scale": 1
+                    },
                 })
                 await send("Page.navigate", {"url": URL})
-                await asyncio.sleep(2.2)  # scripts + webfonts
+                await asyncio.sleep(2.5)
 
-                # Exercise the real runtime language switch instead of merely
-                # changing dir/lang attributes. This catches RTL and translated
-                # text layout problems that only appear after setLang('fa').
                 switch = (
                     f"localStorage.setItem('site_lang', '{lang}');"
                     f"if (typeof setLang === 'function') setLang('{lang}');"
@@ -167,12 +172,13 @@ async def audit(ws_url):
                 await send("Runtime.evaluate", {
                     "expression": switch,
                     "awaitPromise": True,
-                    "returnByValue": True
+                    "returnByValue": True,
                 })
-                await asyncio.sleep(0.4)
+                await asyncio.sleep(0.6)
 
                 r = await send("Runtime.evaluate", {
-                    "expression": JS, "returnByValue": True
+                    "expression": JS,
+                    "returnByValue": True,
                 })
                 results[lang][w] = r["result"]["result"]["value"]
     return results
@@ -181,9 +187,7 @@ async def audit(ws_url):
 def main():
     proc = launch()
     try:
-        tabs = json.load(urllib.request.urlopen(
-            f"http://127.0.0.1:{PORT}/json/list"
-        ))
+        tabs = json.load(urllib.request.urlopen(f"http://127.0.0.1:{PORT}/json/list"))
         ws_url = tabs[0]["webSocketDebuggerUrl"]
         res = asyncio.run(audit(ws_url))
     finally:
@@ -193,31 +197,38 @@ def main():
     for lang, label in LANGS:
         print(f"\n######## {label} ({lang}) ########")
         for w, r in res[lang].items():
-            hscroll = r["docScrollW"] > r["docClientW"] + 1
-            print(
-                f"\n=== {w}px [{r['lang'] or lang} / {r['dir'] or 'unknown'}] "
-                f"(innerW {r['vw']} / scrollW {r['docScrollW']} / "
-                f"clientW {r['docClientW']})"
+            state_ok = (
+                r["lang"] == lang and
+                r["dir"] == ("rtl" if lang == "fa" else "ltr") and
+                r["faMode"] == (lang == "fa")
             )
-            print(f"  horizontal scroll : {'FAIL' if hscroll else 'pass'}")
+            hscroll = r["docScrollW"] > r["docClientW"] + 1
+            state_fail = 0 if state_ok else 1
             print(
-                f"  overflowing els   : {len(r['overflow'])}" +
+                f"\n=== {w}px [{r['lang'] or 'unknown'} / {r['dir'] or 'unknown'}] "
+                f"fa-mode={'on' if r['faMode'] else 'off'} "
+                f"(innerW {r['vw']} / scrollW {r['docScrollW']} / clientW {r['docClientW']})"
+            )
+            print(f"  language state      : {'pass' if state_ok else 'FAIL'}")
+            print(f"  horizontal scroll   : {'FAIL' if hscroll else 'pass'}")
+            print(
+                f"  overflowing els     : {len(r['overflow'])}" +
                 (f" -> {r['overflow'][:4]}" if r['overflow'] else "")
             )
             print(
-                f"  tap < 44px        : {len(r['taps'])}" +
+                f"  tap < 44px          : {len(r['taps'])}" +
                 (f" -> {r['taps'][:4]}" if r['taps'] else "")
             )
             print(
-                f"  two-line clickable: {len(r['twoLine'])}" +
+                f"  two-line clickable  : {len(r['twoLine'])}" +
                 (f" -> {r['twoLine'][:4]}" if r['twoLine'] else "")
             )
             print(
-                f"  contrast failures : {len(r['contrast'])}" +
+                f"  contrast failures   : {len(r['contrast'])}" +
                 (f" -> {r['contrast'][:5]}" if r['contrast'] else "")
             )
             fails += (
-                hscroll + len(r["overflow"]) + len(r["taps"]) +
+                state_fail + hscroll + len(r["overflow"]) + len(r["taps"]) +
                 len(r["twoLine"]) + len(r["contrast"])
             )
 
