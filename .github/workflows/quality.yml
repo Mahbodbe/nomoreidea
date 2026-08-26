@@ -35,4 +35,4 @@ jobs:
           cat /tmp/site.log
           exit 1
       - name: Run responsive bilingual audit
-        run: python tools/audit-ci.py http://127.0.0.1:8899/index.html
+        run: python tools/audit-ci-clean.py http://127.0.0.1:8899/index.html
