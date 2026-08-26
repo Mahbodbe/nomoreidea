@@ -118,6 +118,7 @@ def main() -> int:
         print(f"· {name}")
         md = readme_raw(r["full_name"])
         entries.append({
+            "id": r["id"],
             "name": name,
             "full_name": r["full_name"],
             "url": r["html_url"],

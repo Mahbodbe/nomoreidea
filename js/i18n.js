@@ -83,15 +83,14 @@ const I18N = {
             traffic spikes, RTU marshalling logic, FEP gateway mapping, and compiling risk matrices
             for potential cybersecurity threat vectors on industrial dispatching.`,
 
-    webdesigns_title: "web designs",
-    webdesigns_note: `Selected web interfaces and storefront systems I have engineered. Links are
-           active templates; I will wire their full production destinations soon.`,
+webdesigns_title: "web designs",
+    webdesigns_note: `Selected web interfaces and storefront systems I have engineered.`,
     w1_title: "Mahgol Resin E-Commerce Storefront",
     w1_desc: `A high-performance production e-commerce engine integrated with an active Telegram notification bot for seamless purchase workflows. Features a royal purple and gold theme customized to match the brand's exact design palette, asynchronous order dispatching with Celery, and real-time database-driven product inventory management.`,
-    w1_side: "Production-grade storefront · Template active",
-    w2_title: "Minimalist Portfolio &amp; Project Index",
-    w2_desc: `A pristine, high-contrast digital index engineered with pure CSS custom properties, flexible responsive column-collapsing, and verified with zero-issue CDP automation. Optimized to serve as a fast-loading central portal for engineering logs, academic coursework, and live software demos.`,
-    w2_side: "Custom UI template · Ready to route",
+    w1_side: "Production-grade storefront · Live",
+    w2_title: "Metis Web Application",
+    w2_desc: `A modern web application built with Next.js and TypeScript, featuring a responsive design with Tailwind CSS. Deployed on Vercel with automatic CI/CD pipeline.`,
+    w2_side: "Live application · Vercel deployment",
 
     contact_title: "get in touch",
     contact_note: "Telegram is checked daily. Drop a direct message there.",
@@ -198,13 +197,13 @@ const I18N = {
     int_p2: "تمرکز پژوهشی فعلی من روی زنجیره پروتکل‌های <strong>IEC 61850</strong>، <strong>DNP3</strong>، <strong>IEC 60870-5-104</strong> و <strong>Modbus</strong> است. در این مسیر، روی مستندسازی تأخیر ارسال مجدد پیام‌های GOOSE در ترافیک سنگین، منطق مارشالینگ RTU، نگاشت گیت‌وی FEP و تهیهٔ ماتریس ریسک برای تهدیدهای سایبری سامانه‌های دیسپاچینگ صنعتی کار می‌کنم.",
 
     webdesigns_title: "طراحی وب",
-    webdesigns_note: "چند رابط وب و فروشگاه که طراحی و پیاده‌سازی کرده‌ام. این موارد فعلاً به‌صورت قالب‌های فعال نمایش داده می‌شوند و مقصد نهایی پروژه‌ها به‌مرور متصل خواهد شد.",
+    webdesigns_note: "چند رابط وب و فروشگاه که طراحی و پیاده‌سازی کرده‌ام.",
     w1_title: "فروشگاه آنلاین مهگل رزین",
     w1_desc: `موتور فروشگاهی تولیدی پرسرعت با اتصال مستقیم به ربات تلگرام برای گردش خرید بدون درز. تم بنفش سلطنتی و طلایی دقیقاً مطابق پالت برند، ارسال سفارش ناهمگام با Celery، و مدیریت موجودی لحظه‌ای دیتابیس‌محور.`,
-    w1_side: "فروشگاه تولیدی · قالب فعال",
-    w2_title: "پورتفولیوی مینیمال و ایندکس پروژه",
-    w2_desc: `ایندکس دیجیتال پرکنتراست ساخته‌شده با متغیرهای CSS خالص، فروپاشی ستون ریسپانسیو، و راستی‌آزمایی صفر-خطا با اتوماسیون CDP. بهینه برای پرتال مرکزیِ لاگ‌های مهندسی، coursework دانشگاهی و دموهای نرم‌افزار.`,
-    w2_side: "قالب UI اختصاصی · آماده اتصال",
+    w1_side: "فروشگاه تولیدی · زنده",
+    w2_title: "اپلیکیشن وب متیس",
+    w2_desc: `یک اپلیکیشن وب مدرن ساخته‌شده با Next.js و TypeScript، با طراحی ریسپانسیو با Tailwind CSS. روی Vercel مستقر شده با خط لوله CI/CD خودکار.`,
+    w2_side: "اپلیکیشن زنده · استقرار روی Vercel",
 
     contact_title: "ارتباط با من",
     contact_note: "تلگرام را روزانه چک می‌کنم؛ همان‌جا پیام بدهید.",
