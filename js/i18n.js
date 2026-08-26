@@ -275,7 +275,7 @@ Object.assign(I18N.fa, {
   contact_telegram: "تلگرام", contact_dm: "(پیام مستقیم باز است و معمولاً سریع پاسخ می‌دهم)", contact_github: "گیت‌هاب", contact_linkedin: "لینکدین", contact_email: "ایمیل",
   footer_text: "مهبد بمانی‌چم — مهندسی برق (گرایش کنترل، حوزه تخصصی الکترونیک)، دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران)، تهران. ۱۴۰۵.",
   back_to_top: "بازگشت به بالا",
-  about_p1: "من دانشجوی کارشناسی مهندسی برق دانشگاه صنعتی امیرکبیر هستم. بیشتر چیزهایی که یاد گرفته‌ام از پروژه‌هایی آمده که بار اول درست کار نکرده‌اند؛ از یک سروو که تا تنظیم درست PWM مدام می‌لرزید، تا دیکدری که در شبیه‌سازی سالم بود اما روی برد شکست می‌خورد، و حتی یک ورکر جنگو که هر شب بی‌سروصدا از کار می‌افتاد.",
+  about_p1: "من دانشجوی کارشناسی مهندسی برق دانشگاه صنعتی امیرکبیر هستم. بیشتر چیزهایی که یاد گرفته‌ام از پروژه‌هایی آمده که بار اول درست کار نکرده‌اند؛ از یک سروو که تا تنظیم درست PWM مدام می‌لرزد، تا دیکدری که در شبیه‌سازی سالم بود اما روی برد شکست می‌خورد، و حتی یک ورکر جنگو که هر شب بی‌سروصدا از کار می‌افتاد.",
   about_p2: "من سخت‌افزاری را دوست دارم که بتوانم نتیجه‌اش را از نزدیک ببینم و درسی را که بتوانم آموزش بدهم. دو نیم‌سال دستیاری آموزشی در درس‌های الکترومغناطیس با دکتر عسکرپور و مدارهای منطقی با دکتر پوردرد به من یاد داد که وقتی چیزی را برای دیگری توضیح می‌دهی، خیلی زود متوجه می‌شوی کجای فهم خودت هنوز جای کار دارد. مسیر تحصیلی من روی گرایش <strong>کنترل</strong> است و در کنار آن، حوزه <strong>الکترونیک</strong> را هم جدی دنبال می‌کنم.",
   about_p3: "این صفحه قرار نیست یک تبلیغ اغراق‌آمیز از من باشد؛ یک فهرست واقعی از چیزهایی است که ساخته‌ام و رویشان کار کرده‌ام. اگر پروژه‌ای برایتان جالب بود، مخزن آن یک کلیک فاصله دارد و تاریخچهٔ تغییراتش هم روند واقعی کار را نشان می‌دهد.",
   int_p1: "<strong>امنیت SCADA و اتوماسیون پست برق — کارآموزی موج نیرو:</strong><br />در حال گذراندن کارآموزی مهندسی در <strong>موج نیرو</strong> هستم و روی مطالعه، تحلیل و مستندسازی پست‌های متعارف، سیستم‌های DCS و معماری تله‌متری SCADA در شبکه برق ایران کار می‌کنم.",
@@ -283,3 +283,34 @@ Object.assign(I18N.fa, {
 });
 
 setLang(document.documentElement.lang === "fa" ? "fa" : "en");
+
+/* Full header reveal: normal at page top, fixed only after scrolling past the header. */
+(() => {
+  const nav = document.querySelector(".nav");
+  if (!nav) return;
+
+  const threshold = () => Math.max(nav.offsetHeight + 16, 80);
+  let stuck = false;
+  let ticking = false;
+
+  const updateNav = () => {
+    const shouldStick = window.scrollY > threshold();
+    if (shouldStick === stuck) return;
+    stuck = shouldStick;
+    nav.classList.toggle("nav--stuck", stuck);
+    document.body.classList.toggle("nav-has-sticky", stuck);
+  };
+
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      updateNav();
+      ticking = false;
+    });
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", updateNav, { passive: true });
+  updateNav();
+})();
