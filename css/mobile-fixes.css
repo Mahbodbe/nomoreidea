@@ -22,6 +22,7 @@
 .nav__cta,
 .cta-type {
   min-height: 44px !important;
+  height: 44px !important;
 }
 
 .row__arrow {
@@ -34,51 +35,41 @@
   flex: 0 0 44px;
 }
 
-/* Full masthead at the top; compact 44px navbar after scrolling. */
+/* Normal full header at the top; full header becomes fixed after scrolling past it. */
 .nav {
-  position: sticky !important;
+  position: relative !important;
+  top: auto !important;
+  z-index: var(--z-sticky-nav);
+  background: color-mix(in oklab, var(--color-paper) 78%, transparent) !important;
+  backdrop-filter: blur(12px);
+  box-shadow: none !important;
+  transform: none;
+}
+
+.nav.nav--stuck {
+  position: fixed !important;
+  inset-block-start: 0 !important;
+  inset-inline-start: 0 !important;
+  inset-inline-end: 0 !important;
   top: 0 !important;
   z-index: var(--z-sticky-nav);
   background: color-mix(in oklab, var(--color-paper) 94%, transparent) !important;
-  backdrop-filter: blur(12px);
-}
-.nav__inner {
-  min-height: 64px;
-  padding-block: var(--space-sm);
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
+  animation: nav-drop-in 220ms var(--ease-out) both;
 }
 
-@supports (animation-timeline: scroll()) {
-  .nav__inner {
-    animation: nav-compact-by-scroll linear both;
-    animation-timeline: scroll();
-    animation-range: 0 180px;
-  }
-  .nav {
-    animation: nav-surface-by-scroll linear both;
-    animation-timeline: scroll();
-    animation-range: 0 180px;
-  }
+body.nav-has-sticky { padding-top: 64px; }
 
-  @keyframes nav-compact-by-scroll {
-    from {
-      min-height: 64px;
-      padding-block: var(--space-sm);
-    }
-    to {
-      min-height: 44px;
-      padding-block: 0.25rem;
-    }
-  }
+/* Disable experimental scroll-timeline rules; JS owns the reveal state. */
+.nav__inner,
+.nav {
+  animation-timeline: none !important;
+  animation-range: none !important;
+}
 
-  @keyframes nav-surface-by-scroll {
-    from {
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    }
-    to {
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
-    }
-  }
+@keyframes nav-drop-in {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
 }
 
 @media (max-width: 47.99rem) {
@@ -86,10 +77,10 @@
   .wordmark,
   .lang-toggle,
   .nav__cta,
-  .cta-type { min-height: 44px !important; }
+  .cta-type { min-height: 44px !important; height: 44px !important; }
+  body.nav-has-sticky { padding-top: 64px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nav,
-  .nav__inner { animation: none !important; }
+  .nav.nav--stuck { animation: none !important; }
 }
