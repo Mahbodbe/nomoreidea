@@ -47,8 +47,9 @@ img, svg { display: block; max-width: 100%; height: auto; }
 .link { color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-rule-2); text-decoration-thickness: 1px; text-underline-offset: 2px; transition: color var(--dur-short) var(--ease-out), text-decoration-color var(--dur-short) var(--ease-out); }
 .link:hover { color: var(--color-accent); text-decoration-color: var(--color-accent); }
 
-.skip { position: absolute; left: -9999px; top: 0; z-index: var(--z-modal); background: var(--color-graphite); color: var(--color-footer-link); padding: var(--space-sm) var(--space-md); font-family: var(--font-label); font-size: var(--text-xs); letter-spacing: var(--tracking-label); text-transform: uppercase; text-decoration: none; }
-.skip:focus { left: var(--page-gutter); top: var(--space-xs); }
+/* off-screen until focused — clip-path instead of left:-9999px */
+.skip { position: absolute; inset-inline-start: 0; top: 0; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; z-index: var(--z-modal); background: var(--color-graphite); color: var(--color-footer-link); padding: var(--space-sm) var(--space-md); font-family: var(--font-label); font-size: var(--text-xs); letter-spacing: var(--tracking-label); text-transform: uppercase; text-decoration: none; }
+.skip:focus { width: auto; height: auto; overflow: visible; clip-path: none; inset-inline-start: var(--page-gutter); top: var(--space-xs); }
 
 /* every real <button> meets the 44px floor (WCAG + CI audit) */
 button { min-height: 44px; min-width: 44px; }
