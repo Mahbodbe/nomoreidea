@@ -35,7 +35,6 @@ const I18N = {
     footer_text: "Mahbod BemaniCham — Electrical Engineering (Control major, Electronics minor), Amirkabir University of Technology (Tehran Polytechnic), Tehran. 2026.",
     footer_hint: "press ? for shortcuts · ~ for terminal",
     back_to_top: "Back to top",
-
     plate_label: "Live Environment",
     plate_claim: 'I would rather build the thing than <em>write</em> about building it.',
     studying: "Studying",
@@ -44,7 +43,6 @@ const I18N = {
     ta_value: "Electromagnetics (Dr. Askarpour) and Digital Logic Design (Dr. Pourfard), separate semesters",
     focus: "Focus",
     focus_value: "Embedded data acquisition, VHDL on FPGA, Qt desktop applications, Django web services",
-
     tools_title: "what i actually use",
     tools_note: `Grouped by where it sits in a build, not by how confident it sounds.
           Anything I have only read about is not on this list.`,
@@ -55,7 +53,6 @@ const I18N = {
     tool_application: "Application", tool_application_used: "Qt Deep Dive, web services",
     tool_data: "Data", tool_data_used: "Parking telemetry, shop backend",
     tool_bench: "Bench", tool_bench_used: "Every project above",
-
     about_title: "about",
     about_p1: `I am an electrical engineering undergraduate at Amirkabir University of
             Technology. Most of what I know came from projects that did not work the
@@ -71,7 +68,6 @@ const I18N = {
     about_p3: `This page is an index, not a pitch. If something here is relevant to you,
             the repository is one click away and the commit history is honest about
             how long it took.`,
-
     internships_title: "internships & active research",
     int_p1: `<strong>SCADA Security &amp; Substation Automation (Modje Niroo Internship):</strong><br />
             I am currently passing an engineering internship at <strong>Modje Niroo</strong>,
@@ -82,8 +78,7 @@ const I18N = {
             I am compiling detailed technical logs on GOOSE message retransmission latency under heavy
             traffic spikes, RTU marshalling logic, FEP gateway mapping, and compiling risk matrices
             for potential cybersecurity threat vectors on industrial dispatching.`,
-
-webdesigns_title: "web designs",
+    webdesigns_title: "web designs",
     webdesigns_note: `Selected web interfaces and storefront systems I have engineered.`,
     w1_title: "Mahgol Resin E-Commerce Storefront",
     w1_desc: `A high-performance production e-commerce engine integrated with an active Telegram notification bot for seamless purchase workflows. Features a royal purple and gold theme customized to match the brand's exact design palette, asynchronous order dispatching with Celery, and real-time database-driven product inventory management.`,
@@ -91,24 +86,20 @@ webdesigns_title: "web designs",
     w2_title: "Metis Web Application",
     w2_desc: `A modern web application built with Next.js and TypeScript, featuring a responsive design with Tailwind CSS. Deployed on Vercel with automatic CI/CD pipeline.`,
     w2_side: "Live application · Vercel deployment",
-
     contact_title: "get in touch",
     contact_note: "Telegram is checked daily. Drop a direct message there.",
     contact_telegram: "Telegram", contact_dm: "(DMs are open — fast response)",
     contact_github: "GitHub", contact_linkedin: "LinkedIn", contact_email: "Email",
-
     pal_ph: "Type a command or search…",
     grp_navigate: "navigate", grp_projects: "repositories", grp_theme: "theme",
     grp_language: "language", grp_links: "links", grp_actions: "actions",
     act_open_term: "Open terminal", act_shortcuts: "Keyboard shortcuts",
     act_copy_email: "Copy email address",
-
     sc_title: "keyboard shortcuts",
     sc_palette: "Open command palette", sc_search: "Focus repository filter",
     sc_theme: "Cycle color theme", sc_lang: "Toggle EN / فارسی",
     sc_term: "Toggle terminal", sc_help: "This dialog", sc_esc: "Close overlays",
     sc_close: "close",
-
     toast_theme: "theme → {v}", toast_lang: "language → {v}",
     toast_hack: "HACK MODE engaged. konami respected.",
     term_welcome: [
@@ -136,113 +127,118 @@ webdesigns_title: "web designs",
   fa: {
     dir: "rtl", lang: "fa",
     brand: "مهبد بمانی‌چم",
-    nav_work: "نمونه‌کارها", nav_stack: "ابزارها", nav_about: "درباره", nav_contact: "تماس",
-    switch_language: "تغییر زبان", skip_to_index: "رفتن به فهرست",
-    status_open: "آمادهٔ کارآموزی و همکاری",
-    hero_title: 'مهندسی برق، ساخته‌شده با <em>دقت</em>.',
-    hero_lede: `دانشجوی کارشناسی دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران).
-            من در مرزِ اتصال فریم‌ور به سخت‌افزار کار می‌کنم — جمع‌آوری داده با ESP32،
-            طراحی FPGA با VHDL، اپلیکیشن‌های دسکتاپ Qt و سرویس‌های جنگو.
-            دستیار آموزشی درس الکترومغناطیس و مدارهای منطقی بوده‌ام.`,
+    nav_work: "پروژه‌ها", nav_stack: "مهارت‌ها", nav_about: "درباره من", nav_contact: "ارتباط",
+    switch_language: "تغییر زبان", skip_to_index: "رفتن به فهرست پروژه‌ها",
+    status_open: "آماده برای کارآموزی و همکاری",
+    hero_title: 'مهندسی برق؛ از ایده تا <em>پیاده‌سازی</em>.',
+    hero_lede: `دانشجوی مهندسی برق دانشگاه صنعتی امیرکبیر هستم و بیشتر از حرف‌زدن دربارهٔ ایده‌ها، به ساختن و آزمایش‌کردنشان علاقه دارم.
+            روی پروژه‌هایی در حوزهٔ سیستم‌های نهفته، جمع‌آوری داده با ESP32، طراحی دیجیتال و FPGA با VHDL،
+            اپلیکیشن‌های دسکتاپ Qt و سرویس‌های وب با جنگو کار می‌کنم.
+            تجربهٔ دستیاری آموزشی در درس‌های الکترومغناطیس و مدارهای منطقی را هم داشته‌ام.`,
     meta_loc: "تهران، ایران",
-    meta_degree: "کارشناسی مهندسی برق (گرایش کنترل · ماینور الکترونیک)",
-    view_index: "مشاهدهٔ فهرست زنده",
-    count_repos: "مخزن عمومی", count_stars: "ستاره‌های دریافتی",
-    count_followers: "دنبال‌کننده", count_since: "عضو گیت‌هاب از",
-    work_title: "فهرست پروژه‌ها",
-    work_note: `هر مورد در این فهرست یک مخزن است که می‌توانید بازش کنید و بخوانید. این بخش مستقیماً به گیت‌هاب وصله — هر ریپوی جدیدی اضافه شود، کارتش به‌صورت خودکار از ابتدای README همان ریپو ساخته می‌شود.`,
-    badge_syncing: "در حال همگام‌سازی…", badge_live: "زنده · گیت‌هاب", badge_offline: "حالت اسنپ‌شات",
-    search_ph: "فیلتر مخزن‌ها…", sort_label: "ترتیب",
-    sort_pushed: "جدیدترین پوش", sort_stars: "بیشترین ستاره", sort_name: "نام الفبا",
+    meta_degree: "کارشناسی مهندسی برق · گرایش کنترل",
+    view_index: "مشاهده پروژه‌ها",
+    count_repos: "مخزن عمومی", count_stars: "ستاره‌ها",
+    count_followers: "دنبال‌کننده", count_since: "عضویت در گیت‌هاب از",
+    work_title: "پروژه‌ها",
+    work_note: `این بخش مستقیماً به گیت‌هاب متصل است. هر پروژه یک مخزن واقعی است و می‌توانید کد، مستندات و روند توسعهٔ آن را ببینید.
+          با اضافه‌شدن مخزن جدید، اطلاعات آن هم به‌صورت خودکار در این فهرست به‌روزرسانی می‌شود.`,
+    badge_syncing: "در حال همگام‌سازی…", badge_live: "متصل به گیت‌هاب", badge_offline: "نمایش آخرین نسخه",
+    search_ph: "جست‌وجوی پروژه‌ها…", sort_label: "مرتب‌سازی",
+    sort_pushed: "آخرین به‌روزرسانی", sort_stars: "بیشترین ستاره", sort_name: "نام الفبایی",
     chip_all: "همه",
-    loading_msg: "در حال دریافت مخزن‌ها از گیت‌هاب…",
-    empty_msg: "هیچ مخزنی با این فیلتر پیدا نشد.",
-    err_msg: "دسترسی به گیت‌هاب ممکن نشد — آخرین اسنپ‌شات نمایش داده می‌شود.",
+    loading_msg: "در حال دریافت پروژه‌ها از گیت‌هاب…",
+    empty_msg: "پروژه‌ای با این فیلتر پیدا نشد.",
+    err_msg: "اتصال به گیت‌هاب برقرار نشد؛ آخرین اطلاعات ذخیره‌شده نمایش داده می‌شود.",
     flag_new: "جدید",
-    rel_updated: "به‌روزرسانی",
-    sync_pending: "اسنپ‌شات منتظر اولین همگام‌سازی",
+    rel_updated: "به‌روزرسانی شد",
+    sync_pending: "در انتظار نخستین همگام‌سازی",
     sync_note_fmt: "همگام‌سازی خودکار از گیت‌هاب · {d}",
     copy_email: "کپی", copied_email: "ایمیل کپی شد ✓",
-    footer_text: "مهبد بمانی‌چم — مهندسی برق (گرایش کنترل، حوزه تخصصی الکترونیک)، دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران)، تهران. ۱۴۰۵.",
-    footer_hint: "کلید ؟ برای میانبرها · ~ برای ترمینال",
+    footer_text: "مهبد بمانی‌چم — مهندسی برق، گرایش کنترل، دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران). ۱۴۰۵.",
+    footer_hint: "؟ برای میانبرها · ~ برای ترمینال",
     back_to_top: "بازگشت به بالا",
 
-    plate_label: "وضعیت فعلی",
-    plate_claim: 'ترجیح می‌دهم چیزی را <em>بسازم</em> تا اینکه دربارهٔ ساختنش بنویسم.',
+    plate_label: "مسیر فعلی",
+    plate_claim: 'ترجیح می‌دهم چیزی را <em>بسازم</em> و امتحانش کنم، تا اینکه فقط دربارهٔ ساختنش حرف بزنم.',
     studying: "تحصیل",
-    studying_value: "کارشناسی مهندسی برق، گرایش کنترل، دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران)",
+    studying_value: "کارشناسی مهندسی برق، گرایش کنترل — دانشگاه صنعتی امیرکبیر",
     ta: "دستیار آموزشی",
     ta_value: "الکترومغناطیس با دکتر عسکرپور و مدارهای منطقی با دکتر پورفرد، در دو نیم‌سال جداگانه",
-    focus: "حوزه تمرکز",
-    focus_value: "جمع‌آوری داده و سیستم‌های نهفته، VHDL و FPGA، اپلیکیشن‌های دسکتاپ Qt و سرویس‌های وب جنگو",
+    focus: "حوزهٔ تمرکز",
+    focus_value: "سیستم‌های نهفته و جمع‌آوری داده، کنترل، VHDL و FPGA، اپلیکیشن‌های دسکتاپ Qt و سرویس‌های وب جنگو",
 
-    tools_title: "ابزارهایی که واقعاً استفاده می‌کنم",
-    tools_note: `بر اساس جایگاهشان در پروژه دسته‌بندی شده‌اند، نه بر اساس جذاب بودن نامشان.
-          هر چیزی که فقط درباره‌اش خوانده باشم، اینجا نیست.`,
-    tools_caption: "مجموعه ابزارهای مورد استفاده", tools_layer: "لایه", tools_tools: "ابزارها", tools_used: "کاربرد",
-    tool_silicon: "سخت‌افزار", tool_silicon_used: "پارکینگ هوشمند، قفل درب، همینگ",
-    tool_hdl: "توصیف سخت‌افزار", tool_hdl_used: "پردازنده بسته، آزمایشگاه مدار منطقی",
-    tool_firmware: "فریم‌ور", tool_firmware_used: "تمام پروژه‌های نهفته",
-    tool_application: "نرم‌افزار کاربردی", tool_application_used: "Qt Deep Dive، سرویس‌های وب",
-    tool_data: "داده و زیرساخت", tool_data_used: "تله‌متری پارکینگ، بک‌اند فروشگاه",
-    tool_bench: "ابزار آزمایش و توسعه", tool_bench_used: "تمام پروژه‌های بالا",
+    tools_title: "ابزارهایی که واقعاً با آن‌ها کار کرده‌ام",
+    tools_note: `این فهرست بر اساس تجربهٔ عملی نوشته شده، نه صرفاً چیزهایی که اسمشان را می‌دانم.
+          ابزارهایی که فقط مطالعه‌شان کرده‌ام، عمداً در این بخش نیامده‌اند.`,
+    tools_caption: "مجموعه ابزارهای مورد استفاده", tools_layer: "حوزه", tools_tools: "ابزارها", tools_used: "کاربرد",
+    tool_silicon: "سخت‌افزار", tool_silicon_used: "پارکینگ هوشمند، قفل در و پروژه‌های Hamming",
+    tool_hdl: "طراحی دیجیتال", tool_hdl_used: "پردازندهٔ بسته و آزمایشگاه مدار منطقی",
+    tool_firmware: "فریم‌ور", tool_firmware_used: "پروژه‌های سیستم‌های نهفته",
+    tool_application: "نرم‌افزار", tool_application_used: "اپلیکیشن‌های Qt و سرویس‌های وب",
+    tool_data: "داده و زیرساخت", tool_data_used: "تله‌متری پارکینگ و بک‌اند فروشگاه",
+    tool_bench: "توسعه و آزمایش", tool_bench_used: "توسعه، دیباگ و تست پروژه‌ها",
 
     about_title: "درباره من",
-    about_p1: `من دانشجوی کارشناسی مهندسی برق دانشگاه صنعتی امیرکبیر هستم. بیشتر چیزهایی که یاد گرفته‌ام از پروژه‌هایی آمده که بار اول درست کار نکرده‌اند؛ از یک سروو که تا تنظیم درست PWM مدام می‌لرزد، تا دیکدری که در شبیه‌سازی سالم بود اما روی برد شکست می‌خورد، و حتی یک ورکر جنگو که هر شب بی‌سروصدا از کار می‌افتاد.`,
-    about_p2: "من سخت‌افزاری را دوست دارم که بتوانم نتیجه‌اش را از نزدیک ببینم و درسی را که بتوانم آموزش بدهم. دو نیم‌سال دستیاری آموزشی در درس‌های الکترومغناطیس با دکتر عسکرپور و مدارهای منطقی با دکتر پورفرد به من یاد داد که وقتی چیزی را برای دیگری توضیح می‌دهی، خیلی زود متوجه می‌شوی کجای فهم خودت هنوز جای کار دارد. مسیر تحصیلی من روی گرایش <strong>کنترل</strong> است و در کنار آن، حوزه <strong>الکترونیک</strong> را هم جدی دنبال می‌کنم.",
-    about_p3: "این صفحه قرار نیست یک تبلیغ اغراق‌آمیز از من باشد؛ یک فهرست واقعی از چیزهایی است که ساخته‌ام و رویشان کار کرده‌ام. اگر پروژه‌ای برایتان جالب بود، مخزن آن یک کلیک فاصله دارد و تاریخچهٔ تغییراتش هم روند واقعی کار را نشان می‌دهد.",
+    about_p1: `من دانشجوی کارشناسی مهندسی برق دانشگاه صنعتی امیرکبیر هستم. بخش بزرگی از چیزهایی که یاد گرفته‌ام، نتیجهٔ پروژه‌هایی است که در تلاش اول درست کار نکرده‌اند؛
+            از سروویی که تا پیدا کردن تنظیم درست PWM مدام می‌لرزید، تا دیکدری که در شبیه‌سازی درست بود اما روی برد جواب نمی‌داد،
+            و یک سرویس جنگو که ظاهراً بدون دلیل، هر شب از کار می‌افتاد. برای من، همین خطاها بخش مهمی از فرایند یادگیری‌اند.`,
+    about_p2: `به کار عملی و ساختن سیستم‌هایی علاقه دارم که بتوان نتیجهٔ کارشان را واقعاً دید و آزمایش کرد. دو نیم‌سال دستیاری آموزشی در درس‌های الکترومغناطیس و مدارهای منطقی،
+            علاوه بر تجربهٔ فنی، یک چیز مهم‌تر به من یاد داد: وقتی مجبور می‌شوی یک مفهوم را برای شخص دیگری توضیح بدهی، خیلی سریع متوجه می‌شوی کدام بخش از فهم خودت هنوز کامل نیست.
+            مسیر تحصیلی من در مهندسی برق روی <strong>گرایش کنترل</strong> متمرکز است و در کنار آن، <strong>الکترونیک</strong> را به‌صورت عملی دنبال می‌کنم.`,
+    about_p3: `این صفحه قرار نیست رزومه‌ای پر از ادعا باشد. اینجا فهرستی از پروژه‌ها و تجربه‌های واقعی من است؛ چیزهایی که ساخته‌ام، خراب شده‌اند، اصلاحشان کرده‌ام و از آن‌ها یاد گرفته‌ام.
+            اگر پروژه‌ای برایتان جالب بود، کد و تاریخچهٔ تغییراتش در مخزن همان پروژه در دسترس است.`,
 
-    internships_title: "کارآموزی و پژوهش فعال",
-    int_p1: "<strong>امنیت SCADA و اتوماسیون پست برق — کارآموزی موج نیرو:</strong><br />در حال گذراندن کارآموزی مهندسی در <strong>موج نیرو</strong> هستم و روی مطالعه، تحلیل و مستندسازی پست‌های متعارف، سیستم‌های DCS و معماری تله‌متری SCADA در شبکه برق ایران کار می‌کنم.",
-    int_p2: "تمرکز پژوهشی فعلی من روی زنجیره پروتکل‌های <strong>IEC 61850</strong>، <strong>DNP3</strong>، <strong>IEC 60870-5-104</strong> و <strong>Modbus</strong> است. در این مسیر، روی مستندسازی تأخیر ارسال مجدد پیام‌های GOOSE در ترافیک سنگین، منطق مارشالینگ RTU، نگاشت گیت‌وی FEP و تهیهٔ ماتریس ریسک برای تهدیدهای سایبری سامانه‌های دیسپاچینگ صنعتی کار می‌کنم.",
+    internships_title: "کارآموزی و پژوهش فعلی",
+    int_p1: "<strong>امنیت SCADA و اتوماسیون پست برق — کارآموزی موج نیرو:</strong><br />در حال گذراندن کارآموزی مهندسی در <strong>موج نیرو</strong> هستم و روی مطالعه، تحلیل و مستندسازی پست‌های برق، سیستم‌های DCS و معماری تله‌متری SCADA در شبکهٔ برق ایران کار می‌کنم.",
+    int_p2: "تمرکز فعلی من روی پروتکل‌های <strong>IEC 61850</strong>، <strong>DNP3</strong>، <strong>IEC 60870-5-104</strong> و <strong>Modbus</strong> است. بخشی از این کار شامل بررسی تأخیر ارسال مجدد پیام‌های GOOSE در ترافیک سنگین، منطق مارشالینگ RTU، نگاشت گیت‌وی FEP و تهیهٔ ماتریس ریسک برای تهدیدهای سایبری در سامانه‌های دیسپاچینگ صنعتی است.",
 
-    webdesigns_title: "طراحی وب",
-    webdesigns_note: "چند رابط وب و فروشگاه که طراحی و پیاده‌سازی کرده‌ام.",
+    webdesigns_title: "طراحی و توسعهٔ وب",
+    webdesigns_note: "چند نمونه از رابط‌ها و سامانه‌های وبی که طراحی و پیاده‌سازی کرده‌ام.",
     w1_title: "فروشگاه آنلاین مهگل رزین",
-    w1_desc: `موتور فروشگاهی تولیدی پرسرعت با اتصال مستقیم به ربات تلگرام برای گردش خرید بدون درز. تم بنفش سلطنتی و طلایی دقیقاً مطابق پالت برند، ارسال سفارش ناهمگام با Celery، و مدیریت موجودی لحظه‌ای دیتابیس‌محور.`,
-    w1_side: "فروشگاه تولیدی · زنده",
+    w1_desc: `یک فروشگاه اینترنتی تولیدی با اتصال به ربات تلگرام برای مدیریت و اطلاع‌رسانی سفارش‌ها. این پروژه شامل رابط کاربری اختصاصی با پالت بنفش و طلایی،
+            پردازش ناهمگام سفارش‌ها با Celery و مدیریت موجودی بر پایهٔ داده‌های لحظه‌ای پایگاه داده است.`,
+    w1_side: "فروشگاه در حال استفاده · زنده",
     w2_title: "اپلیکیشن وب متیس",
-    w2_desc: `یک اپلیکیشن وب مدرن ساخته‌شده با Next.js و TypeScript، با طراحی ریسپانسیو با Tailwind CSS. روی Vercel مستقر شده با خط لوله CI/CD خودکار.`,
+    w2_desc: `یک اپلیکیشن وب مدرن با Next.js و TypeScript، با رابط واکنش‌گرا و Tailwind CSS که روی Vercel مستقر شده و فرایند CI/CD خودکار دارد.`,
     w2_side: "اپلیکیشن زنده · استقرار روی Vercel",
 
     contact_title: "ارتباط با من",
-    contact_note: "تلگرام را روزانه چک می‌کنم؛ همان‌جا پیام بدهید.",
-    contact_telegram: "تلگرام", contact_dm: "(پیام مستقیم باز است و معمولاً سریع پاسخ می‌دهم)",
+    contact_note: "تلگرام را هر روز بررسی می‌کنم؛ برای ارتباط مستقیم می‌توانید همان‌جا پیام بدهید.",
+    contact_telegram: "تلگرام", contact_dm: "(پیام مستقیم باز است)",
     contact_github: "گیت‌هاب", contact_linkedin: "لینکدین", contact_email: "ایمیل",
 
-    pal_ph: "یک فرمان بنویسید یا جستجو کنید…",
-    grp_navigate: "ناوبری", grp_projects: "مخزن‌ها", grp_theme: "پوسته",
-    grp_language: "زبان", grp_links: "پیوندها", grp_actions: "کنش‌ها",
-    act_open_term: "باز کردن ترمینال", act_shortcuts: "میانبرهای صفحه‌کلید",
-    act_copy_email: "کپی نشانی ایمیل",
+    pal_ph: "یک فرمان بنویسید یا جست‌وجو کنید…",
+    grp_navigate: "ناوبری", grp_projects: "پروژه‌ها", grp_theme: "پوسته", grp_language: "زبان", grp_links: "لینک‌ها", grp_actions: "عملیات",
+    act_open_term: "باز کردن ترمینال", act_shortcuts: "میانبرهای صفحه‌کلید", act_copy_email: "کپی نشانی ایمیل",
 
     sc_title: "میانبرهای صفحه‌کلید",
-    sc_palette: "باز کردن کامند پالت", sc_search: "فوکوس روی فیلتر مخزن‌ها",
-    sc_theme: "چرخش پوستهٔ رنگی", sc_lang: "تغییر EN / فارسی",
-    sc_term: "باز/بستن ترمینال", sc_help: "این پنجره", sc_esc: "بستن پنجره‌ها",
+    sc_palette: "باز کردن فهرست فرمان‌ها", sc_search: "رفتن به فیلتر پروژه‌ها",
+    sc_theme: "تغییر پوستهٔ رنگی", sc_lang: "تغییر EN / فارسی",
+    sc_term: "باز/بستن ترمینال", sc_help: "باز کردن این پنجره", sc_esc: "بستن پنجره‌ها",
     sc_close: "بستن",
 
     toast_theme: "پوسته ← {v}", toast_lang: "زبان ← {v}",
-    toast_hack: "HACK MODE فعال شد. کونامی محترم.",
+    toast_hack: "HACK MODE فعال شد. کونامی هم راضی است.",
     term_welcome: [
-      'mahbod-os v2 — شل تعاملی',
-      'برای فهرست فرمان‌ها help بنویسید.'
+      'mahbod-os v2 — ترمینال تعاملی',
+      'برای دیدن فهرست فرمان‌ها، help را بنویسید.'
     ],
     term_help_rows: [
-      "help              همین فهرست",
-      "whoami            چه کسی پشت این سایت است",
-      "ls                فهرست مخزن‌ها",
-      "cat <repo>        خلاصه README یک مخزن",
+      "help              نمایش فهرست فرمان‌ها",
+      "whoami            معرفی صاحب این سایت",
+      "ls                نمایش فهرست پروژه‌ها",
+      "cat <repo>        نمایش خلاصه README یک پروژه",
       "open <repo>       باز کردن مخزن در گیت‌هاب",
-      "stats             آمار زنده گیت‌هاب",
+      "stats             نمایش آمار زندهٔ گیت‌هاب",
       "theme [name]      cobalt | paper | crt | ember",
       "lang [en|fa]      تغییر زبان",
-      "goto <section>    پرش به work|stack|about|contact",
-      "contact           راه‌های ارتباطی",
+      "goto <section>    رفتن به work|stack|about|contact",
+      "contact           نمایش راه‌های ارتباطی",
       "clear             پاک کردن صفحه",
       "exit              بستن ترمینال"
     ],
-    term_unknown: 'فرمان ناشناخته: {v} — «help» را امتحان کنید',
+    term_unknown: 'فرمان ناشناخته است: {v} — «help» را امتحان کنید',
     term_bye: "خدانگهدار."
   }
 };
