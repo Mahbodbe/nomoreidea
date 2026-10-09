@@ -10,7 +10,7 @@
  "skip_to_index": "Skip to projects",
  "status_open": "Open to internships & collaborations",
  "hero_title": "Electrical engineering for systems that <em>sense, decide and act</em>.",
- "hero_lede": "I am Mahbod BemaniCham, an electrical engineering student at Amirkabir University of Technology (Tehran Polytechnic) with a control systems focus. I work along the whole signal path: sensors and ESP32 firmware, FPGA logic in VHDL, Qt desktop tools, and the Django back ends that keep the data. In summer 2026 I interned at Modje Niroo on substation automation and SCADA.",
+ "hero_lede": "I am Mahbod BemaniCham, an electrical engineering student at Amirkabir University of Technology (Tehran Polytechnic) with a control systems focus. I work along the whole signal path: sensors and ESP32 firmware, FPGA logic in VHDL, Qt desktop tools, and the Django back ends that keep the data. In summer 2026 I interned at Modje Niroo, studying SCADA architecture and security.",
  "meta_loc": "Tehran, Iran",
  "meta_degree": "B.Sc. Electrical Engineering · Control",
  "view_index": "View projects",
@@ -69,9 +69,9 @@
  "about_p1": "Most of what I know came from things that failed first: a servo that jittered until I fixed the PWM setup, a decoder that passed simulation and failed on the board, a Django worker that quietly died every night. Each one taught me to test earlier and to trust the measurement over the assumption.",
  "about_p2": "I teach as well as build. I was a teaching assistant for Electromagnetics (Dr. Askarpour) and Digital Logic Design (Dr. Pourfard) in two separate semesters, and explaining a concept turned out to be the fastest way to find the gaps in my own understanding. My degree is in electrical engineering with a control systems focus.",
  "about_p3": "This site is a map of real work, not a list of claims. Every project links to its repository, so you can read the code and the commit history yourself.",
- "internships_title": "Internship at Modje Niroo: SCADA and substation automation",
- "int_p1": "<strong>Modje Niroo · Summer 2026 (summer 1405 in the Persian calendar)</strong><br />I completed an engineering internship at <strong>Modje Niroo</strong>, studying, analysing and documenting power substations, DCS architectures and SCADA telemetry in Iran's power grid.",
- "int_p2": "The work centred on the <strong>IEC 61850</strong>, <strong>DNP3</strong>, <strong>IEC 60870-5-104</strong> and <strong>Modbus</strong> protocol families, including GOOSE retransmission latency under heavy traffic, RTU marshalling logic, FEP gateway mapping, and risk matrices for cybersecurity threats in industrial dispatch systems.",
+ "internships_title": "Internship at Modje Niroo: SCADA architecture and security",
+ "int_p1": "<strong>Modje Niroo, Research &amp; Development · Summer 2026 (summer 1405 in the Persian calendar)</strong><br />My engineering internship followed the whole SCADA chain of Iran's power industry, from the communication layer and substation hardware to the control centre and its defences. The result is a 189-page report titled “SCADA Architecture and Security in the Iranian Power Industry”.",
+ "int_p2": "The first half covered the foundations: PLCC, industrial Ethernet, serial and fibre links; the <strong>IEC 60870-5-101/104/103</strong>, <strong>Modbus</strong>, <strong>DNP3</strong> and <strong>ICCP</strong> protocols; RTU hardware and the signal path from the transformer to the RTU input; the Iranian dispatching hierarchy; the move to digital substations with <strong>IEC 61850</strong>; and why security priorities are inverted in operational technology.",
  "webdesigns_title": "Web development",
  "webdesigns_note": "A few web interfaces and systems I have designed and built.",
  "w1_title": "Mahgolresin online store",
@@ -154,5 +154,6 @@
  "home": "Home",
  "nf_title": "Page not found",
  "nf_text": "This page does not exist. Try the home page.",
- "github_label": "GitHub"
+ "github_label": "GitHub",
+ "int_p3": "The second half was hands-on. In a live lab with real traffic I showed that an intrusion-detection chain (<strong>Snort</strong>, <strong>Suricata</strong>, <strong>Wazuh</strong>) can inspect DNP3 packets in depth, catch a SYN flood with a behavioural threshold of 20 packets in 5 seconds, flag 21 consecutive failed logins across network and host layers, and spot an abnormal event rate with a custom rule. The conclusion: correct architecture, signatures built on the real protocol structure, behavioural thresholds and network-plus-host correlation together make a complete detection chain that can be deployed in high-voltage substations."
 }

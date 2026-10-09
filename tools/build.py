@@ -223,7 +223,7 @@ def person(lang):
         "sameAs": ["https://github.com/Mahbodbe", "https://www.linkedin.com/in/mahbod-bemanicham-048b252ab",
                    "https://t.me/Mb_Mb84"],
         "knowsAbout": ["Embedded Systems", "Digital Design", "FPGA", "VHDL", "ESP32", "Control Systems",
-                       "SCADA", "IEC 61850", "Qt", "Django"],
+                       "SCADA", "IEC 61850", "DNP3", "Intrusion Detection", "OT Security", "Qt", "Django"],
     }
 
 
