@@ -2,10 +2,10 @@
 
 # ⚡ مهبد بمانی‌چم
 
-**مهندسی برق — گرایش کنترل · ماینور الکترونیک**
+**مهندسی برق — گرایش کنترل**
 **دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران)**
 
-[![Portfolio](https://img.shields.io/badge/🌐_نسخه_زنده-mahbodbe.github.io%2Fnomoreidea-3b82f6?style=for-the-badge)](https://mahbodbe.github.io/nomoreidea/)
+[![Portfolio](https://img.shields.io/badge/🌐_نسخه_زنده-nomoreidea.ir-3b82f6?style=for-the-badge)](https://nomoreidea.ir/)
 [![GitHub](https://img.shields.io/badge/GitHub-@Mahbodbe-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Mahbodbe)
 [![Telegram](https://img.shields.io/badge/تلگرام-@Mb__Mb84-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/Mb_Mb84)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-mahbod--bemanicham-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mahbod-bemanicham-048b252ab)

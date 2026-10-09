@@ -51,6 +51,7 @@
   /* ── projects grid ────────────────────────────────────────── */
   function skeletons() {
     const grid = $("#projectGrid");
+    if (grid.querySelector(".pcard")) return; // pre-rendered at build time: keep it visible
     grid.querySelectorAll(".pcard,.skel,.pgrid-state").forEach(n => n.remove());
     for (let i = 0; i < 6; i++) {
       const s = document.createElement("div");
@@ -505,6 +506,15 @@
     }
   }
 
+  /* resume button: shown only when the PDF exists in /resume/ */
+  function initResume() {
+    const links = $$("[data-resume]");
+    if (!links.length) return;
+    fetch("/resume/Mahbod-BemaniCham-Resume.pdf", { method: "HEAD" })
+      .then(r => { if (r.ok) links.forEach(a => { a.hidden = false; }); })
+      .catch(() => {});
+  }
+
   /* ── boot ─────────────────────────────────────────────────── */
   async function boot() {
     initChrome();
@@ -525,11 +535,13 @@
       inp.value = "";
     });
     $("#copyEmail").addEventListener("click", copyEmail);
+    initResume();
 
     $("#projSearch").addEventListener("input", e => { state.q = e.target.value; renderGrid(); });
     $("#projSort").addEventListener("change", e => { state.sort = e.target.value; renderGrid(); });
 
     try { const saved = localStorage.getItem("site_theme"); if (saved) setTheme(saved, false); } catch (e) {}
+    document.documentElement.classList.add("js");
 
     skeletons();
     try {

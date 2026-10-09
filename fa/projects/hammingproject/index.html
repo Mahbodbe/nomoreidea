@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="cobalt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>پردازنده بسته سخت‌افزاری با تصحیح خطای همینگ در VHDL | مهبد بمانی‌چم</title>
+<meta name="description" content="یک پردازنده بسته ماژولار در سطح RTL که داده سریال را دریافت می‌کند، خطای تک‌بیتی را با دیکودر همینگ سخت‌افزاری ترمیم می‌کند و عملیات را با ALU و واحد کنترل مبتنی بر ماشین حالت اجرا می‌کند. شبیه‌سازی و راستی‌آزمایی در ModelSim." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="author" content="Mahbod BemaniCham" />
+<link rel="canonical" href="https://nomoreidea.ir/fa/projects/hammingproject/" />
+<link rel="alternate" hreflang="en" href="https://nomoreidea.ir/projects/hammingproject/" />
+<link rel="alternate" hreflang="fa" href="https://nomoreidea.ir/fa/projects/hammingproject/" />
+<link rel="alternate" hreflang="x-default" href="https://nomoreidea.ir/projects/hammingproject/" />
+<meta property="og:site_name" content="Mahbod BemaniCham" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="پردازنده بسته سخت‌افزاری با تصحیح خطای همینگ در VHDL | مهبد بمانی‌چم" />
+<meta property="og:description" content="یک پردازنده بسته ماژولار در سطح RTL که داده سریال را دریافت می‌کند، خطای تک‌بیتی را با دیکودر همینگ سخت‌افزاری ترمیم می‌کند و عملیات را با ALU و واحد کنترل مبتنی بر ماشین حالت اجرا می‌کند. شبیه‌سازی و راستی‌آزمایی در ModelSim." />
+<meta property="og:url" content="https://nomoreidea.ir/fa/projects/hammingproject/" />
+<meta property="og:locale" content="fa_IR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:image" content="https://nomoreidea.ir/images/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="پردازنده بسته سخت‌افزاری با تصحیح خطای همینگ در VHDL" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="پردازنده بسته سخت‌افزاری با تصحیح خطای همینگ در VHDL | مهبد بمانی‌چم" />
+<meta name="twitter:description" content="یک پردازنده بسته ماژولار در سطح RTL که داده سریال را دریافت می‌کند، خطای تک‌بیتی را با دیکودر همینگ سخت‌افزاری ترمیم می‌کند و عملیات را با ALU و واحد کنترل مبتنی بر ماشین حالت اجرا می‌کند. شبیه‌سازی و راستی‌آزمایی در ModelSim." />
+<meta name="twitter:image" content="https://nomoreidea.ir/images/og-image.jpg" />
+<meta name="color-scheme" content="dark light" />
+<meta name="theme-color" content="#141824" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon.ico" sizes="48x48" />
+<link rel="apple-touch-icon" href="/icons/icon-180.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<script>(function(){document.documentElement.classList.add("js");try{var t=localStorage.getItem("site_theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="preload" href="/fonts/vazirmatn-arabic-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/vazirmatn-arabic-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="/css/fonts.css?v=801c36f2" />
+<link rel="stylesheet" href="/css/tokens.css?v=1aeee7db" />
+<link rel="stylesheet" href="/css/site.css?v=fd536e57" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareSourceCode", "@id": "https://nomoreidea.ir/fa/projects/hammingproject/#code", "name": "پردازنده بسته سخت‌افزاری با تصحیح خطای همینگ در VHDL", "description": "یک پردازنده بسته ماژولار در سطح RTL که داده سریال را دریافت می‌کند، خطای تک‌بیتی را با دیکودر همینگ سخت‌افزاری ترمیم می‌کند و عملیات را با ALU و واحد کنترل مبتنی بر ماشین حالت اجرا می‌کند. شبیه‌سازی و راستی‌آزمایی در ModelSim.", "codeRepository": "https://github.com/Mahbodbe/HammingProject", "programmingLanguage": "VHDL", "inLanguage": "fa", "url": "https://nomoreidea.ir/fa/projects/hammingproject/", "author": {"@id": "https://nomoreidea.ir/#person"}, "keywords": "VHDL, FPGA, ModelSim, RTL design, Hamming ECC"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "خانه", "item": "https://nomoreidea.ir/fa/"}, {"@type": "ListItem", "position": 2, "name": "پروژه‌ها", "item": "https://nomoreidea.ir/fa/#work"}, {"@type": "ListItem", "position": 3, "name": "پردازنده بسته سخت‌افزاری با تصحیح خطای همینگ در VHDL", "item": "https://nomoreidea.ir/fa/projects/hammingproject/"}]}, {"@type": "Person", "@id": "https://nomoreidea.ir/#person", "name": "Mahbod BemaniCham", "alternateName": ["مهبد بمانی‌چم"], "url": "https://nomoreidea.ir/", "image": "https://nomoreidea.ir/images/mahbod.jpg", "jobTitle": "Electrical Engineering Student", "description": "Mahbod BemaniCham is an electrical engineering student at Amirkabir University of Technology. Projects in ESP32, VHDL/FPGA, control and SCADA, plus Qt and web development.", "address": {"@type": "PostalAddress", "addressLocality": "Tehran", "addressCountry": "IR"}, "alumniOf": {"@type": "CollegeOrUniversity", "name": "Amirkabir University of Technology", "alternateName": ["Tehran Polytechnic", "دانشگاه صنعتی امیرکبیر"]}, "sameAs": ["https://github.com/Mahbodbe", "https://www.linkedin.com/in/mahbod-bemanicham-048b252ab", "https://t.me/Mb_Mb84"], "knowsAbout": ["Embedded Systems", "Digital Design", "FPGA", "VHDL", "ESP32", "Control Systems", "SCADA", "IEC 61850", "Qt", "Django"]}]}</script>
+</head>
+<body class="fa-mode">
+<header class="nav">
+  <div class="shell nav__inner">
+    <a class="wordmark" href="/fa/"><span>مهبد بمانی‌چم</span><span class="wordmark__dot" aria-hidden="true"></span></a>
+    <nav class="nav__links" aria-label="Sections">
+      <a class="nav__link" href="/fa/#work">پروژه‌ها</a>
+      <a class="nav__link" href="/fa/#about">درباره من</a>
+      <a class="nav__link" href="/fa/#contact">ارتباط</a>
+    </nav>
+    <div class="nav__actions">
+      <a class="lang-toggle" href="/projects/hammingproject/" hreflang="en" lang="en" aria-label="تغییر زبان"><span class="lang-opt">EN</span><span class="lang-sep">/</span><span class="lang-opt is-active">فا</span></a>
+    </div>
+  </div>
+</header>
+<main>
+<section class="band proj-head"><div class="shell">
+  <ol class="crumbs"><li><a href="/fa/">خانه</a></li><li><a href="/fa/#work">پروژه‌ها</a></li><li aria-current="page">HammingProject</li></ol>
+  <p class="label">Digital design / FPGA</p>
+  <h1>پردازنده بسته سخت‌افزاری با تصحیح خطای همینگ در VHDL</h1>
+  <p class="lede">یک پردازنده بسته ماژولار در سطح RTL که داده سریال را دریافت می‌کند، خطای تک‌بیتی را با دیکودر همینگ سخت‌افزاری ترمیم می‌کند و عملیات را با ALU و واحد کنترل مبتنی بر ماشین حالت اجرا می‌کند. شبیه‌سازی و راستی‌آزمایی در ModelSim.</p>
+  <dl class="facts">
+    <div><dt>فناوری‌ها</dt><dd>VHDL · FPGA · ModelSim · RTL design · Hamming ECC</dd></div>
+    <div><dt>تیم</dt><dd>ساخته‌شده با پارسا بیشه.</dd></div>
+    <div><dt>حوزه</dt><dd>Digital design / FPGA</dd></div>
+  </dl>
+</div></section>
+<section class="band section"><div class="shell">
+  <h2 class="section__title">چه کاری می‌کند</h2>
+  <ul class="proj-list prose"><li>شیفت‌رجیسترهای SIPO و PISO مرز بین باس فرستنده‌گیرنده و رجیسترهای داخلی را می‌سازند.</li><li>بلوک‌های انکودر و دیکودر همینگ وارونگی بیت را در زمان اجرا تشخیص، جداسازی و اصلاح می‌کنند.</li><li>یک ALU پارامتری عملیات حسابی، منطقی و مسیریابی داده را انجام می‌دهد.</li><li>واحد کنترل FSM مسیریابی مالتی‌پلکسرها، دست‌دهی خواندن و نوشتن و ترتیب اجرای دستورها را مدیریت می‌کند.</li><li>بلوک RAM با ظرفیت ۸×۳۲ بیت حین پردازش بار داده، حافظه موقت محلی فراهم می‌کند.</li></ul>
+  <h2 class="section__title">سهم من</h2>
+  <div class="prose"><p>مهبد بمانی‌چم طراحی دیجیتال و معماری واحد کنترل را بر عهده داشت؛ پارسا بیشه راستی‌آزمایی، خط لوله ECC و سنتز را.</p></div>
+  <div class="proj-actions"><a class="btn-solid" href="https://github.com/Mahbodbe/HammingProject" target="_blank" rel="noreferrer">مشاهده مخزن در گیت‌هاب <span aria-hidden="true">↗</span></a><a class="cta-type" href="/fa/#work">همه پروژه‌ها <span aria-hidden="true">→</span></a></div>
+</div></section>
+</main>
+<footer class="band"><div class="shell colophon"><p class="colophon__text">مهبد بمانی‌چم — مهندسی برق، گرایش کنترل، دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران). ۱۴۰۵.</p><div class="colophon__meta"><a class="link label" href="/fa/">خانه</a><a class="link label" href="https://github.com/Mahbodbe" target="_blank" rel="noreferrer">GitHub</a></div></div></footer>
+</body>
+</html>

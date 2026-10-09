@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="cobalt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Smart Parking: ESP32 data acquisition and gate control | Mahbod BemaniCham</title>
+<meta name="description" content="An end-to-end data acquisition and control system for multi-storey parking: sensors, a PID-controlled barrier gate, two-factor vehicle authentication and a live web dashboard. Built for the Instrumentation and Measurement course at Amirkabir University of Technology." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="author" content="Mahbod BemaniCham" />
+<link rel="canonical" href="https://nomoreidea.ir/projects/smart-parking/" />
+<link rel="alternate" hreflang="en" href="https://nomoreidea.ir/projects/smart-parking/" />
+<link rel="alternate" hreflang="fa" href="https://nomoreidea.ir/fa/projects/smart-parking/" />
+<link rel="alternate" hreflang="x-default" href="https://nomoreidea.ir/projects/smart-parking/" />
+<meta property="og:site_name" content="Mahbod BemaniCham" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Smart Parking: ESP32 data acquisition and gate control | Mahbod BemaniCham" />
+<meta property="og:description" content="An end-to-end data acquisition and control system for multi-storey parking: sensors, a PID-controlled barrier gate, two-factor vehicle authentication and a live web dashboard. Built for the Instrumentation and Measurement course at Amirkabir University of Technology." />
+<meta property="og:url" content="https://nomoreidea.ir/projects/smart-parking/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="fa_IR" />
+<meta property="og:image" content="https://nomoreidea.ir/images/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Smart Parking: ESP32 data acquisition and gate control" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Smart Parking: ESP32 data acquisition and gate control | Mahbod BemaniCham" />
+<meta name="twitter:description" content="An end-to-end data acquisition and control system for multi-storey parking: sensors, a PID-controlled barrier gate, two-factor vehicle authentication and a live web dashboard. Built for the Instrumentation and Measurement course at Amirkabir University of Technology." />
+<meta name="twitter:image" content="https://nomoreidea.ir/images/og-image.jpg" />
+<meta name="color-scheme" content="dark light" />
+<meta name="theme-color" content="#141824" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon.ico" sizes="48x48" />
+<link rel="apple-touch-icon" href="/icons/icon-180.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<script>(function(){document.documentElement.classList.add("js");try{var t=localStorage.getItem("site_theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="/css/fonts.css?v=801c36f2" />
+<link rel="stylesheet" href="/css/tokens.css?v=1aeee7db" />
+<link rel="stylesheet" href="/css/site.css?v=fd536e57" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareSourceCode", "@id": "https://nomoreidea.ir/projects/smart-parking/#code", "name": "Smart Parking: ESP32 data acquisition and gate control", "description": "An end-to-end data acquisition and control system for multi-storey parking: sensors, a PID-controlled barrier gate, two-factor vehicle authentication and a live web dashboard. Built for the Instrumentation and Measurement course at Amirkabir University of Technology.", "codeRepository": "https://github.com/Mahbodbe/smart-parking", "programmingLanguage": "C++", "inLanguage": "en", "url": "https://nomoreidea.ir/projects/smart-parking/", "author": {"@id": "https://nomoreidea.ir/#person"}, "keywords": "ESP32-S3, C++, Python, SQLite / PostgreSQL, Chart.js, Proteus"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://nomoreidea.ir/"}, {"@type": "ListItem", "position": 2, "name": "Projects", "item": "https://nomoreidea.ir/#work"}, {"@type": "ListItem", "position": 3, "name": "Smart Parking: ESP32 data acquisition and gate control", "item": "https://nomoreidea.ir/projects/smart-parking/"}]}, {"@type": "Person", "@id": "https://nomoreidea.ir/#person", "name": "Mahbod BemaniCham", "alternateName": ["مهبد بمانی‌چم"], "url": "https://nomoreidea.ir/", "image": "https://nomoreidea.ir/images/mahbod.jpg", "jobTitle": "Electrical Engineering Student", "description": "Mahbod BemaniCham is an electrical engineering student at Amirkabir University of Technology. Projects in ESP32, VHDL/FPGA, control and SCADA, plus Qt and web development.", "address": {"@type": "PostalAddress", "addressLocality": "Tehran", "addressCountry": "IR"}, "alumniOf": {"@type": "CollegeOrUniversity", "name": "Amirkabir University of Technology", "alternateName": ["Tehran Polytechnic", "دانشگاه صنعتی امیرکبیر"]}, "sameAs": ["https://github.com/Mahbodbe", "https://www.linkedin.com/in/mahbod-bemanicham-048b252ab", "https://t.me/Mb_Mb84"], "knowsAbout": ["Embedded Systems", "Digital Design", "FPGA", "VHDL", "ESP32", "Control Systems", "SCADA", "IEC 61850", "Qt", "Django"]}]}</script>
+</head>
+<body class="">
+<header class="nav">
+  <div class="shell nav__inner">
+    <a class="wordmark" href="/"><span>Mahbod BemaniCham</span><span class="wordmark__dot" aria-hidden="true"></span></a>
+    <nav class="nav__links" aria-label="Sections">
+      <a class="nav__link" href="/#work">Projects</a>
+      <a class="nav__link" href="/#about">About</a>
+      <a class="nav__link" href="/#contact">Contact</a>
+    </nav>
+    <div class="nav__actions">
+      <a class="lang-toggle" href="/fa/projects/smart-parking/" hreflang="fa" lang="fa" aria-label="Switch language"><span class="lang-opt is-active">EN</span><span class="lang-sep">/</span><span class="lang-opt">فا</span></a>
+    </div>
+  </div>
+</header>
+<main>
+<section class="band proj-head"><div class="shell">
+  <ol class="crumbs"><li><a href="/">Home</a></li><li><a href="/#work">Projects</a></li><li aria-current="page">smart-parking</li></ol>
+  <p class="label">Embedded / IoT</p>
+  <h1>Smart Parking: ESP32 data acquisition and gate control</h1>
+  <p class="lede">An end-to-end data acquisition and control system for multi-storey parking: sensors, a PID-controlled barrier gate, two-factor vehicle authentication and a live web dashboard. Built for the Instrumentation and Measurement course at Amirkabir University of Technology.</p>
+  <dl class="facts">
+    <div><dt>Stack</dt><dd>ESP32-S3 · C++ · Python · SQLite / PostgreSQL · Chart.js · Proteus</dd></div>
+    <div><dt>Team</dt><dd>Team project with Erfan Ashkesh and Mani Mohammadi.</dd></div>
+    <div><dt>Area</dt><dd>Embedded / IoT</dd></div>
+  </dl>
+</div></section>
+<section class="band section"><div class="shell">
+  <h2 class="section__title">What it does</h2>
+  <ul class="proj-list prose"><li>Two-factor entry: an RC522 RFID card check combined with licence-plate and colour validation from an ANPR camera.</li><li>Occupancy sensed twice, with HC-SR04 ultrasonic and A3144 Hall-effect sensors cross-checking each other.</li><li>Barrier arm driven by a PID-tuned servo, with an IR break-beam as an anti-pinch safety trigger.</li><li>Nearest-free-slot allocation by floor, backed by a SQLite/PostgreSQL store with local ESP32 buffering for network outages.</li><li>Dual power path (mains and online UPS) and a Proteus co-simulation linked to the real ESP32 over a virtual serial bridge.</li><li>Web dashboard with live KPI cards, a 60-slot grid, environmental telemetry charts and access logs, plus a Telegram notification bot.</li></ul>
+  <h2 class="section__title">My part</h2>
+  <div class="prose"><p>Mahbod BemaniCham is a member of the three-person team; the full breakdown of who did what is in the repository README.</p></div>
+  <div class="proj-actions"><a class="btn-solid" href="https://github.com/Mahbodbe/smart-parking" target="_blank" rel="noreferrer">View the repository on GitHub <span aria-hidden="true">↗</span></a><a class="cta-type" href="/#work">All projects <span aria-hidden="true">→</span></a></div>
+</div></section>
+</main>
+<footer class="band"><div class="shell colophon"><p class="colophon__text">Mahbod BemaniCham — Electrical Engineering, Control, Amirkabir University of Technology (Tehran Polytechnic), Tehran. 2026.</p><div class="colophon__meta"><a class="link label" href="/">Home</a><a class="link label" href="https://github.com/Mahbodbe" target="_blank" rel="noreferrer">GitHub</a></div></div></footer>
+</body>
+</html>

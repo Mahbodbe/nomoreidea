@@ -2,6 +2,8 @@
 import asyncio, json, shutil, subprocess, sys, time, urllib.request
 import websockets
 URL=sys.argv[1] if len(sys.argv)>1 else 'http://127.0.0.1:8899/index.html'
+BASE=URL.rsplit('/',1)[0]+'/'
+def url_for(l): return BASE+('fa/' if l=='fa' else '')
 WIDTHS=[320,375,414,768,1280,1920]; PORT=9333
 
 async def main_async(ws_url):
@@ -20,14 +22,13 @@ async def main_async(ws_url):
                 mobile=width<768
                 metrics={'width':width,'height':900,'deviceScaleFactor':2 if mobile else 1,'mobile':mobile,'screenWidth':width,'screenHeight':900,'viewport':{'x':0,'y':0,'width':width,'height':900,'scale':1}}
                 await cmd('Emulation.setDeviceMetricsOverride',metrics)
-                await cmd('Page.navigate',{'url':URL})
+                await cmd('Page.navigate',{'url':url_for(lang)})
                 for _ in range(100):
                     q=await cmd('Runtime.evaluate',{'expression':"({r:document.readyState,t:!!document.getElementById('langToggle')})",'returnByValue':True})
                     s=q.get('result',{}).get('result',{}).get('value',{})
                     if s.get('r') in ('interactive','complete') and s.get('t'): break
                     await asyncio.sleep(.1)
                 else: raise RuntimeError(f'page not ready at {width}px ({lang})')
-                await cmd('Runtime.evaluate',{'expression':f"localStorage.setItem('site_lang',{json.dumps(lang)});location.reload();"})
                 for _ in range(100):
                     q=await cmd('Runtime.evaluate',{'expression':"({r:document.readyState,l:document.documentElement.lang,d:document.documentElement.dir,f:document.body.classList.contains('fa-mode')})",'returnByValue':True})
                     s=q.get('result',{}).get('result',{}).get('value',{})

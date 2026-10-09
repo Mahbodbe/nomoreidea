@@ -11,14 +11,17 @@ window.GHData = (function () {
 
   const USER = "Mahbodbe";
   const API = "https://api.github.com";
-  const SNAPSHOT_URL = "data/projects.json";
+  const SNAPSHOT_URL = "/data/projects.json";
   const LS_EXCERPTS = "gh_excerpts_v1";
   const LS_STATS = "gh_stats_v1";
 
   /* manual curation: hide these repos from the index; pin = shown
      first with a ★ flag (order matters). */
-  const HIDDEN = new Set(["nomoreidea"]);
-  const PINNED = ["smart-parking", "HammingProject", "Qt-Deep-Dive"];
+  /* curation comes from content/site.json via js/site-config.js (shared with the sync script) */
+  const CFG = window.SITE || { hidden: ["nomoreidea"], pinned: [] };
+  const HIDDEN = new Set(CFG.hidden);
+  const PINNED = CFG.pinned;
+  let SNAP_STATS = null;
 
   async function j(url) {
     const r = await fetch(url, { headers: { Accept: "application/vnd.github+json" } });
@@ -128,6 +131,7 @@ window.GHData = (function () {
     } catch (e) { snapErr = e; }
 
     let repos = [];
+    if (snap && snap.stats) SNAP_STATS = snap.stats;
     if (snap && Array.isArray(snap.repos)) {
       repos = snap.repos.filter(r => !HIDDEN.has(r.name)).map(normalizeRepo);
       repos.forEach(r => { const c = cachedExcerpt(r); if (c !== null) r.excerpt = c; });
@@ -166,6 +170,9 @@ window.GHData = (function () {
   }
 
   async function userStats() {
+    /* the daily snapshot is the source of truth: no per-visitor API call
+       (shared IPs in Iran hit the unauthenticated rate limit quickly) */
+    if (SNAP_STATS) return { repos: SNAP_STATS.repos, followers: SNAP_STATS.followers, since: SNAP_STATS.since };
     const cached = lsGet(LS_STATS);
     if (cached && cached.at && (Date.now() - cached.at) < 30 * 60 * 1000) return cached.v;
     const u = await j(API + "/users/" + USER);

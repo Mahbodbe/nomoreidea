@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://nomoreidea.ir/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomoreidea.ir/" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://nomoreidea.ir/fa/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomoreidea.ir/" />
+  </url>
+  <url>
+    <loc>https://nomoreidea.ir/fa/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomoreidea.ir/" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://nomoreidea.ir/fa/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomoreidea.ir/" />
+  </url>
+  <url>
+    <loc>https://nomoreidea.ir/projects/smart-parking/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomoreidea.ir/projects/smart-parking/" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://nomoreidea.ir/fa/projects/smart-parking/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomoreidea.ir/projects/smart-parking/" />
+  </url>
+  <url>
+    <loc>https://nomoreidea.ir/fa/projects/smart-parking/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomoreidea.ir/projects/smart-parking/" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://nomoreidea.ir/fa/projects/smart-parking/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomoreidea.ir/projects/smart-parking/" />
+  </url>
+  <url>
+    <loc>https://nomoreidea.ir/projects/hammingproject/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomoreidea.ir/projects/hammingproject/" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://nomoreidea.ir/fa/projects/hammingproject/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomoreidea.ir/projects/hammingproject/" />
+  </url>
+  <url>
+    <loc>https://nomoreidea.ir/fa/projects/hammingproject/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomoreidea.ir/projects/hammingproject/" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://nomoreidea.ir/fa/projects/hammingproject/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomoreidea.ir/projects/hammingproject/" />
+  </url>
+  <url>
+    <loc>https://nomoreidea.ir/projects/qt-deep-dive/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomoreidea.ir/projects/qt-deep-dive/" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://nomoreidea.ir/fa/projects/qt-deep-dive/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomoreidea.ir/projects/qt-deep-dive/" />
+  </url>
+  <url>
+    <loc>https://nomoreidea.ir/fa/projects/qt-deep-dive/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomoreidea.ir/projects/qt-deep-dive/" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://nomoreidea.ir/fa/projects/qt-deep-dive/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomoreidea.ir/projects/qt-deep-dive/" />
   </url>
 </urlset>

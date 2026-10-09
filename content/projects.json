@@ -1,0 +1,117 @@
+{
+ "smart-parking": {
+  "repo": "smart-parking",
+  "lang": "C++",
+  "kind": "Embedded / IoT",
+  "stack": [
+   "ESP32-S3",
+   "C++",
+   "Python",
+   "SQLite / PostgreSQL",
+   "Chart.js",
+   "Proteus"
+  ],
+  "en": {
+   "title": "Smart Parking: ESP32 data acquisition and gate control",
+   "summary": "An end-to-end data acquisition and control system for multi-storey parking: sensors, a PID-controlled barrier gate, two-factor vehicle authentication and a live web dashboard. Built for the Instrumentation and Measurement course at Amirkabir University of Technology.",
+   "points": [
+    "Two-factor entry: an RC522 RFID card check combined with licence-plate and colour validation from an ANPR camera.",
+    "Occupancy sensed twice, with HC-SR04 ultrasonic and A3144 Hall-effect sensors cross-checking each other.",
+    "Barrier arm driven by a PID-tuned servo, with an IR break-beam as an anti-pinch safety trigger.",
+    "Nearest-free-slot allocation by floor, backed by a SQLite/PostgreSQL store with local ESP32 buffering for network outages.",
+    "Dual power path (mains and online UPS) and a Proteus co-simulation linked to the real ESP32 over a virtual serial bridge.",
+    "Web dashboard with live KPI cards, a 60-slot grid, environmental telemetry charts and access logs, plus a Telegram notification bot."
+   ],
+   "team": "Team project with Erfan Ashkesh and Mani Mohammadi.",
+   "role": "Mahbod BemaniCham is a member of the three-person team; the full breakdown of who did what is in the repository README."
+  },
+  "fa": {
+   "title": "پارکینگ هوشمند: داده‌برداری و کنترل گیت با ESP32",
+   "summary": "یک سامانه کامل داده‌برداری و کنترل برای پارکینگ چندطبقه: حسگرها، گیت با کنترل PID، احراز هویت دومرحله‌ای خودرو و داشبورد وب زنده. پروژه درس ابزار دقیق و اندازه‌گیری در دانشگاه صنعتی امیرکبیر.",
+   "points": [
+    "ورود دومرحله‌ای: بررسی کارت RFID مدل RC522 همراه با اعتبارسنجی پلاک و رنگ خودرو با دوربین ANPR.",
+    "تشخیص اشغال با دو حسگر مستقل، اولتراسونیک HC-SR04 و اثر هال A3144، که یکدیگر را راستی‌آزمایی می‌کنند.",
+    "بازوی راه‌بند با سرووی تنظیم‌شده با PID و پرتو IR به‌عنوان ایمنی ضد گیرکردن.",
+    "تخصیص نزدیک‌ترین جای خالی بر اساس طبقه، با پایگاه داده SQLite/PostgreSQL و بافر محلی روی ESP32 برای زمان قطعی شبکه.",
+    "منبع تغذیه دوگانه (برق شهر و UPS آنلاین) و هم‌شبیه‌سازی Proteus که با پل سریال مجازی به ESP32 واقعی وصل است.",
+    "داشبورد وب با کارت‌های KPI زنده، شبکه ۶۰ جایگاهی، نمودار داده‌های محیطی و لاگ تردد، به‌علاوه ربات اطلاع‌رسانی تلگرام."
+   ],
+   "team": "پروژه گروهی با عرفان اشکش و مانی محمدی.",
+   "role": "مهبد بمانی‌چم عضو تیم سه‌نفره است؛ تفکیک کامل وظایف در README مخزن آمده است."
+  }
+ },
+ "HammingProject": {
+  "repo": "HammingProject",
+  "lang": "VHDL",
+  "kind": "Digital design / FPGA",
+  "stack": [
+   "VHDL",
+   "FPGA",
+   "ModelSim",
+   "RTL design",
+   "Hamming ECC"
+  ],
+  "en": {
+   "title": "Hardware packet processor with Hamming error correction in VHDL",
+   "summary": "A modular RTL packet processor that receives serial data, repairs single-bit errors with a hardware Hamming decoder, and executes operations through an ALU and a finite-state-machine control unit. Simulated and verified in ModelSim.",
+   "points": [
+    "Serial-in parallel-out and parallel-in serial-out shift registers form the boundary between the transceiver bus and the internal word registers.",
+    "Hamming encoder and decoder blocks detect, isolate and correct bit inversions at run time.",
+    "A parameterised ALU handles arithmetic, logic and data routing.",
+    "An FSM control unit sequences multiplexer routing, read/write handshakes and opcode execution.",
+    "An 8 × 32-bit RAM block provides local caching while payloads are processed."
+   ],
+   "team": "Built with Parsa Bishe.",
+   "role": "Mahbod BemaniCham led digital design and the control unit architecture; Parsa Bishe led verification, the ECC pipeline and synthesis."
+  },
+  "fa": {
+   "title": "پردازنده بسته سخت‌افزاری با تصحیح خطای همینگ در VHDL",
+   "summary": "یک پردازنده بسته ماژولار در سطح RTL که داده سریال را دریافت می‌کند، خطای تک‌بیتی را با دیکودر همینگ سخت‌افزاری ترمیم می‌کند و عملیات را با ALU و واحد کنترل مبتنی بر ماشین حالت اجرا می‌کند. شبیه‌سازی و راستی‌آزمایی در ModelSim.",
+   "points": [
+    "شیفت‌رجیسترهای SIPO و PISO مرز بین باس فرستنده‌گیرنده و رجیسترهای داخلی را می‌سازند.",
+    "بلوک‌های انکودر و دیکودر همینگ وارونگی بیت را در زمان اجرا تشخیص، جداسازی و اصلاح می‌کنند.",
+    "یک ALU پارامتری عملیات حسابی، منطقی و مسیریابی داده را انجام می‌دهد.",
+    "واحد کنترل FSM مسیریابی مالتی‌پلکسرها، دست‌دهی خواندن و نوشتن و ترتیب اجرای دستورها را مدیریت می‌کند.",
+    "بلوک RAM با ظرفیت ۸×۳۲ بیت حین پردازش بار داده، حافظه موقت محلی فراهم می‌کند."
+   ],
+   "team": "ساخته‌شده با پارسا بیشه.",
+   "role": "مهبد بمانی‌چم طراحی دیجیتال و معماری واحد کنترل را بر عهده داشت؛ پارسا بیشه راستی‌آزمایی، خط لوله ECC و سنتز را."
+  }
+ },
+ "Qt-Deep-Dive": {
+  "repo": "Qt-Deep-Dive",
+  "lang": "C++",
+  "kind": "Desktop software",
+  "stack": [
+   "Qt 5/6",
+   "C++17/20",
+   "QSS",
+   "SQLite",
+   "Qt Charts"
+  ],
+  "en": {
+   "title": "Qt Deep Dive: building desktop applications chapter by chapter",
+   "summary": "An engineering log of learning Qt with C++. It follows the structure of Mastering Qt 5 (2nd edition) and rebuilds each chapter's project with modern C++ idioms and custom dark QSS themes.",
+   "points": [
+    "A ToDo application, a cross-platform system information monitor with Qt Charts, and a gallery application split into a shared core library and a desktop UI.",
+    "SQLite access through a DAO layer, with model/view classes, proxy models and custom delegates.",
+    "Safe signal and slot connections, lambda slots and explicit ownership rules.",
+    "A 14-chapter roadmap with the status of each chapter tracked in the repository README."
+   ],
+   "team": "Personal learning project.",
+   "role": "Written and maintained by Mahbod BemaniCham."
+  },
+  "fa": {
+   "title": "Qt Deep Dive: ساخت برنامه‌های دسکتاپ، فصل به فصل",
+   "summary": "گزارش مهندسی یادگیری Qt با C++. ساختار کتاب Mastering Qt 5 (ویرایش دوم) را دنبال می‌کند و پروژه هر فصل را با ابزارهای مدرن C++ و تم تیره QSS دوباره می‌سازد.",
+   "points": [
+    "برنامه ToDo، پایشگر اطلاعات سیستم چندسکویی با Qt Charts و برنامه گالری که به یک کتابخانه مشترک و یک رابط دسکتاپ تقسیم شده است.",
+    "دسترسی به SQLite از طریق لایه DAO، به‌همراه کلاس‌های model/view، مدل‌های پراکسی و دلگیت‌های سفارشی.",
+    "اتصال امن سیگنال و اسلات، اسلات‌های لامبدا و قواعد صریح مالکیت حافظه.",
+    "نقشه راه ۱۴ فصلی که وضعیت هر فصل در README مخزن ثبت می‌شود."
+   ],
+   "team": "پروژه شخصی یادگیری.",
+   "role": "نوشته و نگهداری‌شده توسط مهبد بمانی‌چم."
+  }
+ }
+}

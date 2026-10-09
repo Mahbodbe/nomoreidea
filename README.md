@@ -4,10 +4,10 @@
 
 # ⚡ Mahbod BemaniCham
 
-**Electrical Engineering — Control Systems major · Electronics minor**
+**Electrical Engineering — Control Systems major**
 **Amirkabir University of Technology (Tehran Polytechnic)**
 
-[![Portfolio](https://img.shields.io/badge/🌐_Live_Portfolio-mahbodbe.github.io%2Fnomoreidea-3b82f6?style=for-the-badge)](https://mahbodbe.github.io/nomoreidea/)
+[![Portfolio](https://img.shields.io/badge/🌐_Live_Portfolio-nomoreidea.ir-3b82f6?style=for-the-badge)](https://nomoreidea.ir/)
 [![GitHub](https://img.shields.io/badge/GitHub-@Mahbodbe-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Mahbodbe)
 [![Telegram](https://img.shields.io/badge/Telegram-@Mb__Mb84-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/Mb_Mb84)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-mahbod--bemanicham-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mahbod-bemanicham-048b252ab)
@@ -157,3 +157,20 @@ a star would make my day ⭐
 Tehran Polytechnic · Tehran, Iran · 2026
 
 </div>
+
+
+## Build pipeline
+
+The pages are generated, not hand-edited:
+
+```
+content/en.json, content/fa.json   all UI copy (EN + FA)
+content/projects.json              featured project pages
+content/site.json                  hidden / pinned repositories
+src/template.html                  page skeleton
+tools/sync_projects.py             GitHub -> data/projects.json (daily workflow)
+tools/build.py                     -> index.html, fa/index.html, projects/*, sitemap.xml, 404.html
+```
+
+Run `python tools/sync_projects.py` (optional) and `python tools/build.py` after any change.
+Put the resume PDF in `resume/Mahbod-BemaniCham-Resume.pdf` and the download button appears by itself.

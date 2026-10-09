@@ -28,7 +28,10 @@ API = f"https://api.github.com"
 TOKEN = os.environ.get("GITHUB_TOKEN", "").strip()
 OUT = os.path.join(os.path.dirname(__file__), "..", "data", "projects.json")
 
-SKIP_EXACT = {"nomoreidea"}  # the portfolio repo itself
+# Shared curation lives in content/site.json (also read by js/data.js)
+with open(os.path.join(os.path.dirname(__file__), "..", "content", "site.json"), encoding="utf-8") as _f:
+    _SITE = json.load(_f)
+SKIP_EXACT = set(_SITE["hidden"])  # the portfolio repo itself
 
 
 def gh(url: str) -> dict:
@@ -134,7 +137,14 @@ def main() -> int:
         })
         time.sleep(0.15)  # be gentle without a token
 
-    pinned_order = ["smart-parking", "HammingProject", "Qt-Deep-Dive"]
+    user = gh(f"{API}/users/{USER}")
+    stats = {
+        "repos": user.get("public_repos", len(entries)),
+        "followers": user.get("followers", 0),
+        "since": (user.get("created_at") or "")[:4],
+    }
+
+    pinned_order = _SITE["pinned"]
     rank = {n: i for i, n in enumerate(pinned_order)}
     entries.sort(key=lambda e: e["pushed_at"] or "", reverse=True)
     entries.sort(key=lambda e: rank.get(e["name"], 99))
@@ -144,11 +154,26 @@ def main() -> int:
         "user": USER,
         "syncedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "count": len(entries),
+        "stats": stats,
         "repos": entries,
     }
 
     path = os.path.abspath(OUT)
     os.makedirs(os.path.dirname(path), exist_ok=True)
+
+    # Only rewrite the file when the data really changed (ignore the timestamp),
+    # so the daily workflow stops creating empty "refresh" commits.
+    if os.path.exists(path):
+        try:
+            with open(path, encoding="utf-8") as f:
+                old = json.load(f)
+            same = {k: v for k, v in old.items() if k != "syncedAt"} == \
+                   {k: v for k, v in snap.items() if k != "syncedAt"}
+            if same:
+                print("no data changes; leaving snapshot untouched")
+                return 0
+        except (OSError, ValueError):
+            pass
     with open(path, "w", encoding="utf-8") as f:
         json.dump(snap, f, ensure_ascii=False, indent=2)
         f.write("\n")
