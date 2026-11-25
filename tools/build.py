@@ -209,7 +209,7 @@ def head(lang, title, desc, canonical, alternates, jsonld, og_type="website", ro
     p.append(BOOT)
     if preload:
         fonts = (["inter-latin-wght-normal", "space-grotesk-latin-wght-normal"] if lang == "en"
-                 else ["vazirmatn-arabic-400-normal", "vazirmatn-arabic-700-normal"])
+                 else ["ibm-plex-sans-arabic-400", "ibm-plex-sans-arabic-700"])
         for f in fonts:
             p.append(f'<link rel="preload" href="/fonts/{f}.woff2" as="font" type="font/woff2" crossorigin />')
     for css in ("/css/fonts.css", "/css/tokens.css", "/css/site.css"):
@@ -435,6 +435,9 @@ def build_project(slug, lang):
         person(lang)]}
     hd = head(lang, title, c["summary"], canonical, alternates, graph, og_type="article", og_alt=c["title"])
     points = "".join(f"<li>{esc(x)}</li>" for x in c["points"])
+    img_html = (f'<figure class="nb-card lab-fig" style="margin-bottom:var(--space-xl)">'
+                f'<img src="{esc(pj["image"])}" alt="{esc(c["title"])}" loading="lazy" decoding="async" />'
+                f'</figure>' if pj.get("image") else "")
     body = f"""<section class="band proj-head"><div class="shell">
   <ol class="crumbs"><li><a href="{prefix(lang)}/">{esc(s['home'])}</a></li><li><a href="{prefix(lang)}/#work">{esc(s['nav_work'])}</a></li><li aria-current="page">{esc(pj['repo'])}</li></ol>
   <p class="label">{esc(pj['kind'])}</p>
@@ -447,6 +450,7 @@ def build_project(slug, lang):
   </dl>
 </div></section>
 <section class="band section"><div class="shell">
+  {img_html}
   <h2 class="section__title">{esc(s['page_highlights'])}</h2>
   <ul class="proj-list prose">{points}</ul>
   <h2 class="section__title">{esc(s['page_role'])}</h2>

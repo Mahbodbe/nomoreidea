@@ -33,11 +33,11 @@
 <link rel="apple-touch-icon" href="/icons/icon-180.png" />
 <link rel="manifest" href="/manifest.webmanifest" />
 <script>(function(){document.documentElement.classList.add("js");try{var t=localStorage.getItem("site_theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
-<link rel="preload" href="/fonts/vazirmatn-arabic-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/fonts/vazirmatn-arabic-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="/css/fonts.css?v=c6578b5c" />
-<link rel="stylesheet" href="/css/tokens.css?v=f0bd39eb" />
-<link rel="stylesheet" href="/css/site.css?v=8086b0d4" />
+<link rel="preload" href="/fonts/ibm-plex-sans-arabic-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/ibm-plex-sans-arabic-700.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="/css/fonts.css?v=5f127a23" />
+<link rel="stylesheet" href="/css/tokens.css?v=1e645a3e" />
+<link rel="stylesheet" href="/css/site.css?v=a736a0ec" />
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareSourceCode", "@id": "https://nomoreidea.ir/fa/projects/smart-parking/#code", "name": "پارکینگ هوشمند: داده‌برداری و کنترل گیت با ESP32", "description": "سامانه کامل ابزار دقیق و کنترل برای پارکینگ چندطبقه: تشخیص دوگانه اشغال جایگاه، راه‌بند با کنترلر PID، احراز هویت دومرحله‌ای خودرو و داشبورد وب زنده. پروژه درس ابزار دقیق و اندازه‌گیری در دانشگاه صنعتی امیرکبیر.", "codeRepository": "https://github.com/Mahbodbe/smart-parking", "programmingLanguage": "C++", "inLanguage": "fa", "url": "https://nomoreidea.ir/fa/projects/smart-parking/", "author": {"@id": "https://nomoreidea.ir/#person"}, "keywords": "ESP32-S3, C++, Python, SQLite / PostgreSQL, Chart.js, Proteus"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "خانه", "item": "https://nomoreidea.ir/fa/"}, {"@type": "ListItem", "position": 2, "name": "پروژه‌ها", "item": "https://nomoreidea.ir/fa/#work"}, {"@type": "ListItem", "position": 3, "name": "پارکینگ هوشمند: داده‌برداری و کنترل گیت با ESP32", "item": "https://nomoreidea.ir/fa/projects/smart-parking/"}]}, {"@type": "Person", "@id": "https://nomoreidea.ir/#person", "name": "مهبد بمانی‌چم", "alternateName": "Mahbodbe", "identifier": "Mahbodbe", "url": "https://nomoreidea.ir/fa/", "image": "https://nomoreidea.ir/images/mahbod.jpg", "jobTitle": "دانشجوی مهندسی برق (کنترل)", "description": "مهبد بمانی‌چم، دانشجوی مهندسی برق (کنترل) دانشگاه صنعتی امیرکبیر. پروژه‌های ESP32، VHDL/FPGA، امنیت اسکادا (Snort 3 و IEC 61850)، Qt/C++ و وب.", "address": {"@type": "PostalAddress", "addressLocality": "Tehran", "addressCountry": "IR"}, "alumniOf": {"@type": "CollegeOrUniversity", "name": "Amirkabir University of Technology", "alternateName": ["Tehran Polytechnic", "دانشگاه صنعتی امیرکبیر"]}, "sameAs": ["https://github.com/Mahbodbe", "https://www.linkedin.com/in/mahbod-bemanicham-048b252ab", "https://t.me/Mb_Mb84"], "knowsAbout": ["Embedded Systems", "Digital Design", "FPGA", "VHDL", "ESP32", "Control Systems", "SCADA", "IEC 61850", "DNP3", "Snort 3", "Suricata", "Wazuh", "OT Security", "Qt", "Django"]}]}</script>
 </head>
 <body class="fa-mode">
@@ -67,6 +67,7 @@
   </dl>
 </div></section>
 <section class="band section"><div class="shell">
+  <figure class="nb-card lab-fig" style="margin-bottom:var(--space-xl)"><img src="/images/projects/dashboard-kpi-occupancy-telemetry.jpg" alt="پارکینگ هوشمند: داده‌برداری و کنترل گیت با ESP32" loading="lazy" decoding="async" /></figure>
   <h2 class="section__title">چه کاری می‌کنه</h2>
   <ul class="proj-list prose"><li>ورود دومرحله‌ای: احراز هویت با کارت RFID (ماژول RC522) هم‌زمان با تطبیق پلاک و رنگ خودرو از طریق دوربین ANPR.</li><li>تشخیص افزونه (Redundant) اشغال جایگاه با دو حسگر مستقل اولتراسونیک HC-SR04 و اثر هال A3144 برای حذف خطای تشخیص.</li><li>کنترل بازوی راه‌بند با سروو و تنظیم PID، مجهز به سنسور نوری IR به‌عنوان قفل ایمنی ضد برخورد.</li><li>تخصیص هوشمند نزدیک‌ترین جای خالی در هر طبقه با پایگاه داده SQLite/PostgreSQL و بافر محلی روی ESP32 هنگام قطعی شبکه.</li><li>تغذیه دوگانه (برق شهر + UPS آنلاین) و هم‌شبیه‌سازی Proteus متصل به برد واقعی ESP32 از طریق پل سریال مجازی.</li><li>داشبورد وب زنده شامل کارت‌های KPI، نقشه ۶۰ جایگاهی، نمودارهای تله‌متری محیطی، لاگ تردد و ربات اطلاع‌رسانی تلگرام.</li></ul>
   <h2 class="section__title">سهم من</h2>

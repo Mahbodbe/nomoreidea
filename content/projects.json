@@ -3,6 +3,7 @@
   "repo": "smart-parking",
   "lang": "C++",
   "kind": "Embedded / IoT",
+  "image": "/images/projects/dashboard-kpi-occupancy-telemetry.jpg",
   "stack": [
    "ESP32-S3",
    "C++",
