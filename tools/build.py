@@ -328,6 +328,7 @@ def build_home(lang):
     rep = {
         "{{LANG}}": lang, "{{DIR}}": s["dir"], "{{BODYCLASS}}": "fa-mode" if lang == "fa" else "",
         "{{ALT_HREF}}": "/fa/" if lang == "en" else "/", "{{ALT_LANG}}": other,
+        "{{RESUME_HREF}}": "/resume/Mahbod-BemaniCham-Resume-FA.pdf" if lang == "fa" else "/resume/Mahbod-BemaniCham-Resume.pdf",
         "{{SWITCH_ARIA}}": esc(s["switch_language"]),
         "{{EN_ACTIVE}}": " is-active" if lang == "en" else "", "{{FA_ACTIVE}}": " is-active" if lang == "fa" else "",
         "{{ALT_HERO}}": esc(s["alt_hero"]), "{{ALT_W1}}": esc(s["alt_w1"]), "{{ALT_W2}}": esc(s["alt_w2"]),
