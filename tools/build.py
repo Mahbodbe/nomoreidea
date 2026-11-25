@@ -98,6 +98,11 @@ def proj_url(lang, slug):
 
 def last_change():
     try:
+        dirty = subprocess.check_output(
+            ["git", "status", "--porcelain", "--", "src", "content", "tools/build.py"],
+            cwd=ROOT, stderr=subprocess.DEVNULL, text=True).strip()
+        if dirty:
+            return dt.date.today().isoformat()
         out = subprocess.check_output(
             ["git", "log", "-1", "--format=%cs", "--", "src", "content", "tools/build.py"],
             cwd=ROOT, stderr=subprocess.DEVNULL, text=True).strip()
@@ -172,16 +177,19 @@ def head(lang, title, desc, canonical, alternates, jsonld, og_type="website", ro
     p.append('<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />')
     p.append(f"<title>{esc(title)}</title>")
     p.append(f'<meta name="description" content="{esc(desc)}" />')
-    p.append(f'<meta name="robots" content="{robots}, max-image-preview:large" />')
+    robots_val = f"{robots}, max-image-preview:large, max-snippet:-1, max-video-preview:-1" if robots.startswith("index") else robots
+    p.append(f'<meta name="robots" content="{robots_val}" />')
     p.append(f'<meta name="author" content="{NAME_EN}" />')
-    p.append(f'<link rel="canonical" href="{canonical}" />')
+    if canonical:
+        p.append(f'<link rel="canonical" href="{canonical}" />')
     for hl, url in alternates:
         p.append(f'<link rel="alternate" hreflang="{hl}" href="{url}" />')
     p.append(f'<meta property="og:site_name" content="{NAME_EN}" />')
     p.append(f'<meta property="og:type" content="{og_type}" />')
     p.append(f'<meta property="og:title" content="{esc(title)}" />')
     p.append(f'<meta property="og:description" content="{esc(s["og_desc"] if og_type == "website" and canonical.endswith("/") and "/projects/" not in canonical else desc)}" />')
-    p.append(f'<meta property="og:url" content="{canonical}" />')
+    if canonical:
+        p.append(f'<meta property="og:url" content="{canonical}" />')
     p.append(f'<meta property="og:locale" content="{LOCALES[lang]}" />')
     p.append(f'<meta property="og:locale:alternate" content="{LOCALES[other]}" />')
     p.append(f'<meta property="og:image" content="{OG_IMAGE}" />')
@@ -206,24 +214,37 @@ def head(lang, title, desc, canonical, alternates, jsonld, og_type="website", ro
             p.append(f'<link rel="preload" href="/fonts/{f}.woff2" as="font" type="font/woff2" crossorigin />')
     for css in ("/css/fonts.css", "/css/tokens.css", "/css/site.css"):
         p.append(f'<link rel="stylesheet" href="{asset(css)}" />')
-    p.append(f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>')
+    if jsonld:
+        p.append(f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>')
     return "\n".join(p)
 
 
 def person(lang):
     return {
-        "@type": "Person", "@id": f"{SITE}/#person",
-        "name": NAME_EN, "alternateName": [NAME_FA],
-        "url": f"{SITE}/", "image": f"{SITE}/images/mahbod.jpg",
-        "jobTitle": "Electrical Engineering Student",
-        "description": STR["en"]["meta_desc"],
+        "@type": "Person",
+        "@id": f"{SITE}/#person",
+        "name": NAME_FA if lang == "fa" else NAME_EN,
+        "alternateName": "Mahbodbe",
+        "identifier": "Mahbodbe",
+        "url": home_url(lang),
+        "image": f"{SITE}/images/mahbod.jpg",
+        "jobTitle": "دانشجوی مهندسی برق (کنترل)" if lang == "fa" else "Electrical Engineering Student (Control Systems)",
+        "description": STR[lang]["meta_desc"],
         "address": {"@type": "PostalAddress", "addressLocality": "Tehran", "addressCountry": "IR"},
-        "alumniOf": {"@type": "CollegeOrUniversity", "name": "Amirkabir University of Technology",
-                     "alternateName": ["Tehran Polytechnic", "دانشگاه صنعتی امیرکبیر"]},
-        "sameAs": ["https://github.com/Mahbodbe", "https://www.linkedin.com/in/mahbod-bemanicham-048b252ab",
-                   "https://t.me/Mb_Mb84"],
-        "knowsAbout": ["Embedded Systems", "Digital Design", "FPGA", "VHDL", "ESP32", "Control Systems",
-                       "SCADA", "IEC 61850", "DNP3", "Intrusion Detection", "OT Security", "Qt", "Django"],
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Amirkabir University of Technology",
+            "alternateName": ["Tehran Polytechnic", "دانشگاه صنعتی امیرکبیر"],
+        },
+        "sameAs": [
+            "https://github.com/Mahbodbe",
+            "https://www.linkedin.com/in/mahbod-bemanicham-048b252ab",
+            "https://t.me/Mb_Mb84",
+        ],
+        "knowsAbout": [
+            "Embedded Systems", "Digital Design", "FPGA", "VHDL", "ESP32", "Control Systems",
+            "SCADA", "IEC 61850", "DNP3", "Snort 3", "Suricata", "Wazuh", "OT Security", "Qt", "Django",
+        ],
     }
 
 
@@ -322,14 +343,33 @@ def build_home(lang):
 
     canonical = home_url(lang)
     alternates = [("en", home_url("en")), ("fa", home_url("fa")), ("x-default", home_url("en"))]
-    graph = {"@context": "https://schema.org", "@graph": [
-        {"@type": "WebSite", "@id": f"{SITE}/#website", "url": f"{SITE}/", "name": NAME_EN,
-         "alternateName": NAME_FA, "inLanguage": ["en", "fa"], "publisher": {"@id": f"{SITE}/#person"}},
-        {"@type": "ProfilePage", "@id": canonical + "#profile", "url": canonical, "name": s["meta_title"],
-         "description": s["meta_desc"], "inLanguage": lang, "isPartOf": {"@id": f"{SITE}/#website"},
-         "mainEntity": {"@id": f"{SITE}/#person"}, "dateModified": HOME_LASTMOD,
-         "primaryImageOfPage": {"@type": "ImageObject", "url": OG_IMAGE}},
-        person(lang)]}
+    graph = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": f"{SITE}/#website",
+                "url": f"{SITE}/",
+                "name": NAME_EN,
+                "alternateName": NAME_FA,
+                "inLanguage": ["en", "fa"],
+                "publisher": {"@id": f"{SITE}/#person"},
+            },
+            {
+                "@type": "ProfilePage",
+                "@id": canonical + "#profile",
+                "url": canonical,
+                "name": s["meta_title"],
+                "description": s["meta_desc"],
+                "inLanguage": lang,
+                "dateCreated": "2025-01-01T00:00:00+03:30",
+                "dateModified": f"{HOME_LASTMOD}T00:00:00+03:30",
+                "isPartOf": {"@id": f"{SITE}/#website"},
+                "mainEntity": person(lang),
+                "primaryImageOfPage": {"@type": "ImageObject", "url": OG_IMAGE},
+            },
+        ],
+    }
     hd = head(lang, s["meta_title"], s["meta_desc"], canonical, alternates, graph, og_alt=s["alt_hero"])
     tpl = tpl.replace("{{HEAD}}", hd)
     tpl = tpl.replace("{{LANG}}", lang)  # script src
@@ -420,7 +460,7 @@ def build_project(slug, lang):
 def build_404():
     lang = "en"
     s = STR[lang]
-    hd = head(lang, f'{s["nf_title"]} | {NAME_EN}', s["nf_text"], f"{SITE}/404.html", [], {"@context": "https://schema.org"},
+    hd = head(lang, f'{s["nf_title"]} | {NAME_EN}', s["nf_text"], "", [], None,
               robots="noindex, follow", preload=False)
     body = f'<section class="band proj-head"><div class="shell"><h1>{esc(s["nf_title"])}</h1><p class="lede">{esc(s["nf_text"])}</p><div class="proj-actions"><a class="btn-solid" href="/">{esc(s["home"])}</a><a class="cta-type" href="/fa/">فارسی</a></div></div></section>'
     wr("404.html", page_shell(lang, hd, body, "/fa/"))

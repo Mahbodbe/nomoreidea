@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="cobalt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>یکپارچه‌سازی و بیلد Snort 3 و LibDAQ روی ویندوز | مهبد بمانی‌چم</title>
+<meta name="description" content="محیط بیلد و یکپارچه‌سازی تکرارپذیر برای اجرای Snort 3 و LibDAQ روی ویندوز — برگرفته از آزمایشگاه تشخیص نفوذ اسکادا برای زمانی که بازرسی عمیق بسته باید مستقیم در محیط ویندوز اجرا شود." />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="author" content="Mahbod BemaniCham" />
+<link rel="canonical" href="https://nomoreidea.ir/fa/projects/snort3-windows/" />
+<link rel="alternate" hreflang="en" href="https://nomoreidea.ir/projects/snort3-windows/" />
+<link rel="alternate" hreflang="fa" href="https://nomoreidea.ir/fa/projects/snort3-windows/" />
+<link rel="alternate" hreflang="x-default" href="https://nomoreidea.ir/projects/snort3-windows/" />
+<meta property="og:site_name" content="Mahbod BemaniCham" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="یکپارچه‌سازی و بیلد Snort 3 و LibDAQ روی ویندوز | مهبد بمانی‌چم" />
+<meta property="og:description" content="محیط بیلد و یکپارچه‌سازی تکرارپذیر برای اجرای Snort 3 و LibDAQ روی ویندوز — برگرفته از آزمایشگاه تشخیص نفوذ اسکادا برای زمانی که بازرسی عمیق بسته باید مستقیم در محیط ویندوز اجرا شود." />
+<meta property="og:url" content="https://nomoreidea.ir/fa/projects/snort3-windows/" />
+<meta property="og:locale" content="fa_IR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:image" content="https://nomoreidea.ir/images/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="یکپارچه‌سازی و بیلد Snort 3 و LibDAQ روی ویندوز" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="یکپارچه‌سازی و بیلد Snort 3 و LibDAQ روی ویندوز | مهبد بمانی‌چم" />
+<meta name="twitter:description" content="محیط بیلد و یکپارچه‌سازی تکرارپذیر برای اجرای Snort 3 و LibDAQ روی ویندوز — برگرفته از آزمایشگاه تشخیص نفوذ اسکادا برای زمانی که بازرسی عمیق بسته باید مستقیم در محیط ویندوز اجرا شود." />
+<meta name="twitter:image" content="https://nomoreidea.ir/images/og-image.jpg" />
+<meta name="color-scheme" content="dark light" />
+<meta name="theme-color" content="#141824" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon.ico" sizes="48x48" />
+<link rel="apple-touch-icon" href="/icons/icon-180.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<script>(function(){document.documentElement.classList.add("js");try{var t=localStorage.getItem("site_theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="preload" href="/fonts/vazirmatn-arabic-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/vazirmatn-arabic-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="/css/fonts.css?v=c6578b5c" />
+<link rel="stylesheet" href="/css/tokens.css?v=f0bd39eb" />
+<link rel="stylesheet" href="/css/site.css?v=8086b0d4" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareSourceCode", "@id": "https://nomoreidea.ir/fa/projects/snort3-windows/#code", "name": "یکپارچه‌سازی و بیلد Snort 3 و LibDAQ روی ویندوز", "description": "محیط بیلد و یکپارچه‌سازی تکرارپذیر برای اجرای Snort 3 و LibDAQ روی ویندوز — برگرفته از آزمایشگاه تشخیص نفوذ اسکادا برای زمانی که بازرسی عمیق بسته باید مستقیم در محیط ویندوز اجرا شود.", "codeRepository": "https://github.com/Mahbodbe/snort3-windows", "programmingLanguage": "C++", "inLanguage": "fa", "url": "https://nomoreidea.ir/fa/projects/snort3-windows/", "author": {"@id": "https://nomoreidea.ir/#person"}, "keywords": "Snort 3, LibDAQ, Npcap, Windows, CMake / MSYS2"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "خانه", "item": "https://nomoreidea.ir/fa/"}, {"@type": "ListItem", "position": 2, "name": "پروژه‌ها", "item": "https://nomoreidea.ir/fa/#work"}, {"@type": "ListItem", "position": 3, "name": "یکپارچه‌سازی و بیلد Snort 3 و LibDAQ روی ویندوز", "item": "https://nomoreidea.ir/fa/projects/snort3-windows/"}]}, {"@type": "Person", "@id": "https://nomoreidea.ir/#person", "name": "مهبد بمانی‌چم", "alternateName": "Mahbodbe", "identifier": "Mahbodbe", "url": "https://nomoreidea.ir/fa/", "image": "https://nomoreidea.ir/images/mahbod.jpg", "jobTitle": "دانشجوی مهندسی برق (کنترل)", "description": "پورتفولیو و دفترچه آزمایشگاه مهبد بمانی‌چم، دانشجوی مهندسی برق (کنترل) دانشگاه صنعتی امیرکبیر. پروژه‌های ESP32، VHDL/FPGA، امنیت SCADA/OT، Qt/C++ و وب.", "address": {"@type": "PostalAddress", "addressLocality": "Tehran", "addressCountry": "IR"}, "alumniOf": {"@type": "CollegeOrUniversity", "name": "Amirkabir University of Technology", "alternateName": ["Tehran Polytechnic", "دانشگاه صنعتی امیرکبیر"]}, "sameAs": ["https://github.com/Mahbodbe", "https://www.linkedin.com/in/mahbod-bemanicham-048b252ab", "https://t.me/Mb_Mb84"], "knowsAbout": ["Embedded Systems", "Digital Design", "FPGA", "VHDL", "ESP32", "Control Systems", "SCADA", "IEC 61850", "DNP3", "Snort 3", "Suricata", "Wazuh", "OT Security", "Qt", "Django"]}]}</script>
+</head>
+<body class="fa-mode">
+<header class="nav">
+  <div class="shell nav__inner">
+    <a class="wordmark" href="/fa/"><span>مهبد بمانی‌چم</span><span class="wordmark__dot" aria-hidden="true"></span></a>
+    <nav class="nav__links" aria-label="Sections">
+      <a class="nav__link" href="/fa/#work">پروژه‌ها</a>
+      <a class="nav__link" href="/fa/#about">درباره من</a>
+      <a class="nav__link" href="/fa/#contact">ارتباط</a>
+    </nav>
+    <div class="nav__actions">
+      <a class="lang-toggle" href="/projects/snort3-windows/" hreflang="en" lang="en" aria-label="تغییر زبان"><span class="lang-opt">EN</span><span class="lang-sep">/</span><span class="lang-opt is-active">فا</span></a>
+    </div>
+  </div>
+</header>
+<main>
+<section class="band proj-head"><div class="shell">
+  <ol class="crumbs"><li><a href="/fa/">خانه</a></li><li><a href="/fa/#work">پروژه‌ها</a></li><li aria-current="page">snort3-windows</li></ol>
+  <p class="label">Network Security / IDS</p>
+  <h1>یکپارچه‌سازی و بیلد Snort 3 و LibDAQ روی ویندوز</h1>
+  <p class="lede">محیط بیلد و یکپارچه‌سازی تکرارپذیر برای اجرای Snort 3 و LibDAQ روی ویندوز — برگرفته از آزمایشگاه تشخیص نفوذ اسکادا برای زمانی که بازرسی عمیق بسته باید مستقیم در محیط ویندوز اجرا شود.</p>
+  <dl class="facts">
+    <div><dt>فناوری‌ها</dt><dd>Snort 3 · LibDAQ · Npcap · Windows · CMake / MSYS2</dd></div>
+    <div><dt>تیم</dt><dd>پروژه شخصی در حوزه امنیت شبکه و سیستم‌ها.</dd></div>
+    <div><dt>حوزه</dt><dd>Network Security / IDS</dd></div>
+  </dl>
+</div></section>
+<section class="band section"><div class="shell">
+  <h2 class="section__title">ویژگی‌های کلیدی</h2>
+  <ul class="proj-list prose"><li>اتصال لایه دریافت بسته LibDAQ به Npcap در ویندوز برای بازرسی هم‌زمان ترافیک زنده شبکه و فایل‌های PCAP آفلاین.</li><li>مستندسازی کامل زنجیره ابزارها، وابستگی‌ها و فلگ‌های بیلد برای کامپایل Snort 3 خارج از محیط لینوکس.</li><li>آماده برای اجرای قواعد سفارشی بازرسی پروتکل‌های صنعتی (مانند DNP3 و آستانه‌های رفتاری) در تست‌های امنیت اسکادا.</li></ul>
+  <h2 class="section__title">نقش من</h2>
+  <div class="prose"><p>تحقیق، پیکربندی و نگهداری توسط مهبد بمانی‌چم.</p></div>
+  <div class="proj-actions"><a class="btn-solid" href="https://github.com/Mahbodbe/snort3-windows" target="_blank" rel="noreferrer">مشاهده مخزن در گیت‌هاب <span aria-hidden="true">↗</span></a><a class="cta-type" href="/fa/#work">همه پروژه‌ها <span aria-hidden="true">→</span></a></div>
+</div></section>
+</main>
+<footer class="band"><div class="shell colophon"><p class="colophon__text">مهبد بمانی‌چم — مهندسی برق (گرایش کنترل)، دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران) · ۱۴۰۵.</p><div class="colophon__meta"><a class="link label" href="/fa/">خانه</a><a class="link label" href="https://github.com/Mahbodbe" target="_blank" rel="noreferrer">GitHub</a></div></div></footer>
+</body>
+</html>
